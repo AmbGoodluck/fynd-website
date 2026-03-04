@@ -50,9 +50,9 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-fynd transition">
+                <Link href="/blog" className="hover:text-fynd transition">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-fynd transition">
