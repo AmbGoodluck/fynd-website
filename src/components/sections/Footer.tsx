@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Mail } from "lucide-react";
 
 export const Footer = () => {
@@ -66,9 +67,9 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
-                <a href="#" className="hover:text-fynd transition">
+                <Link href="/privacy" className="hover:text-fynd transition">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-fynd transition">
