@@ -6,6 +6,7 @@ import {
   MapPin,
   Zap,
 } from "lucide-react";
+import { SectionAmbientIcons } from "@/components/SectionAmbientIcons";
 
 const features = [
   {
@@ -50,14 +51,15 @@ const itemVariants = {
 
 export const Features = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="relative overflow-hidden py-20 px-4">
+      <SectionAmbientIcons variant="features" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Why Fynd?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-fynd max-w-2xl mx-auto">
             Built for travelers who value speed, privacy, and authenticity.
           </p>
         </div>

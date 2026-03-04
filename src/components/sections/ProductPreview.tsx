@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { SectionAmbientIcons } from "@/components/SectionAmbientIcons";
 
 const mockResult = {
   destination: "A Hidden Gem in Tuscany",
@@ -33,14 +34,15 @@ export const ProductPreview = () => {
   }, []);
 
   return (
-    <section className="py-20 px-4 bg-slate-50">
+    <section className="relative overflow-hidden py-20 px-4 bg-slate-50">
+      <SectionAmbientIcons variant="productpreview" />
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             See It in Action
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-fynd">
             Your AI travel concierge, live.
           </p>
         </div>

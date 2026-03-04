@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
+import { SectionAmbientIcons } from "@/components/SectionAmbientIcons";
 
 const steps = [
   {
@@ -56,14 +57,15 @@ export const HowItWorks = () => {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section className="relative overflow-hidden py-20 px-4">
+      <SectionAmbientIcons variant="howitworks" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-fynd max-w-2xl mx-auto">
             Three simple steps to your dream vacation.
           </p>
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { GlobalFloatingIcons } from "@/components/GlobalFloatingIcons";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -67,6 +68,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${instrumentSerif.variable} antialiased`}>
+        {/* Calm ambient travel icons float across every page */}
+        <GlobalFloatingIcons />
         {children}
       </body>
     </html>

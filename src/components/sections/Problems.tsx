@@ -7,6 +7,7 @@ import {
   Clock,
   TrendingUp,
 } from "lucide-react";
+import { SectionAmbientIcons } from "@/components/SectionAmbientIcons";
 
 const problems = [
   {
@@ -54,14 +55,15 @@ const itemVariants = {
 
 export const Problems = () => {
   return (
-    <section className="py-20 px-4 bg-slate-50">
+    <section className="relative overflow-hidden py-20 px-4 bg-slate-50">
+      <SectionAmbientIcons variant="problems" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             The Problems We Solve
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-fynd max-w-2xl mx-auto">
             Travel planning shouldn't be a chore. Let's fix what's broken.
           </p>
         </div>
