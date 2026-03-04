@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 
 const steps = [
   {
@@ -43,6 +45,16 @@ const itemVariants = {
 };
 
 export const HowItWorks = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleSound = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -91,6 +103,47 @@ export const HowItWorks = () => {
               )}
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Video Section */}
+        <motion.div
+          className="mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
+            <video
+              ref={videoRef}
+              src="/Video_Generation_Request_Fulfilled.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="block max-w-full"
+              style={{ maxHeight: "70vh" }}
+            />
+
+            {/* Sound Toggle Button */}
+            <button
+              onClick={toggleSound}
+              className="absolute bottom-4 right-4 flex items-center gap-2 bg-black/60 hover:bg-black/80 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm transition-all"
+              aria-label={muted ? "Unmute video" : "Mute video"}
+            >
+              {muted ? (
+                <>
+                  <VolumeX size={16} />
+                  <span>Sound off</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 size={16} />
+                  <span>Sound on</span>
+                </>
+              )}
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
