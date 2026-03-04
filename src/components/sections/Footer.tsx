@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import { PricingPopup } from "@/components/PricingPopup";
 
 export const Footer = () => {
+  const [pricingOpen, setPricingOpen] = useState(false);
   return (
     <footer className="bg-gray-900 text-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -33,9 +36,12 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-fynd transition">
+                <button
+                  onClick={() => setPricingOpen(true)}
+                  className="hover:text-fynd transition text-left"
+                >
                   Pricing
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -72,9 +78,9 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-fynd transition">
+                <Link href="/terms-of-service" className="hover:text-fynd transition">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-fynd transition">
@@ -108,7 +114,8 @@ export const Footer = () => {
 
           {/* Bottom */}
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm pt-6 border-t border-gray-800">
-            <p>&copy; 2025 Fynd. All rights reserved.</p>
+            <PricingPopup open={pricingOpen} onClose={() => setPricingOpen(false)} />
+            <p>&copy; 2026 Fynd. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-fynd transition">
                 Twitter

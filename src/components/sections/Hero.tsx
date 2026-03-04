@@ -44,9 +44,9 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="primary"
-            aria-label="Get started with Fynd"
+            aria-label="Get started with Fynd Version 1"
           >
-            Get Started
+            Get Started with Version 1
           </Button>
         </motion.div>
       </div>

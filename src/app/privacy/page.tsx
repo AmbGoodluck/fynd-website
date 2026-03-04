@@ -420,6 +420,10 @@ export default function PrivacyPolicyPage() {
           <Link href="/privacy" className="text-fynd hover:underline">
             Privacy Policy
           </Link>
+          &nbsp;&bull;&nbsp;
+          <Link href="/terms-of-service" className="text-fynd hover:underline">
+            Terms of Service
+          </Link>
         </p>
       </footer>
     </div>

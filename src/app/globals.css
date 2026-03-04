@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-fynd: #22c55e;
+  --color-fynd-dark: #16a34a;
+  --color-fynd-light: #4ade80;
+}
+
 :root {
   --fynd-green: #22c55e;
   --slate-50: #f8fafc;

@@ -52,6 +52,29 @@ export const GlobalFloatingIcons = () => {
       style={{ zIndex: 1 }}
       aria-hidden="true"
     >
+      {/* V1 is live — floats around the screen like the other icons */}
+      <motion.div
+        className="absolute"
+        style={{ left: "38%", top: "6%" }}
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{
+          opacity: [0, 0.21, 0.18, 0.20, 0.19],
+          y: [0, -14, 8, -10, 0],
+          x: [0, 8, -6, 4, 0],
+          scale: [0.6, 1, 1, 1, 1],
+        }}
+        transition={{
+          opacity: { delay: 1.0, duration: 2, times: [0, 0.2, 0.5, 0.8, 1] },
+          scale:   { delay: 1.0, duration: 1.5, ease: "easeOut" },
+          y: { delay: 2.5, duration: 13, repeat: Infinity, ease: "easeInOut" },
+          x: { delay: 2.5, duration: 15.6, repeat: Infinity, ease: "easeInOut" },
+        }}
+      >
+        <span className="flex items-center gap-1 text-emerald-600 text-[11px] font-semibold tracking-wide whitespace-nowrap">
+          <span className="w-[7px] h-[7px] rounded-full bg-emerald-500 inline-block" />
+          V1 is live
+        </span>
+      </motion.div>
       {ICONS.map(({ Icon, x, y, size, delay, dur }, i) => (
         <motion.div
           key={i}
