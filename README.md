@@ -1,36 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fynd - AI Travel Discovery Platform
 
-## Getting Started
+A production-ready, mobile-first landing site for Fynd, an AI-powered travel discovery startup. Built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Features
+
+- ✨ **AI-Powered Discovery**: Personalized travel suggestions in 2 minutes
+- 🎨 **Apple-Style Minimalism**: Clean, premium design with soft tech aesthetic
+- 🚀 **Performance Optimized**: Deployed on Cloudflare Pages with zero CLS
+- 📱 **Mobile-First**: Fully responsive and accessible
+- 🔒 **Privacy-Focused**: No login required, no data collection
+- ✅ **SEO Ready**: Dynamic metadata, OpenGraph, and JSON-LD schema
+
+## Tech Stack
+
+- **Framework**: Next.js 15+ (App Router)
+- **Language**: TypeScript (Strict Mode)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Deployment**: Cloudflare Pages (Static Export)
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18+ (LTS recommended)
+- npm 9+
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build for production
+npm run build
 
-## Learn More
+# Preview production build locally
+npm start
 
-To learn more about Next.js, take a look at the following resources:
+# Run linting
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment to Cloudflare Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option 1: Via GitHub (Recommended)
 
-## Deploy on Vercel
+1. **Push to GitHub**:
+   ```bash
+   git remote add origin https://github.com/yourusername/fynd-website.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Connect to Cloudflare Pages**:
+   - Go to [dash.cloudflare.com](https://dash.cloudflare.com)
+   - Navigate to Pages
+   - Click "Create a project" → "Connect to Git"
+   - Authorize GitHub and select your repository
+   - Configure build settings:
+     - **Framework preset**: Next.js
+     - **Build command**: `npm run build`
+     - **Build output directory**: `out`
+   - Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Configure Custom Domain** (Optional):
+   - In Cloudflare Pages project settings
+   - Add your custom domain (e.g., `fynd.ai`)
+
+### Option 2: Using Wrangler CLI
+
+```bash
+# Install Wrangler
+npm install -g @cloudflare/wrangler
+
+# Build the project
+npm run build
+
+# Deploy
+wrangler pages deploy out/
+```
+
+### Environment Variables
+
+No environment variables required for base deployment.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with SEO
+│   ├── page.tsx            # Main landing page
+│   └── globals.css         # Global styles
+├── components/
+│   ├── ui/                 # Atomic components
+│   │   ├── Button.tsx
+│   │   └── Input.tsx
+│   └── sections/           # Page sections
+│       ├── Navigation.tsx
+│       ├── Hero.tsx
+│       ├── Problems.tsx
+│       ├── HowItWorks.tsx
+│       ├── ProductPreview.tsx
+│       ├── Features.tsx
+│       └── Footer.tsx
+└── lib/                    # Utilities
+```
+
+## Configuration
+
+### Colors
+
+Custom palette in `tailwind.config.ts`:
+
+- **Fynd Green**: `#2BB673` (Primary)
+- **Fynd Dark**: `#248E5D` (Hover)
+- **Fynd Light**: `#4FCC8E` (Accent)
+
+### Fonts
+
+- **UI**: Inter (Google Fonts)
+- **Hero**: Instrument Serif (Google Fonts)
+
+## Performance Targets
+
+- **LCP**: < 2.5s
+- **FID**: < 100ms
+- **CLS**: < 0.1
+
+## Accessibility
+
+- WCAG 2.1 Level AA
+- 4.5:1 contrast ratios
+- ARIA labels on all interactive elements
+- Keyboard navigation
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- iOS Safari 12+
+- Chrome Android
+
+## Contributing
+
+1. Create a feature branch: `git checkout -b feature/your-feature`
+2. Commit changes: `git commit -m "Add feature"`
+3. Push: `git push origin feature/your-feature`
+4. Open a Pull Request
+
+## License
+
+MIT - See LICENSE for details.
+
+## Support
+
+- GitHub Issues: [Create an issue](https://github.com/yourusername/fynd-website/issues)
+- Email: support@fynd.ai
