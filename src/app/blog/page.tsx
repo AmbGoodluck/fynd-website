@@ -4,7 +4,6 @@ import { fetchAllArticles } from "@/lib/rss";
 import { SpotlightArticle } from "@/components/blog/SpotlightArticle";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import { BlogSidebar } from "@/components/blog/BlogSidebar";
-import { FyndPopup } from "@/components/blog/FyndPopup";
 
 export const metadata: Metadata = {
   title: "Travel Inspiration | Fynd Blog",
@@ -49,8 +48,6 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Fynd discovery popup */}
-      <FyndPopup />
       {/* ── Nav bar ─────────────────────────────────────── */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
