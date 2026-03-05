@@ -65,7 +65,7 @@ export const ProductPreview = () => {
           </p>
         </div>
 
-        {/* Phone mockup slider */}
+        {/* Screenshot slider */}
         <div className="flex flex-col items-center gap-8">
           <div className="relative flex items-center justify-center gap-4">
             {/* Prev button */}
@@ -77,11 +77,8 @@ export const ProductPreview = () => {
               <ChevronLeft className="w-5 h-5 text-gray-600" />
             </button>
 
-            {/* Phone frame */}
-            <div className="relative w-[240px] sm:w-[280px] h-[480px] sm:h-[560px] bg-gray-900 rounded-[40px] shadow-2xl border-[6px] border-gray-800 overflow-hidden">
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-10" />
-              {/* Screenshot */}
+            {/* Screenshot */}
+            <div className="relative w-[240px] sm:w-[280px] h-[480px] sm:h-[560px] overflow-hidden rounded-2xl shadow-xl">
               <AnimatePresence custom={direction} mode="popLayout">
                 <motion.div
                   key={current}
@@ -97,7 +94,7 @@ export const ProductPreview = () => {
                     src={screenshots[current].src}
                     alt={screenshots[current].alt}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     unoptimized
                   />
                 </motion.div>
