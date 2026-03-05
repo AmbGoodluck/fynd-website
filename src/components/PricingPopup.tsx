@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { X, Download, Star, Zap } from "lucide-react";
 import Link from "next/link";
 
@@ -23,12 +22,12 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
 
       {/* Card */}
       <div
-        className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4"
+        className="fixed z-50 bottom-0 left-0 right-0 md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-md w-full px-0 md:px-4"
         role="dialog"
         aria-modal="true"
         aria-label="Fynd Pricing"
       >
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div className="bg-white md:rounded-3xl rounded-t-3xl shadow-2xl overflow-hidden">
 
           {/* Header band */}
           <div className="relative bg-gradient-to-br from-fynd via-fynd to-fynd-dark px-8 pt-8 pb-10">

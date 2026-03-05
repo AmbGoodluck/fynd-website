@@ -41,7 +41,7 @@ export const Navigation = () => {
               alt="Fynd"
               width={168}
               height={70}
-              className="h-16 w-auto"
+              className="h-9 sm:h-11 md:h-13 w-auto"
               priority
             />
           </Link>

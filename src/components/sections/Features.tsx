@@ -51,7 +51,7 @@ const itemVariants = {
 
 export const Features = () => {
   return (
-    <section className="relative overflow-hidden py-20 px-4">
+    <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
       <SectionAmbientIcons variant="features" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

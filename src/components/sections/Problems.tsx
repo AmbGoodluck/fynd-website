@@ -55,7 +55,7 @@ const itemVariants = {
 
 export const Problems = () => {
   return (
-    <section className="relative overflow-hidden py-20 px-4 bg-slate-50">
+    <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <SectionAmbientIcons variant="problems" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -64,7 +64,7 @@ export const Problems = () => {
             The Problems We Solve
           </h2>
           <p className="text-lg text-fynd max-w-2xl mx-auto">
-            Travel planning shouldn't be a chore. Let's fix what's broken.
+            Travel planning shouldn&apos;t be a chore. Let&apos;s fix what&apos;s broken.
           </p>
         </div>
 

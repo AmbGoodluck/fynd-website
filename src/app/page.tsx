@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ProductPreview } from "@/components/sections/ProductPreview";
 import { Features } from "@/components/sections/Features";
 import { Footer } from "@/components/sections/Footer";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ProductPreview />
       <Features />
       <Footer />
+      <NewsletterPopup />
     </>
   );
 }

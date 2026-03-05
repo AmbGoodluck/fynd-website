@@ -247,7 +247,7 @@ export default function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Header */}
-      <header className="border-b border-gray-100 px-6 py-4">
+      <header className="border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-fynd">
             Fynd
@@ -262,7 +262,7 @@ export default function TermsOfServicePage() {
       </header>
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-50 to-green-50 py-16 px-4">
+      <div className="bg-gradient-to-br from-slate-50 to-green-50 py-14 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium text-fynd uppercase tracking-widest mb-3">
             Legal
@@ -286,7 +286,7 @@ export default function TermsOfServicePage() {
       </div>
 
       {/* Body */}
-      <main className="max-w-4xl mx-auto px-4 py-16">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Table of Contents */}
         <nav className="mb-14 p-6 bg-gray-50 rounded-2xl border border-gray-100">
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
@@ -324,7 +324,7 @@ export default function TermsOfServicePage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-center py-8 px-4">
+      <footer className="bg-gray-900 text-center py-8 px-4 sm:px-6">
         <p className="text-gray-400 text-sm">
           &copy; 2026 Fynd. All rights reserved. &nbsp;&bull;&nbsp;
           <Link href="/privacy" className="text-fynd hover:underline">

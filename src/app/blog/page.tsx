@@ -53,7 +53,7 @@ export default async function BlogPage() {
       <FyndPopup />
       {/* ── Nav bar ─────────────────────────────────────── */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-fynd">
             Fynd
           </Link>
@@ -74,11 +74,18 @@ export default async function BlogPage() {
               Get Started
             </Link>
           </nav>
+          {/* Mobile — show just the CTA */}
+          <Link
+            href="/#hero"
+            className="md:hidden bg-fynd hover:bg-fynd-dark text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
+          >
+            Get Started
+          </Link>
         </div>
       </header>
 
       {/* ── Page header ────────────────────────────────── */}
-      <div className="bg-white border-b border-gray-100 py-14 px-4">
+      <div className="bg-white border-b border-gray-100 py-12 md:py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <p className="text-sm font-semibold text-fynd uppercase tracking-widest mb-3">
             Fynd Blog
@@ -94,7 +101,7 @@ export default async function BlogPage() {
       </div>
 
       {/* ── Main content ───────────────────────────────── */}
-      <main className="max-w-7xl mx-auto px-4 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left — main column */}
           <div className="flex-1 min-w-0 space-y-14">
@@ -145,7 +152,7 @@ export default async function BlogPage() {
       </main>
 
       {/* ── Footer ──────────────────────────────────────── */}
-      <footer className="bg-gray-900 text-center py-8 px-4 mt-16">
+      <footer className="bg-gray-900 text-center py-8 px-4 sm:px-6 lg:px-8 mt-16">
         <p className="text-gray-400 text-sm">
           &copy; 2026 Fynd. All rights reserved. &nbsp;&bull;&nbsp;
           <Link href="/privacy" className="text-fynd hover:underline">

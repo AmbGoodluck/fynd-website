@@ -15,15 +15,17 @@ const mockResult = {
   ],
 };
 
+// Defined outside component so it is stable across renders
+const FULL_TEXT = `✨ Destination: ${mockResult.destination}\n📍 Starting from: ${mockResult.startingPoint}\n📍 Region: ${mockResult.region}\n\nInstant Itinerary:\n- Morning: Sunrise hike in the Crete Senesi\n- Afternoon: Wine tasting at a nearby vineyard\n- Evening: Sunset dinner at a local trattoria`;
+
 export const ProductPreview = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = `✨ Destination: ${mockResult.destination}\n📍 Starting from: ${mockResult.startingPoint}\n📍 Region: ${mockResult.region}\n\nInstant Itinerary:\n- Morning: Sunrise hike in the Crete Senesi\n- Afternoon: Wine tasting at a nearby vineyard\n- Evening: Sunset dinner at a local trattoria`;
 
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayedText(fullText.slice(0, index + 1));
+      if (index < FULL_TEXT.length) {
+        setDisplayedText(FULL_TEXT.slice(0, index + 1));
         index++;
       } else {
         clearInterval(interval);
@@ -34,7 +36,7 @@ export const ProductPreview = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden py-20 px-4 bg-slate-50">
+    <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <SectionAmbientIcons variant="productpreview" />
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
@@ -70,14 +72,14 @@ export const ProductPreview = () => {
           </div>
 
           {/* Content */}
-          <div className="p-12 min-h-96 bg-gradient-to-br from-white to-slate-50">
+          <div className="p-6 sm:p-8 md:p-12 min-h-64 md:min-h-96 bg-gradient-to-br from-white to-slate-50">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-fynd">
                 Your AI Concierge
               </h3>
               <div className="text-gray-700 whitespace-pre-wrap font-mono text-sm leading-relaxed">
                 {displayedText}
-                {displayedText.length < fullText.length && (
+                {displayedText.length < FULL_TEXT.length && (
                   <span className="inline-block animate-pulse ml-1">▋</span>
                 )}
               </div>

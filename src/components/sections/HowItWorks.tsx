@@ -57,7 +57,7 @@ export const HowItWorks = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-20 px-4">
+    <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
       <SectionAmbientIcons variant="howitworks" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -115,7 +115,7 @@ export const HowItWorks = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black w-full max-w-3xl">
             <video
               ref={videoRef}
               src="/Video_Generation_Request_Fulfilled.mp4"
@@ -123,8 +123,8 @@ export const HowItWorks = () => {
               loop
               muted
               playsInline
-              className="block max-w-full"
-              style={{ maxHeight: "70vh" }}
+              className="block w-full h-auto"
+              style={{ maxHeight: "65vh" }}
             />
 
             {/* Sound Toggle Button */}
