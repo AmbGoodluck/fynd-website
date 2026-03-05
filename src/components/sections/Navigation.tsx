@@ -57,32 +57,20 @@ export const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button
-              variant="primary"
-              size="sm"
-              aria-label="Try Fynd free"
-              onClick={() => {
-                const heroSection = document.getElementById("hero");
-                heroSection?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Try for Free
-            </Button>
+            <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="sm" aria-label="Try Fynd free">
+                Try for Free
+              </Button>
+            </a>
           </div>
 
           {/* Mobile: CTA + hamburger */}
           <div className="flex md:hidden items-center gap-3">
-            <Button
-              variant="primary"
-              size="sm"
-              aria-label="Try Fynd free"
-              onClick={() => {
-                const heroSection = document.getElementById("hero");
-                heroSection?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Try for Free
-            </Button>
+            <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="sm" aria-label="Try Fynd free">
+                Try for Free
+              </Button>
+            </a>
             <button
               aria-label="Toggle menu"
               className="text-fynd p-1"

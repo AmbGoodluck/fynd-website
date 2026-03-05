@@ -1,39 +1,55 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { SectionAmbientIcons } from "@/components/SectionAmbientIcons";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const mockResult = {
-  destination: "A Hidden Gem in Tuscany",
-  region: "Val d'Orcia",
-  startingPoint: "Florence",
-  highlights: [
-    "Sunrise hike in the Crete Senesi",
-    "Wine tasting at a nearby vineyard",
-    "Sunset dinner at a local trattoria",
-  ],
-};
-
-// Defined outside component so it is stable across renders
-const FULL_TEXT = `✨ Destination: ${mockResult.destination}\n📍 Starting from: ${mockResult.startingPoint}\n📍 Region: ${mockResult.region}\n\nInstant Itinerary:\n- Morning: Sunrise hike in the Crete Senesi\n- Afternoon: Wine tasting at a nearby vineyard\n- Evening: Sunset dinner at a local trattoria`;
+const screenshots = [
+  { src: "/screenshots/fynd-screen1.png", alt: "Fynd home screen" },
+  { src: "/screenshots/fynd-screen2.png", alt: "Fynd discover places" },
+  { src: "/screenshots/fynd-screen3.png", alt: "Fynd trip planning" },
+  { src: "/screenshots/fynd-screen4.png", alt: "Fynd itinerary view" },
+  { src: "/screenshots/fynd-screen5.png", alt: "Fynd saved trips" },
+  { src: "/screenshots/fynd-screen6.png", alt: "Fynd explore" },
+  { src: "/screenshots/fynd-screen7.png", alt: "Fynd map view" },
+  { src: "/screenshots/fynd-screen8.png", alt: "Fynd recommendations" },
+  { src: "/screenshots/fynd-screen9.png", alt: "Fynd profile" },
+  { src: "/screenshots/fynd-screen10.png", alt: "Fynd settings" },
+  { src: "/screenshots/fynd-screen11.png", alt: "Fynd places" },
+];
 
 export const ProductPreview = () => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < FULL_TEXT.length) {
-        setDisplayedText(FULL_TEXT.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 30);
-
-    return () => clearInterval(interval);
+  const goTo = useCallback((index: number, dir: number) => {
+    setDirection(dir);
+    setCurrent(index);
   }, []);
+
+  const prev = useCallback(() => {
+    const index = (current - 1 + screenshots.length) % screenshots.length;
+    goTo(index, -1);
+  }, [current, goTo]);
+
+  const next = useCallback(() => {
+    const index = (current + 1) % screenshots.length;
+    goTo(index, 1);
+  }, [current, goTo]);
+
+  // Auto-advance every 3.5 seconds
+  useEffect(() => {
+    const timer = setInterval(next, 3500);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const variants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
+  };
 
   return (
     <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
@@ -45,47 +61,73 @@ export const ProductPreview = () => {
             See It in Action
           </h2>
           <p className="text-lg text-fynd">
-            Your AI travel concierge, live.
+            Real screens. Real trips. Real you.
           </p>
         </div>
 
-        {/* Browser Frame */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200"
-        >
-          {/* Browser Header */}
-          <div className="bg-gray-100 px-6 py-4 border-b border-gray-200 flex items-center gap-3">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
+        {/* Phone mockup slider */}
+        <div className="flex flex-col items-center gap-8">
+          <div className="relative flex items-center justify-center gap-4">
+            {/* Prev button */}
+            <button
+              onClick={prev}
+              className="z-10 p-2 rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-50 transition"
+              aria-label="Previous screenshot"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-600" />
+            </button>
+
+            {/* Phone frame */}
+            <div className="relative w-[240px] sm:w-[280px] h-[480px] sm:h-[560px] bg-gray-900 rounded-[40px] shadow-2xl border-[6px] border-gray-800 overflow-hidden">
+              {/* Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-10" />
+              {/* Screenshot */}
+              <AnimatePresence custom={direction} mode="popLayout">
+                <motion.div
+                  key={current}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={screenshots[current].src}
+                    alt={screenshots[current].alt}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
-            <div className="flex-1 ml-4">
-              <div className="text-xs font-medium text-gray-600">
-                fynd.ai/discover
-              </div>
-            </div>
+
+            {/* Next button */}
+            <button
+              onClick={next}
+              className="z-10 p-2 rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-50 transition"
+              aria-label="Next screenshot"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-600" />
+            </button>
           </div>
 
-          {/* Content */}
-          <div className="p-6 sm:p-8 md:p-12 min-h-64 md:min-h-96 bg-gradient-to-br from-white to-slate-50">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-fynd">
-                Your AI Concierge
-              </h3>
-              <div className="text-gray-700 whitespace-pre-wrap font-mono text-sm leading-relaxed">
-                {displayedText}
-                {displayedText.length < FULL_TEXT.length && (
-                  <span className="inline-block animate-pulse ml-1">▋</span>
-                )}
-              </div>
-            </div>
+          {/* Dots */}
+          <div className="flex gap-2">
+            {screenshots.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i, i > current ? 1 : -1)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === current ? "bg-fynd w-6" : "bg-gray-300 w-2"
+                }`}
+                aria-label={`Go to screenshot ${i + 1}`}
+              />
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

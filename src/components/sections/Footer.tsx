@@ -116,17 +116,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm pt-6 border-t border-gray-800">
             <PricingPopup open={pricingOpen} onClose={() => setPricingOpen(false)} />
             <p>&copy; 2026 Fynd. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-fynd transition">
-                Twitter
-              </a>
-              <a href="#" className="hover:text-fynd transition">
-                LinkedIn
-              </a>
-              <a href="#" className="hover:text-fynd transition">
-                Instagram
-              </a>
-            </div>
+
           </div>
         </div>
       </div>
