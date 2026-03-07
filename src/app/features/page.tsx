@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/Button";
+import { Navigation } from "@/components/sections/Navigation";
 import { CheckCircle, MapPin, Smartphone, Shield, Navigation2, Zap } from "lucide-react";
 
 export default function FeaturesPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-white text-gray-900">
       {/* Hero Section */}
       <section className="py-16 px-4 sm:px-8 md:px-16 text-center bg-gradient-to-br from-green-50 to-white">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Discover What Fynd Can Do</h1>
@@ -71,7 +74,7 @@ export default function FeaturesPage() {
       <section className="py-16 px-4 bg-gradient-to-t from-green-50 to-white text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">Start Using Fynd Today</h2>
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center max-w-xl mx-auto">
-          <a href="/downloads/fynd-android-v1.apk" download>
+          <a href="https://androidv1.fyndplaces.com/app-release.apk" download>
             <Button variant="primary" size="lg" className="w-56">Download for Android</Button>
           </a>
           <a href="https://testflight.apple.com/join/your-link" target="_blank" rel="noopener noreferrer">
@@ -82,6 +85,7 @@ export default function FeaturesPage() {
           </a>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

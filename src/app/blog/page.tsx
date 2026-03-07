@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Navigation } from "@/components/sections/Navigation";
 import { fetchAllArticles } from "@/lib/rss";
 import { SpotlightArticle } from "@/components/blog/SpotlightArticle";
 import { ArticleCard } from "@/components/blog/ArticleCard";
@@ -25,7 +26,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogPage() {
   let articles = await fetchAllArticles();
 
   // If RSS feeds all failed, show fallback placeholder cards
@@ -48,38 +48,7 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* ── Nav bar ─────────────────────────────────────── */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-fynd">
-            Fynd
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-            <Link href="/#how-it-works" className="hover:text-fynd transition">
-              How It Works
-            </Link>
-            <Link href="/blog" className="text-fynd font-semibold">
-              Blog
-            </Link>
-            <Link href="/privacy" className="hover:text-fynd transition">
-              Privacy
-            </Link>
-            <Link
-              href="/#hero"
-              className="bg-fynd hover:bg-fynd-dark text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors"
-            >
-              Get Started
-            </Link>
-          </nav>
-          {/* Mobile — show just the CTA */}
-          <Link
-            href="/#hero"
-            className="md:hidden bg-fynd hover:bg-fynd-dark text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
-          >
-            Get Started
-          </Link>
-        </div>
-      </header>
+      <Navigation />
 
       {/* ── Page header ────────────────────────────────── */}
       <div className="bg-white border-b border-gray-100 py-12 md:py-14 px-4 sm:px-6 lg:px-8">

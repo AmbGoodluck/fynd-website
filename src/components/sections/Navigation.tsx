@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 
 const navLinks = [
   { label: "Blog", href: "/blog" },
+  { label: "Features", href: "/features" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
@@ -115,7 +116,7 @@ export const Navigation = () => {
             <h2 className="text-xl font-bold mb-2 text-center">Download Fynd v1.0</h2>
             <p className="text-gray-600 mb-6 text-center">You are about to download Fynd v1.0. Please choose your device type.</p>
             <div className="flex flex-col gap-3">
-              <a href="/downloads/fynd-android-v1.apk" download className="w-full">
+              <a href="https://androidv1.fyndplaces.com/app-release.apk" download className="w-full">
                 <Button variant="primary" size="md" className="w-full">Android</Button>
               </a>
               <a href="/downloads/fynd-ios-v1.ipa" download className="w-full">
