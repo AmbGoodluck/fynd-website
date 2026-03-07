@@ -14,6 +14,7 @@ const navLinks = [
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [downloadOpen, setDownloadOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,6 +63,14 @@ export const Navigation = () => {
                 Try for Free
               </Button>
             </a>
+            <Button
+              variant="secondary"
+              size="sm"
+              className="ml-2"
+              onClick={() => setDownloadOpen(true)}
+            >
+              Download Fynd v1.0
+            </Button>
           </div>
 
           {/* Mobile: CTA + hamburger */}
@@ -71,6 +80,14 @@ export const Navigation = () => {
                 Try for Free
               </Button>
             </a>
+            <Button
+              variant="secondary"
+              size="sm"
+              className="ml-1"
+              onClick={() => setDownloadOpen(true)}
+            >
+              Download
+            </Button>
             <button
               aria-label="Toggle menu"
               className="text-fynd p-1"
@@ -90,6 +107,24 @@ export const Navigation = () => {
         </div>
       </div>
 
+      {/* Download Modal Placeholder - will implement next */}
+      {downloadOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={() => setDownloadOpen(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative animate-fade-in" onClick={e => e.stopPropagation()}>
+            <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onClick={() => setDownloadOpen(false)} aria-label="Close">×</button>
+            <h2 className="text-xl font-bold mb-2 text-center">Download Fynd v1.0</h2>
+            <p className="text-gray-600 mb-6 text-center">You are about to download Fynd v1.0. Please choose your device type.</p>
+            <div className="flex flex-col gap-3">
+              <a href="/downloads/fynd-android-v1.apk" download className="w-full">
+                <Button variant="primary" size="md" className="w-full">Android</Button>
+              </a>
+              <a href="/downloads/fynd-ios-v1.ipa" download className="w-full">
+                <Button variant="primary" size="md" className="w-full">iOS</Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Mobile dropdown */}
       {menuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 px-6 py-4 flex flex-col gap-4">
