@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navigation } from "@/components/sections/Navigation";
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
+export default async function Page() {
   let articles = await fetchAllArticles();
 
   // If RSS feeds all failed, show fallback placeholder cards
