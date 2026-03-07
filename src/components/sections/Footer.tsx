@@ -26,7 +26,7 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
-                <a href="#" className="hover:text-fynd transition">
+                <a href="/features" className="hover:text-fynd transition">
                   Features
                 </a>
               </li>

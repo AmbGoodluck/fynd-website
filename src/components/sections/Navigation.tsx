@@ -40,9 +40,9 @@ export const Navigation = () => {
             <Image
               src="/fynd-logo.svg.png"
               alt="Fynd"
-              width={168}
-              height={70}
-              className="h-9 sm:h-11 md:h-13 w-auto"
+              width={202}
+              height={84}
+              className="h-11 sm:h-13 md:h-16 w-auto"
               priority
             />
           </Link>
@@ -58,11 +58,6 @@ export const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" aria-label="Try Fynd free">
-                Try for Free
-              </Button>
-            </a>
             <Button
               variant="secondary"
               size="sm"
@@ -71,15 +66,15 @@ export const Navigation = () => {
             >
               Download Fynd v1.0
             </Button>
+            <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="sm" aria-label="Open Fynd Web Version">
+                Open Fynd Web Version
+              </Button>
+            </a>
           </div>
 
           {/* Mobile: CTA + hamburger */}
           <div className="flex md:hidden items-center gap-3">
-            <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" aria-label="Try Fynd free">
-                Try for Free
-              </Button>
-            </a>
             <Button
               variant="secondary"
               size="sm"
@@ -88,6 +83,11 @@ export const Navigation = () => {
             >
               Download
             </Button>
+            <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="sm" aria-label="Open Fynd Web Version">
+                Open Fynd Web Version
+              </Button>
+            </a>
             <button
               aria-label="Toggle menu"
               className="text-fynd p-1"
