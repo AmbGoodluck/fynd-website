@@ -64,8 +64,8 @@ export function BlogSidebar({ articles }: Props) {
           Fynd Tip
         </p>
         <p className="text-sm text-gray-300 leading-relaxed">
-          Use Fynd to instantly discover and plan trips to any destination
-          featured in these articles.
+            Use to instantly discover and plan trips to any destination
+            featured in these articles.
         </p>
         <Link
           href="/#hero"
