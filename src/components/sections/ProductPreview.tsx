@@ -5,62 +5,61 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// TODO: update captions to match final product copy
 const screenshots = [
   {
-    src: "/screenshots/fynd-screen1.png",
-    alt: "Fynd home screen",
-    caption: "Home — your personalized discovery feed",
-  },
-  {
     src: "/screenshots/fynd-screen2.png",
-    alt: "Fynd discover places",
-    caption: "Discover — browse tailored places nearby",
+    alt: "Fynd splash screen — Trips That Matter",
+    caption: "Welcome to Fynd — Trips That Matter",
   },
   {
     src: "/screenshots/fynd-screen3.png",
-    alt: "Fynd map view",
-    caption: "Map view — see everything on a map at once",
+    alt: "Fynd onboarding — Instant Places Discovery",
+    caption: "Instant Places Discovery — personalized AI suggestions",
   },
   {
     src: "/screenshots/fynd-screen4.png",
-    alt: "Fynd place details",
-    caption: "Place details — reviews, hours, and directions",
+    alt: "Fynd — Set your location, time, and exploration distance",
+    caption: "Step 1 — set your location, duration, and distance",
   },
   {
     src: "/screenshots/fynd-screen5.png",
-    alt: "Fynd saved lists",
-    caption: "Saved lists — your favorite spots, always handy",
+    alt: "Fynd — Choose your interests",
+    caption: "Step 2 — pick the activities that interest you",
   },
   {
     src: "/screenshots/fynd-screen6.png",
-    alt: "Fynd explore",
-    caption: "Explore — browse by mood, category, or vibe",
+    alt: "Fynd — Selected interests and Find My Places",
+    caption: "Select your vibe, then tap Find My Places",
   },
   {
     src: "/screenshots/fynd-screen7.png",
-    alt: "Fynd recommendations",
-    caption: "Smart suggestions — matched to your interests",
+    alt: "Fynd — Building your journey loading screen",
+    caption: "Building your journey — results in seconds",
   },
   {
     src: "/screenshots/fynd-screen8.png",
-    alt: "Fynd filters",
-    caption: "Filters — narrow by distance, budget, and time",
+    alt: "Fynd — Suggested places list",
+    caption: "Suggested places — add your favorites to the itinerary",
   },
   {
     src: "/screenshots/fynd-screen9.png",
-    alt: "Fynd profile",
-    caption: "Profile — your preferences shape every result",
+    alt: "Fynd — Itinerary view with stops and durations",
+    caption: "Your itinerary — stops, travel times, and ratings",
   },
   {
     src: "/screenshots/fynd-screen10.png",
-    alt: "Fynd settings",
-    caption: "Settings — customise your discovery experience",
+    alt: "Fynd — Open in Maps dialog",
+    caption: "Navigate with the in-app map or Google Maps",
   },
   {
     src: "/screenshots/fynd-screen11.png",
-    alt: "Fynd places list",
-    caption: "Places — a curated list of top spots",
+    alt: "Fynd — Trip map with stop details",
+    caption: "Trip map — view all stops pinned on the map",
+  },
+  {
+    src: "/screenshots/fynd-screen1.png",
+    alt: "Fynd — Full map view with route in Manhattan",
+    caption: "Full map — explore your route across the city",
   },
 ];
 

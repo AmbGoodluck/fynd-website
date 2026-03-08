@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
-// Real app screenshots for the phone mockup carousel
+// Hero rotating screenshots — best 4 screens that show the full journey at a glance
 const screens = [
-  { src: "/screenshots/fynd-screen1.png", alt: "Fynd home screen" },
-  { src: "/screenshots/fynd-screen2.png", alt: "Fynd discover places" },
-  { src: "/screenshots/fynd-screen3.png", alt: "Fynd map view" },
-  { src: "/screenshots/fynd-screen4.png", alt: "Fynd recommendations" },
+  { src: "/screenshots/fynd-screen3.png", alt: "Fynd — Instant Places Discovery onboarding screen" },
+  { src: "/screenshots/fynd-screen4.png", alt: "Fynd — Set your location, time, and distance preferences" },
+  { src: "/screenshots/fynd-screen8.png", alt: "Fynd — Suggested places list for New York" },
+  { src: "/screenshots/fynd-screen1.png", alt: "Fynd — Trip map with pinned stops in Manhattan" },
 ];
 
 export const Hero = () => {
