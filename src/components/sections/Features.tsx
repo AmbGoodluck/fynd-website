@@ -1,31 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Lock,
-  MapPin,
-  Zap,
-} from "lucide-react";
-import { SectionAmbientIcons } from "@/components/SectionAmbientIcons";
+import { Sparkles, Globe, SlidersHorizontal, Smartphone } from "lucide-react";
 
 const features = [
   {
-    icon: Lock,
-    title: "No-Login Privacy",
-    description: "Discover amazing places without creating an account or sharing personal data.",
-    span: "col-span-1 md:col-span-2",
+    icon: Sparkles,
+    title: "Personalized discovery",
+    description:
+      "Recommendations shaped by your interests, past behavior, and current location — not just what's trending.",
+    accent: "bg-amber-50 border-amber-100",
+    iconBg: "bg-amber-100",
+    iconColor: "text-amber-600",
   },
   {
-    icon: MapPin,
-    title: "Hyper-Local Data",
-    description: "Powered by real local insights, not just tourist reviews.",
-    span: "col-span-1 md:col-span-1",
+    icon: Globe,
+    title: "Local or on the road",
+    description:
+      "Whether you're exploring your own city or landing somewhere new, Fynd has you covered.",
+    accent: "bg-blue-50 border-blue-100",
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
   },
   {
-    icon: Zap,
-    title: "Lightning Speed",
-    description: "Get results in seconds, not hours of research.",
-    span: "col-span-1 md:col-span-1",
+    icon: SlidersHorizontal,
+    title: "Smart filters",
+    description:
+      "Refine by mood, time of day, distance, budget, and type of activity to zero in on exactly what you want.",
+    accent: "bg-purple-50 border-purple-100",
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-600",
+  },
+  {
+    icon: Smartphone,
+    title: "Cross-device",
+    description:
+      "Start on the web, pick up on your phone. Fynd works seamlessly across all your devices.",
+    accent: "bg-green-50 border-green-100",
+    iconBg: "bg-green-100",
+    iconColor: "text-green-600",
   },
 ];
 
@@ -33,44 +46,43 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6 },
-  },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export const Features = () => {
   return (
-    <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
-      <SectionAmbientIcons variant="features" />
+    <section
+      id="features"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-slate-50"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+        {/* Section header */}
         <div className="text-center mb-16">
+          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+            Built for real exploration
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Fynd?
+            Everything you need to explore
           </h2>
-          <p className="text-lg text-fynd max-w-2xl mx-auto">
-            Built for travelers who value speed, privacy, and authenticity.
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Fynd is built for travelers, locals, and everyone curious about
+            what&apos;s around them.
           </p>
         </div>
 
-        {/* Bento Grid */}
+        {/* Features grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-min"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -78,13 +90,20 @@ export const Features = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`${feature.span} bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-gray-200 hover:border-fynd/30 transition-colors shadow-sm hover:shadow-md`}
+                className={`rounded-2xl border p-8 ${feature.accent} hover:shadow-md transition-shadow`}
               >
-                <Icon className="w-12 h-12 text-fynd mb-4" aria-hidden="true" />
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                <div
+                  className={`w-12 h-12 rounded-xl ${feature.iconBg} flex items-center justify-center mb-5`}
+                >
+                  <Icon
+                    className={`w-6 h-6 ${feature.iconColor}`}
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>

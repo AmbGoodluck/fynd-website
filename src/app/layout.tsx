@@ -16,19 +16,19 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fynd.ai"),
-  title: "Fynd - Discover Your Next Trip in 2 Minutes",
+  metadataBase: new URL("https://www.fyndplaces.com"),
+  title: "Fynd — Discover places you'll actually love",
   description:
-    "AI-powered travel discovery. Personalized suggestions. No login. 100% free. Find your perfect getaway instantly.",
-  applicationName: "Fynd Travel Discovery",
+    "Fynd learns your interests, preferences, and location to uncover experiences, neighborhoods, and hidden gems tailored to you in seconds. Free on web and mobile.",
+  applicationName: "Fynd",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://fynd.ai",
+    url: "https://www.fyndplaces.com",
     siteName: "Fynd",
-    title: "Fynd - Discover Your Next Trip in 2 Minutes",
+    title: "Fynd — Discover places you'll actually love",
     description:
-      "AI-powered travel discovery. Personalized suggestions. No login. 100% free.",
+      "Personalized place discovery for locals and travelers. Find hidden gems near you in seconds.",
     images: [
       {
         url: "/og-image.png",
