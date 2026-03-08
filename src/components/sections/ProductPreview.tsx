@@ -129,12 +129,8 @@ export const ProductPreview = () => {
               <ChevronLeft className="w-5 h-5 text-gray-600" />
             </button>
 
-            {/* Phone frame */}
-            <div className="relative w-[240px] sm:w-[280px] h-[490px] sm:h-[570px] overflow-hidden rounded-3xl shadow-2xl border-4 border-gray-900 bg-gray-900">
-              {/* Notch */}
-              <div className="absolute top-0 left-0 right-0 h-7 bg-gray-900 z-10 flex items-center justify-center">
-                <div className="w-16 h-3.5 bg-gray-800 rounded-full" />
-              </div>
+            {/* Screenshot display — no phone frame */}
+            <div className="relative w-[264px] sm:w-[308px] h-[539px] sm:h-[627px] overflow-hidden rounded-2xl shadow-xl">
               <AnimatePresence custom={direction} mode="popLayout">
                 <motion.div
                   key={current}
@@ -150,7 +146,7 @@ export const ProductPreview = () => {
                     src={screenshots[current].src}
                     alt={screenshots[current].alt}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     unoptimized
                   />
                 </motion.div>

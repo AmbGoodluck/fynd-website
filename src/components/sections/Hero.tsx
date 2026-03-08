@@ -126,16 +126,11 @@ export const Hero = () => {
                 animate={{ y: [-8, 8, -8] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
-                {/* Phone shell */}
+                {/* Screenshot display — no phone frame */}
                 <div
-                  className="relative w-[260px] sm:w-[300px] rounded-[3rem] shadow-2xl overflow-hidden border-[6px] border-gray-900"
+                  className="relative w-[286px] sm:w-[330px] overflow-hidden rounded-2xl shadow-2xl"
                   style={{ aspectRatio: "9/19.5" }}
                 >
-                  {/* Notch */}
-                  <div className="absolute top-0 left-0 right-0 h-8 bg-gray-900 z-10 flex items-center justify-center">
-                    <div className="w-20 h-4 bg-gray-800 rounded-full" />
-                  </div>
-
                   {/* Rotating screenshots */}
                   <div className="absolute inset-0 bg-gray-100">
                     {screens.map((s, i) => (
@@ -148,7 +143,7 @@ export const Hero = () => {
                           src={s.src}
                           alt={s.alt}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           unoptimized
                           priority={i === 0}
                         />
