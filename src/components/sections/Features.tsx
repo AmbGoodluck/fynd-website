@@ -6,36 +6,36 @@ import { Sparkles, Globe, SlidersHorizontal, Smartphone } from "lucide-react";
 const features = [
   {
     icon: Sparkles,
-    title: "Personalized discovery",
+    title: "AI that gets your taste",
     description:
-      "Recommendations shaped by your interests, past behavior, and current location — not just what's trending.",
+      "Every suggestion shaped by your interests, mood, and location — not trending lists or sponsored placements.",
     accent: "bg-amber-50 border-amber-100",
     iconBg: "bg-amber-100",
     iconColor: "text-amber-600",
   },
   {
     icon: Globe,
-    title: "Local or on the road",
+    title: "Home city or anywhere new",
     description:
-      "Whether you're exploring your own city or landing somewhere new, Fynd has you covered.",
+      "Exploring your neighborhood or landing somewhere unfamiliar — Fynd adapts to where you are, every time.",
     accent: "bg-blue-50 border-blue-100",
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
   },
   {
     icon: SlidersHorizontal,
-    title: "Smart filters",
+    title: "Filter until it feels right",
     description:
-      "Refine by mood, time of day, distance, budget, and type of activity to zero in on exactly what you want.",
+      "Narrow by mood, time, distance, or budget until the list feels handpicked — because it is.",
     accent: "bg-purple-50 border-purple-100",
     iconBg: "bg-purple-100",
     iconColor: "text-purple-600",
   },
   {
     icon: Smartphone,
-    title: "Cross-device",
+    title: "Start anywhere. Continue everywhere.",
     description:
-      "Start on the web, pick up on your phone. Fynd works seamlessly across all your devices.",
+      "Save on the web, navigate on mobile. Your trips and saved places follow you across every device.",
     accent: "bg-green-50 border-green-100",
     iconBg: "bg-green-100",
     iconColor: "text-green-600",
@@ -65,14 +65,13 @@ export const Features = () => {
         {/* Section header */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
-            Built for real exploration
+            Designed for how you actually travel
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Everything you need to explore
+            Discovery that fits your world.
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Fynd is built for travelers, locals, and everyone curious about
-            what&apos;s around them.
+            For travelers, locals, and anyone with somewhere new to be.
           </p>
         </div>
 

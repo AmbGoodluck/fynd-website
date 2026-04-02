@@ -9,57 +9,57 @@ const screenshots = [
   {
     src: "/screenshots/fynd-screen2.png",
     alt: "Fynd splash screen — Trips That Matter",
-    caption: "Welcome to Fynd — Trips That Matter",
+    caption: "Fynd — curated trips built around what matters to you",
   },
   {
     src: "/screenshots/fynd-screen3.png",
     alt: "Fynd onboarding — Instant Places Discovery",
-    caption: "Instant Places Discovery — personalized AI suggestions",
+    caption: "Instant discovery — AI-personalized from your very first tap",
   },
   {
     src: "/screenshots/fynd-screen4.png",
     alt: "Fynd — Set your location, time, and exploration distance",
-    caption: "Step 1 — set your location, duration, and distance",
+    caption: "Step 1 — set where you are, how long you have, and how far to go",
   },
   {
     src: "/screenshots/fynd-screen5.png",
     alt: "Fynd — Choose your interests",
-    caption: "Step 2 — pick the activities that interest you",
+    caption: "Step 2 — pick what you love and Fynd zeroes in",
   },
   {
     src: "/screenshots/fynd-screen6.png",
     alt: "Fynd — Selected interests and Find My Places",
-    caption: "Select your vibe, then tap Find My Places",
+    caption: "Set your vibe, then tap Find My Places — results in seconds",
   },
   {
     src: "/screenshots/fynd-screen7.png",
     alt: "Fynd — Building your journey loading screen",
-    caption: "Building your journey — results in seconds",
+    caption: "Fynd builds your personalized journey in real time",
   },
   {
     src: "/screenshots/fynd-screen8.png",
     alt: "Fynd — Suggested places list",
-    caption: "Suggested places — add your favorites to the itinerary",
+    caption: "Your places — curated to your vibe and ready to save",
   },
   {
     src: "/screenshots/fynd-screen9.png",
     alt: "Fynd — Itinerary view with stops and durations",
-    caption: "Your itinerary — stops, travel times, and ratings",
+    caption: "Your itinerary — stops, travel times, and ratings at a glance",
   },
   {
     src: "/screenshots/fynd-screen10.png",
     alt: "Fynd — Open in Maps dialog",
-    caption: "Navigate with the in-app map or Google Maps",
+    caption: "Navigate with the in-app map or open directly in Google Maps",
   },
   {
     src: "/screenshots/fynd-screen11.png",
     alt: "Fynd — Trip map with stop details",
-    caption: "Trip map — view all stops pinned on the map",
+    caption: "Trip map — every stop pinned, details one tap away",
   },
   {
     src: "/screenshots/fynd-screen1.png",
     alt: "Fynd — Full map view with route in Manhattan",
-    caption: "Full map — explore your route across the city",
+    caption: "Full map view — explore your entire route across the city",
   },
 ];
 
@@ -106,10 +106,10 @@ export const ProductPreview = () => {
         {/* Section header */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
-            See it in action
+            From first tap to final pin
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            A visual tour of Fynd
+            See Fynd in action.
           </h2>
           <p className="text-lg text-gray-500 max-w-lg mx-auto">
             Real screens. Real trips. Real you.

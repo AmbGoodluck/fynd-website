@@ -8,23 +8,23 @@ const steps = [
   {
     icon: Heart,
     number: "01",
-    title: "Share what you're into",
+    title: "Tell Fynd your vibe",
     description:
-      "Pick your interests, mood, budget, and how far you want to go. Fynd takes note of everything.",
+      "Set your interests, mood, budget, and how far you want to go. Fynd remembers what matters to you.",
   },
   {
     icon: MapPin,
     number: "02",
-    title: "See smart suggestions near you",
+    title: "Get a curated map — instantly",
     description:
-      "Get a personalized map and list of experiences, neighborhoods, and hidden gems matched to you — in seconds.",
+      "A personalized map and list of the spots you'd actually want — not just what's popular. Yours in seconds.",
   },
   {
     icon: Bookmark,
     number: "03",
-    title: "Save, share, and go",
+    title: "Save, share, and explore",
     description:
-      "Save your favorites, build lists, share them with friends, and get directions — all in one place.",
+      "Save favorites, build trip lists, share with friends, and navigate — all without switching apps.",
   },
 ];
 
@@ -64,10 +64,10 @@ export const HowItWorks = () => {
             Simple by design
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            How Fynd works
+            Three steps to your next great spot.
           </h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Three steps from curiosity to your next favorite spot.
+            Tell Fynd what you love. Get your perfect map instantly.
           </p>
         </div>
 

@@ -63,22 +63,22 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Overline badge */}
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-semibold px-3 py-1.5 rounded-full mb-6">
+            {/* Overline badge — signals AI and free entry point immediately */}
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-semibold px-3 py-1.5 rounded-full mb-6 border border-green-200/60">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Personalized place discovery
+              AI-powered travel discovery
             </div>
 
-            {/* Headline */}
+            {/* Headline — Instrument Serif gives it editorial weight */}
             <h1 className="hero-title text-gray-900 mb-6">
               Discover places you&apos;ll actually love, wherever you are.
             </h1>
 
-            {/* Subheading */}
+            {/* Subheading — outcome-first, specific, tight */}
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
-              Fynd learns your interests, preferences, and location to uncover
-              experiences, neighborhoods, and hidden gems tailored to you in
-              seconds.
+              Fynd learns your interests and location to surface experiences,
+              hidden gems, and local favorites worth visiting — matched to you
+              in seconds.
             </p>
 
             {/* Primary CTAs */}
@@ -91,25 +91,37 @@ export const Hero = () => {
               </a>
 
               {/* Opens the web app directly */}
-              {/* TODO: replace href with final web-app URL */}
               <a
                 href="https://app.fyndplaces.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex-shrink-0"
               >
-                <Button size="lg" variant="outline" aria-label="Open Fynd in your browser">
-                  Open in your browser
+                <Button size="lg" variant="outline" aria-label="Try Fynd in your browser">
+                  Try it in your browser
                 </Button>
               </a>
             </div>
 
-            {/* Trust micro-copy */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
-              <span>Free to use</span>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span>No account required</span>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span>Web &amp; mobile</span>
+            {/* Trust row — checkmarks make these feel confirmed, not aspirational */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-gray-500">
+              {["Free to start", "No account required", "Works on any device"].map((item) => (
+                <span key={item} className="flex items-center gap-1.5">
+                  <svg
+                    className="w-4 h-4 text-green-500 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {item}
+                </span>
+              ))}
             </div>
           </motion.div>
 
@@ -160,9 +172,9 @@ export const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
               >
-                <p className="text-green-600 font-bold text-sm">Local picks</p>
+                <p className="text-green-600 font-bold text-sm">Your local picks</p>
                 <p className="text-gray-500 mt-0.5 leading-snug">
-                  Curated spots near you
+                  Curated for your area
                 </p>
               </motion.div>
 
@@ -173,9 +185,9 @@ export const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.1, duration: 0.6 }}
               >
-                <p className="text-green-600 font-bold text-sm">Personalized</p>
+                <p className="text-green-600 font-bold text-sm">Made for you</p>
                 <p className="text-gray-500 mt-0.5 leading-snug">
-                  Matches your vibe instantly
+                  Matches your vibe in seconds
                 </p>
               </motion.div>
 

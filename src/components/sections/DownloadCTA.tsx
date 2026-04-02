@@ -30,20 +30,20 @@ export const DownloadCTA = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
       >
-        {/* Overline */}
+        {/* Overline — emphasises the free, no-friction entry */}
         <p className="text-green-200 text-sm font-semibold uppercase tracking-widest mb-4">
-          Ready to explore?
+          Start free — no account needed.
         </p>
 
         {/* Headline */}
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
-          Ready to Fynd your next spot?
+          Your next great spot is waiting.
         </h2>
 
         {/* Sub copy */}
         <p className="text-green-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-          Download the app or jump straight into the web version — no account
-          required to start discovering.
+          Get the app or open the web version — start discovering your next
+          favorite place in under a minute.
         </p>
 
         {/* CTA buttons */}
@@ -74,7 +74,7 @@ export const DownloadCTA = () => {
 
         {/* Fine print */}
         <p className="mt-6 text-green-200/60 text-sm">
-          Available on Android &amp; iOS. Web app works on any browser.
+          Android app available now &middot; iOS coming soon &middot; Works in any browser
         </p>
       </motion.div>
 
@@ -96,10 +96,10 @@ export const DownloadCTA = () => {
               &times;
             </button>
             <h2 className="text-xl font-bold mb-1 text-center text-gray-900">
-              Download Fynd
+              Get Fynd
             </h2>
             <p className="text-gray-500 text-sm mb-6 text-center">
-              Choose your platform to get started.
+              Choose your platform and start exploring in seconds.
             </p>
             <div className="flex flex-col gap-3">
               {/* TODO: replace with App Store link when available */}

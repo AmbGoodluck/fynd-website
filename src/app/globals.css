@@ -40,6 +40,16 @@ h6 {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 400;
   letter-spacing: -0.02em;
+  /* Tighter leading at large sizes for editorial presence */
+  line-height: 1.08;
+}
+
+/* Brand gradient text — apply to a key word in a headline for visual punch */
+.gradient-text {
+  background: linear-gradient(135deg, #22c55e 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .button-glow {

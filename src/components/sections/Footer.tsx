@@ -50,8 +50,8 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Discover places you&apos;ll actually love, wherever you are. Fynd
-              is your personalized guide to real-world exploration.
+              AI-powered travel discovery for curious explorers and locals.
+              Find your next great spot — free, on any device.
             </p>
 
             {/* Social icons */}
@@ -150,9 +150,9 @@ export const Footer = () => {
         <div className="border-t border-gray-800 pt-10 mb-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <p className="font-semibold text-sm mb-1">Stay in the loop</p>
+              <p className="font-semibold text-sm mb-1">Join curious explorers</p>
               <p className="text-gray-400 text-sm">
-                New guides, features, and hidden gems — straight to your inbox.
+                Trip inspiration, hidden gems, and Fynd updates — straight to your inbox.
               </p>
             </div>
             {/* TODO: wire up to email subscription service (e.g. Mailchimp, Resend) */}
@@ -180,7 +180,7 @@ export const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-gray-500 text-sm">
           <p>&copy; 2026 Fynd. All rights reserved.</p>
-          <p>Made for curious explorers everywhere.</p>
+          <p>Built for the curious. Made for exploration.</p>
         </div>
       </div>
     </footer>

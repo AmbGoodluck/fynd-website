@@ -3,14 +3,13 @@
 import { motion } from "framer-motion";
 import { Sunrise, Plane, Laptop, Users } from "lucide-react";
 
-// This section was previously "The Problems We Solve".
-// Repurposed as "Who is Fynd for?" — use cases / personas.
+// Use cases / personas — who Fynd is built for
 const personas = [
   {
     icon: Sunrise,
     label: "Weekend explorers",
     benefit:
-      "Never run out of ideas for your days off — from sunrise hikes to late-night eats.",
+      "Fill your days off with places that actually feel worth going — from sunrise hikes to late-night eats.",
     bg: "bg-orange-50",
     iconBg: "bg-orange-100",
     iconColor: "text-orange-500",
@@ -19,25 +18,25 @@ const personas = [
     icon: Plane,
     label: "Travelers & city-hoppers",
     benefit:
-      "Land anywhere and instantly know where locals actually go, not just the tourist traps.",
+      "Land anywhere and know immediately where locals actually go — not just the obvious tourist spots.",
     bg: "bg-sky-50",
     iconBg: "bg-sky-100",
     iconColor: "text-sky-500",
   },
   {
     icon: Laptop,
-    label: "Remote workers",
+    label: "Remote workers & nomads",
     benefit:
-      "Find cozy cafes, co-working spots, and work-friendly places near you in minutes.",
+      "Find work-friendly cafes, quiet corners, and creative spots wherever you set up next.",
     bg: "bg-violet-50",
     iconBg: "bg-violet-100",
     iconColor: "text-violet-500",
   },
   {
     icon: Users,
-    label: "Couples & friend groups",
+    label: "Friends planning together",
     benefit:
-      "Build shared lists, find places everyone will enjoy, and plan your next outing together.",
+      "Share lists, find spots everyone actually likes, and plan the night without the group chat chaos.",
     bg: "bg-pink-50",
     iconBg: "bg-pink-100",
     iconColor: "text-pink-500",
@@ -67,14 +66,14 @@ export const Problems = () => {
         {/* Section header */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
-            Made for you
+            Built for explorers like you
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Who is Fynd for?
+            Whoever you are, wherever you go.
           </h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Whether you&apos;re a curious local or an adventurous traveler,
-            Fynd meets you where you are.
+            From your daily neighborhood to your next destination — Fynd adapts
+            to where you are and what you&apos;re after.
           </p>
         </div>
 

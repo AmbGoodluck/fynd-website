@@ -65,11 +65,11 @@ export const Navigation = () => {
               className="ml-2"
               onClick={() => setDownloadOpen(true)}
             >
-              Download Fynd v1.0
+              Get the app
             </Button>
             <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" aria-label="Open Fynd Web Version">
-                Open Fynd Web Version
+              <Button variant="primary" size="sm" aria-label="Try Fynd free in your browser">
+                Try it free →
               </Button>
             </a>
           </div>
@@ -82,11 +82,11 @@ export const Navigation = () => {
               className="ml-1"
               onClick={() => setDownloadOpen(true)}
             >
-              Download
+              Get app
             </Button>
             <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" aria-label="Open Fynd Web Version">
-                Open Fynd Web Version
+              <Button variant="primary" size="sm" aria-label="Try Fynd free in your browser">
+                Try free →
               </Button>
             </a>
             <button
@@ -113,8 +113,8 @@ export const Navigation = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={() => setDownloadOpen(false)}>
           <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative animate-fade-in" onClick={e => e.stopPropagation()}>
             <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onClick={() => setDownloadOpen(false)} aria-label="Close">×</button>
-            <h2 className="text-xl font-bold mb-2 text-center">Download Fynd v1.0</h2>
-            <p className="text-gray-600 mb-6 text-center">You are about to download Fynd v1.0. Please choose your device type.</p>
+            <h2 className="text-xl font-bold mb-2 text-center">Get Fynd</h2>
+            <p className="text-gray-600 mb-6 text-center">Choose your platform and start exploring in seconds.</p>
             <div className="flex flex-col gap-3">
               <a href="https://androidv1.fyndplaces.com/app-release.apk" download className="w-full">
                 <Button variant="primary" size="md" className="w-full">Android</Button>
