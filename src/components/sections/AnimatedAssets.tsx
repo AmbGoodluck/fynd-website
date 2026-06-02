@@ -26,12 +26,12 @@ export const AnimatedAssets = () => {
       {/* Clean white background — matches the rest of the page */}
       <div className="absolute inset-0 bg-white" />
 
-      {/* Subtle green dot-grid for texture without color */}
+      {/* Subtle orange dot-grid for texture without distraction */}
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #22c55e 1px, transparent 1px)",
+            "radial-gradient(circle, #f97316 1px, transparent 1px)",
           backgroundSize: "36px 36px",
         }}
       />
@@ -61,7 +61,7 @@ export const AnimatedAssets = () => {
           <Icon
             size={size}
             strokeWidth={1.2}
-            className="text-emerald-500 drop-shadow-[0_0_8px_rgba(34,197,94,0.2)]"
+            className="text-amber-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.22)]"
           />
         </motion.div>
       ))}

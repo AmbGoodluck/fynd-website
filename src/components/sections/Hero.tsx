@@ -30,7 +30,7 @@ export const Hero = () => {
       className="relative min-h-screen flex items-center pt-16 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #ecfdf5 100%)",
+          "linear-gradient(135deg, #fff7ed 0%, #ffedd5 48%, #fed7aa 100%)",
       }}
     >
       {/* Background decorative blobs */}
@@ -42,14 +42,14 @@ export const Hero = () => {
           className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-30"
           style={{
             background:
-              "radial-gradient(circle, #bbf7d0 0%, transparent 70%)",
+              "radial-gradient(circle, #fdba74 0%, transparent 70%)",
           }}
         />
         <div
           className="absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full opacity-20"
           style={{
             background:
-              "radial-gradient(circle, #a7f3d0 0%, transparent 70%)",
+              "radial-gradient(circle, #fb923c 0%, transparent 70%)",
           }}
         />
       </div>
@@ -64,8 +64,8 @@ export const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             {/* Overline badge */}
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-semibold px-3 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-sm font-semibold px-3 py-1.5 rounded-full mb-6">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
               Personalized place discovery
             </div>
 
@@ -160,7 +160,7 @@ export const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
               >
-                <p className="text-green-600 font-bold text-sm">Local picks</p>
+                <p className="text-orange-600 font-bold text-sm">Local picks</p>
                 <p className="text-gray-500 mt-0.5 leading-snug">
                   Curated spots near you
                 </p>
@@ -173,7 +173,7 @@ export const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.1, duration: 0.6 }}
               >
-                <p className="text-green-600 font-bold text-sm">Personalized</p>
+                <p className="text-orange-600 font-bold text-sm">Personalized</p>
                 <p className="text-gray-500 mt-0.5 leading-snug">
                   Matches your vibe instantly
                 </p>
@@ -187,7 +187,7 @@ export const Hero = () => {
                     onClick={() => setCurrent(i)}
                     aria-label={`Show screen ${i + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      i === current ? "bg-green-500 w-6" : "bg-gray-300 w-2"
+                      i === current ? "bg-orange-500 w-6" : "bg-gray-300 w-2"
                     }`}
                   />
                 ))}

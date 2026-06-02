@@ -81,8 +81,8 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
               {status === "success" ? (
                 /* ── Success state ── */
                 <div className="text-center py-6">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-[#22c55e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-[#f97316]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
@@ -92,7 +92,7 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                   </p>
                   <button
                     onClick={handleClose}
-                    className="px-6 py-3 bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold rounded-xl transition"
+                    className="px-6 py-3 bg-[#f97316] hover:bg-[#ea580c] text-white font-semibold rounded-xl transition"
                   >
                     Sounds good!
                   </button>
@@ -102,7 +102,7 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                 <>
                   {/* Header */}
                   <div className="mb-6">
-                    <p className="text-sm font-semibold text-[#22c55e] uppercase tracking-widest mb-2">
+                    <p className="text-sm font-semibold text-[#f97316] uppercase tracking-widest mb-2">
                       Early Access
                     </p>
                     <h3 className="text-2xl font-bold text-gray-900 leading-tight">
@@ -125,7 +125,7 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@example.com"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#22c55e] focus:border-transparent transition text-sm"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#f97316] focus:border-transparent transition text-sm"
                       />
                     </div>
 
@@ -148,7 +148,7 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                             onClick={() => setDevice(value)}
                             className={`flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border-2 text-sm font-medium transition ${
                               device === value
-                                ? "border-[#22c55e] bg-green-50 text-[#16a34a]"
+                                ? "border-[#f97316] bg-orange-50 text-[#c2410c]"
                                 : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
                             }`}
                           >
@@ -168,7 +168,7 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                     <button
                       type="submit"
                       disabled={!email || !device || status === "loading"}
-                      className="w-full py-3.5 bg-[#22c55e] hover:bg-[#16a34a] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition text-sm"
+                      className="w-full py-3.5 bg-[#f97316] hover:bg-[#ea580c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition text-sm"
                     >
                       {status === "loading" ? "Signing up..." : "Sign me up as a tester"}
                     </button>

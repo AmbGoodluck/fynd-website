@@ -8,7 +8,7 @@ export default function FeaturesPage() {
       <Navigation />
       <main className="min-h-screen bg-white text-gray-900">
       {/* Hero Section */}
-      <section className="py-16 px-4 sm:px-8 md:px-16 text-center bg-gradient-to-br from-green-50 to-white">
+      <section className="py-16 px-4 sm:px-8 md:px-16 text-center bg-gradient-to-br from-orange-50 to-white">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Discover What Fynd Can Do</h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
           Fynd v1.0 is your smart travel companion—find new places, get real-time navigation, and enjoy a seamless, secure experience across all your devices.
@@ -17,7 +17,7 @@ export default function FeaturesPage() {
 
       {/* Core Features */}
       <section className="max-w-4xl mx-auto py-12 px-4 grid gap-10 md:gap-14">
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-green-50 rounded-3xl p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-orange-50 rounded-3xl p-8 shadow-sm">
           <div className="flex-shrink-0"><MapPin className="w-10 h-10 text-fynd" /></div>
           <div>
             <h2 className="text-2xl font-semibold mb-1">Smart Location Discovery</h2>
@@ -33,7 +33,7 @@ export default function FeaturesPage() {
             <p className="text-sm text-gray-500">Benefit: Save money and time by catching the best offers as you go.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-green-50 rounded-3xl p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-orange-50 rounded-3xl p-8 shadow-sm">
           <div className="flex-shrink-0"><Navigation2 className="w-10 h-10 text-fynd" /></div>
           <div>
             <h2 className="text-2xl font-semibold mb-1">Real-Time Navigation</h2>
@@ -49,7 +49,7 @@ export default function FeaturesPage() {
             <p className="text-sm text-gray-500">Benefit: Spend less time figuring things out and more time enjoying your journey.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-green-50 rounded-3xl p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-orange-50 rounded-3xl p-8 shadow-sm">
           <div className="flex-shrink-0"><Shield className="w-10 h-10 text-fynd" /></div>
           <div>
             <h2 className="text-2xl font-semibold mb-1">Secure and Reliable Experience</h2>
@@ -71,7 +71,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* Download Options Section */}
-      <section className="py-16 px-4 bg-gradient-to-t from-green-50 to-white text-center">
+      <section className="py-16 px-4 bg-gradient-to-t from-orange-50 to-white text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">Start Using Fynd Today</h2>
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center max-w-xl mx-auto">
           <a href="https://androidv1.fyndplaces.com/app-release.apk" download>

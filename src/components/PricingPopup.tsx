@@ -73,7 +73,7 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
                 { icon: <Zap size={14} className="text-fynd" />, text: "Full access to all V1 features" },
               ].map((item) => (
                 <li key={item.text} className="flex items-center gap-3 text-sm text-gray-700">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-50 flex items-center justify-center">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center">
                     {item.icon}
                   </span>
                   {item.text}
@@ -87,7 +87,7 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
             <Link
               href="/#hero"
               onClick={onClose}
-              className="flex items-center justify-center gap-2 w-full bg-fynd hover:bg-fynd-dark active:scale-[.98] text-white font-semibold text-sm py-3.5 rounded-2xl transition-all shadow-lg shadow-green-300/40"
+              className="flex items-center justify-center gap-2 w-full bg-fynd hover:bg-fynd-dark active:scale-[.98] text-white font-semibold text-sm py-3.5 rounded-2xl transition-all shadow-lg shadow-orange-300/40"
             >
               <Download size={15} />
               Get Fynd — It&apos;s Free

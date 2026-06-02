@@ -13,7 +13,7 @@ export const DownloadCTA = () => {
       id="download"
       className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #14532d 0%, #15803d 50%, #16a34a 100%)",
+        background: "linear-gradient(135deg, #9a3412 0%, #c2410c 50%, #ea580c 100%)",
       }}
     >
       {/* Decorative circles */}
@@ -31,7 +31,7 @@ export const DownloadCTA = () => {
         transition={{ duration: 0.7 }}
       >
         {/* Overline */}
-        <p className="text-green-200 text-sm font-semibold uppercase tracking-widest mb-4">
+        <p className="text-orange-200 text-sm font-semibold uppercase tracking-widest mb-4">
           Ready to explore?
         </p>
 
@@ -41,7 +41,7 @@ export const DownloadCTA = () => {
         </h2>
 
         {/* Sub copy */}
-        <p className="text-green-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+        <p className="text-orange-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
           Download the app or jump straight into the web version — no account
           required to start discovering.
         </p>
@@ -51,10 +51,10 @@ export const DownloadCTA = () => {
           {/* "Get the app" opens the download picker */}
           <button
             onClick={() => setDownloadOpen(true)}
-            className="inline-flex items-center gap-2.5 bg-white text-gray-900 font-semibold px-7 py-4 rounded-xl hover:bg-green-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
+            className="inline-flex items-center gap-2.5 bg-white text-gray-900 font-semibold px-7 py-4 rounded-xl hover:bg-orange-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
             aria-label="Download the Fynd app"
           >
-            <Smartphone className="w-5 h-5 text-green-600" aria-hidden="true" />
+            <Smartphone className="w-5 h-5 text-orange-600" aria-hidden="true" />
             Get the app
           </button>
 
@@ -73,7 +73,7 @@ export const DownloadCTA = () => {
         </div>
 
         {/* Fine print */}
-        <p className="mt-6 text-green-200/60 text-sm">
+        <p className="mt-6 text-orange-200/60 text-sm">
           Available on Android &amp; iOS. Web app works on any browser.
         </p>
       </motion.div>

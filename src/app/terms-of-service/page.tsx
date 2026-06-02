@@ -262,7 +262,7 @@ export default function TermsOfServicePage() {
       </header>
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-50 to-green-50 py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-slate-50 to-orange-50 py-14 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium text-fynd uppercase tracking-widest mb-3">
             Legal

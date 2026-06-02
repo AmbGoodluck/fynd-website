@@ -59,7 +59,7 @@ export const ImageSlideshow = () => {
   // Fallback gradient background
   if (displayImages.length === 0) {
     return (
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-fynd to-green-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-fynd to-orange-500" />
     );
   }
 

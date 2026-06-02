@@ -7,7 +7,7 @@ import { Pencil, Clock } from "lucide-react";
 // Replace with real guide data + links once content is published
 const upcomingTopics = [
   { tag: "Remote work", color: "bg-amber-100 text-amber-700", border: "border-amber-100" },
-  { tag: "Day trips", color: "bg-green-100 text-green-700", border: "border-green-100" },
+  { tag: "Day trips", color: "bg-orange-100 text-orange-700", border: "border-orange-100" },
   { tag: "Rainy day", color: "bg-blue-100 text-blue-700", border: "border-blue-100" },
   { tag: "Weekends", color: "bg-orange-100 text-orange-700", border: "border-orange-100" },
   { tag: "Food & drink", color: "bg-red-100 text-red-700", border: "border-red-100" },
@@ -85,7 +85,7 @@ export const IdeasSection = () => {
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
             Inspiration
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -118,14 +118,14 @@ export const IdeasSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-            <Pencil className="w-5 h-5 text-green-600" aria-hidden="true" />
+          <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+            <Pencil className="w-5 h-5 text-orange-600" aria-hidden="true" />
           </div>
           <p className="text-gray-500 text-sm max-w-md">
             Know a great spot or have a guide idea?{" "}
             <a
               href="mailto:hello@fyndplaces.com"
-              className="text-green-600 font-medium hover:underline"
+              className="text-orange-600 font-medium hover:underline"
             >
               Tell us about it
             </a>{" "}

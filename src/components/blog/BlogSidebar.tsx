@@ -11,7 +11,7 @@ export function BlogSidebar({ articles }: Props) {
   return (
     <aside className="space-y-6">
       {/* Header */}
-      <div className="p-5 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-100">
+      <div className="p-5 bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl border border-orange-100">
         <h3 className="text-sm font-bold text-fynd uppercase tracking-widest mb-1">
           Past Spotlights
         </h3>

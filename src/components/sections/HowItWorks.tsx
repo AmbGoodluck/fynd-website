@@ -60,7 +60,7 @@ export const HowItWorks = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
             Simple by design
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -86,15 +86,15 @@ export const HowItWorks = () => {
                 {/* Step number watermark */}
                 <div
                   className="text-7xl font-black leading-none mb-4 select-none"
-                  style={{ color: "#22c55e18" }}
+                  style={{ color: "#f973161f" }}
                   aria-hidden="true"
                 >
                   {step.number}
                 </div>
 
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4 -mt-6">
-                  <Icon className="w-6 h-6 text-green-600" aria-hidden="true" />
+                <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4 -mt-6">
+                  <Icon className="w-6 h-6 text-orange-600" aria-hidden="true" />
                 </div>
 
                 {/* Text */}
@@ -106,7 +106,7 @@ export const HowItWorks = () => {
                 {/* Connector line (desktop only) */}
                 {index < steps.length - 1 && (
                   <div
-                    className="hidden md:block absolute top-10 -right-8 w-16 h-0.5 bg-green-100"
+                    className="hidden md:block absolute top-10 -right-8 w-16 h-0.5 bg-orange-100"
                     aria-hidden="true"
                   />
                 )}

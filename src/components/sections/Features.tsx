@@ -36,9 +36,9 @@ const features = [
     title: "Cross-device",
     description:
       "Start on the web, pick up on your phone. Fynd works seamlessly across all your devices.",
-    accent: "bg-green-50 border-green-100",
-    iconBg: "bg-green-100",
-    iconColor: "text-green-600",
+    accent: "bg-orange-50 border-orange-100",
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-600",
   },
 ];
 
@@ -64,7 +64,7 @@ export const Features = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
             Built for real exploration
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

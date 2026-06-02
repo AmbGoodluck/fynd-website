@@ -66,7 +66,7 @@ export const Problems = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
             Made for you
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

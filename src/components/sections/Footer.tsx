@@ -61,7 +61,7 @@ export const Footer = () => {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-gray-800 hover:bg-green-600 flex items-center justify-center text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-9 h-9 rounded-full bg-gray-800 hover:bg-orange-600 flex items-center justify-center text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500"
                 >
                   <Icon />
                 </a>
@@ -74,17 +74,17 @@ export const Footer = () => {
             <h4 className="font-semibold text-sm mb-4">Product</h4>
             <ul className="space-y-2.5 text-gray-400 text-sm">
               <li>
-                <Link href="/features" className="hover:text-green-400 transition-colors">
+                <Link href="/features" className="hover:text-orange-400 transition-colors">
                   Features
                 </Link>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-green-400 transition-colors">
+                <a href="#how-it-works" className="hover:text-orange-400 transition-colors">
                   How it works
                 </a>
               </li>
               <li>
-                <a href="#download" className="hover:text-green-400 transition-colors">
+                <a href="#download" className="hover:text-orange-400 transition-colors">
                   Download
                 </a>
               </li>
@@ -93,7 +93,7 @@ export const Footer = () => {
                   href="https://app.fyndplaces.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-green-400 transition-colors"
+                  className="hover:text-orange-400 transition-colors"
                 >
                   Web app
                 </a>
@@ -106,17 +106,17 @@ export const Footer = () => {
             <h4 className="font-semibold text-sm mb-4">Company</h4>
             <ul className="space-y-2.5 text-gray-400 text-sm">
               <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
+                <a href="#" className="hover:text-orange-400 transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-green-400 transition-colors">
+                <Link href="/blog" className="hover:text-orange-400 transition-colors">
                   Blog &amp; Guides
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
+                <a href="#" className="hover:text-orange-400 transition-colors">
                   Support
                 </a>
               </li>
@@ -128,17 +128,17 @@ export const Footer = () => {
             <h4 className="font-semibold text-sm mb-4">Legal</h4>
             <ul className="space-y-2.5 text-gray-400 text-sm">
               <li>
-                <Link href="/privacy" className="hover:text-green-400 transition-colors">
+                <Link href="/privacy" className="hover:text-orange-400 transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="hover:text-green-400 transition-colors">
+                <Link href="/terms-of-service" className="hover:text-orange-400 transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
+                <a href="#" className="hover:text-orange-400 transition-colors">
                   Contact
                 </a>
               </li>
@@ -163,12 +163,12 @@ export const Footer = () => {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 md:w-60 px-4 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="flex-1 md:w-60 px-4 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 aria-label="Email address for newsletter"
               />
               <button
                 type="submit"
-                className="p-2.5 bg-green-600 hover:bg-green-500 rounded-lg transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="p-2.5 bg-orange-600 hover:bg-orange-500 rounded-lg transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-orange-400"
                 aria-label="Subscribe"
               >
                 <Mail className="w-5 h-5" />

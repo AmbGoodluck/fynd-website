@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-fynd: #22c55e;
-  --color-fynd-dark: #16a34a;
-  --color-fynd-light: #4ade80;
+  --color-fynd: #f97316;
+  --color-fynd-dark: #ea580c;
+  --color-fynd-light: #fb923c;
 }
 
 :root {
-  --fynd-green: #22c55e;
+  --fynd-orange: #f97316;
   --slate-50: #f8fafc;
   --white: #ffffff;
 }
@@ -45,7 +45,7 @@ h6 {
 .button-glow {
   position: relative;
   box-shadow:
-    0 0 0 0 rgba(43, 182, 115, 0.7),
+    0 0 0 0 rgba(249, 115, 22, 0.6),
     0 2px 8px rgba(0, 0, 0, 0.1);
   animation: pulse-glow 2s infinite;
 }
@@ -53,19 +53,19 @@ h6 {
 @keyframes pulse-glow {
   0% {
     box-shadow:
-      0 0 0 0 rgba(43, 182, 115, 0.7),
+      0 0 0 0 rgba(249, 115, 22, 0.6),
       0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   70% {
     box-shadow:
-      0 0 0 10px rgba(43, 182, 115, 0),
+      0 0 0 10px rgba(249, 115, 22, 0),
       0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   100% {
     box-shadow:
-      0 0 0 0 rgba(43, 182, 115, 0),
+      0 0 0 0 rgba(249, 115, 22, 0),
       0 2px 8px rgba(0, 0, 0, 0.1);
   }
 }

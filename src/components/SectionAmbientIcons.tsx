@@ -100,7 +100,7 @@ export const SectionAmbientIcons = ({ variant }: Props) => {
             <Icon
               size={size}
               strokeWidth={1.3}
-              className="text-emerald-500"
+              className="text-amber-500"
             />
           </motion.div>
         );

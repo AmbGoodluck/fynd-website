@@ -99,13 +99,13 @@ export const ProductPreview = () => {
       className="relative py-24 px-4 sm:px-6 lg:px-8"
       style={{
         background:
-          "linear-gradient(180deg, #f8fafc 0%, #f0fdf4 50%, #f8fafc 100%)",
+          "linear-gradient(180deg, #fffaf5 0%, #ffedd5 50%, #fffaf5 100%)",
       }}
     >
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
             See it in action
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -122,7 +122,7 @@ export const ProductPreview = () => {
             {/* Prev button */}
             <button
               onClick={prev}
-              className="z-10 p-2.5 rounded-full bg-white shadow-md border border-gray-100 hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="z-10 p-2.5 rounded-full bg-white shadow-md border border-gray-100 hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-orange-400"
               aria-label="Previous screenshot"
             >
               <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -155,7 +155,7 @@ export const ProductPreview = () => {
             {/* Next button */}
             <button
               onClick={next}
-              className="z-10 p-2.5 rounded-full bg-white shadow-md border border-gray-100 hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="z-10 p-2.5 rounded-full bg-white shadow-md border border-gray-100 hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-orange-400"
               aria-label="Next screenshot"
             >
               <ChevronRight className="w-5 h-5 text-gray-600" />
@@ -180,7 +180,7 @@ export const ProductPreview = () => {
                 key={i}
                 onClick={() => goTo(i, i > current ? 1 : -1)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === current ? "bg-green-500 w-6" : "bg-gray-200 w-2"
+                  i === current ? "bg-orange-500 w-6" : "bg-gray-200 w-2"
                 }`}
                 aria-label={`Go to screenshot ${i + 1}`}
               />

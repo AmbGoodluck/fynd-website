@@ -70,8 +70,8 @@ export const GlobalFloatingIcons = () => {
           x: { delay: 2.5, duration: 15.6, repeat: Infinity, ease: "easeInOut" },
         }}
       >
-        <span className="flex items-center gap-1 text-emerald-600 text-[11px] font-semibold tracking-wide whitespace-nowrap">
-          <span className="w-[7px] h-[7px] rounded-full bg-emerald-500 inline-block" />
+        <span className="flex items-center gap-1 text-orange-600 text-[11px] font-semibold tracking-wide whitespace-nowrap">
+          <span className="w-[7px] h-[7px] rounded-full bg-amber-500 inline-block" />
           V1 is live
         </span>
       </motion.div>
@@ -117,7 +117,7 @@ export const GlobalFloatingIcons = () => {
           <Icon
             size={size}
             strokeWidth={1.5}
-            className="text-emerald-600"
+            className="text-orange-600"
             style={{ opacity: 1 }}
           />
         </motion.div>

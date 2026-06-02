@@ -36,8 +36,8 @@ const MetricStack = ({ label, icon: Icon }: { label: string; icon: React.Element
       aria-hidden="true"
     />
     <div className="relative bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm">
-      <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
-        <Icon className="w-5 h-5 text-green-600" aria-hidden="true" />
+      <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-3">
+        <Icon className="w-5 h-5 text-orange-600" aria-hidden="true" />
       </div>
       <p className="text-2xl font-black text-gray-300 mb-1 tracking-tight">——</p>
       <p className="text-sm text-gray-400 font-medium">{label}</p>
@@ -55,7 +55,7 @@ export const SocialProof = () => {
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-green-600 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
             Community
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -167,7 +167,7 @@ export const SocialProof = () => {
           Try Fynd and{" "}
           <a
             href="mailto:hello@fyndplaces.com"
-            className="text-green-600 hover:underline font-medium"
+            className="text-orange-600 hover:underline font-medium"
           >
             share your thoughts
           </a>{" "}
