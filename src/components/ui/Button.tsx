@@ -20,14 +20,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fynd disabled:opacity-50 disabled:cursor-not-allowed";
+      "inline-flex items-center justify-center font-semibold transition-all duration-200 ease-out hover:scale-[1.03] active:scale-[0.98] rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-canvas focus:ring-fynd disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100";
 
     const variants = {
-      primary:
-        "bg-fynd text-white hover:bg-fynd-dark focus:ring-fynd button-glow",
-      secondary: "bg-slate-100 text-gray-900 hover:bg-slate-200 focus:ring-fynd",
+      primary: "bg-fynd text-white hover:bg-fynd-dark shadow-sm",
+      secondary: "bg-surface-raised text-ink ring-1 ring-hairline hover:bg-surface",
       outline:
-        "border-2 border-fynd text-fynd hover:bg-fynd hover:text-white focus:ring-fynd",
+        "border border-ink/20 text-ink hover:border-fynd hover:text-fynd",
     };
 
     const sizes = {

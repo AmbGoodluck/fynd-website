@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -13,29 +13,12 @@ const navLinks = [
 ];
 
 export const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [downloadOpen, setDownloadOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "backdrop-blur-md bg-white/80 border-b border-white/20 shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -43,55 +26,39 @@ export const Navigation = () => {
               alt="Fynd"
               width={202}
               height={84}
-              className="h-11 sm:h-13 md:h-16 w-auto"
+              className="h-8 sm:h-9 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop nav links + CTA */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-fynd hover:text-fynd-dark transition-colors"
+                className="text-sm font-medium text-ink-muted hover:text-ink transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <Button
-              variant="secondary"
-              size="sm"
-              className="ml-2"
-              onClick={() => setDownloadOpen(true)}
-            >
-              Download Fynd v1.0
-            </Button>
             <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" aria-label="Open Fynd Web Version">
-                Open Fynd Web Version
+              <Button variant="primary" size="sm" aria-label="Open web app">
+                Open web app
               </Button>
             </a>
           </div>
 
           {/* Mobile: CTA + hamburger */}
           <div className="flex md:hidden items-center gap-3">
-            <Button
-              variant="secondary"
-              size="sm"
-              className="ml-1"
-              onClick={() => setDownloadOpen(true)}
-            >
-              Download
-            </Button>
             <a href="https://app.fyndplaces.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" aria-label="Open Fynd Web Version">
-                Open Fynd Web Version
+              <Button variant="primary" size="sm" aria-label="Open web app">
+                Open web app
               </Button>
             </a>
             <button
               aria-label="Toggle menu"
-              className="text-fynd p-1"
+              className="text-ink p-1"
               onClick={() => setMenuOpen((o) => !o)}
             >
               {menuOpen ? (
@@ -108,32 +75,14 @@ export const Navigation = () => {
         </div>
       </div>
 
-      {/* Download Modal Placeholder - will implement next */}
-      {downloadOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={() => setDownloadOpen(false)}>
-          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative animate-fade-in" onClick={e => e.stopPropagation()}>
-            <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onClick={() => setDownloadOpen(false)} aria-label="Close">×</button>
-            <h2 className="text-xl font-bold mb-2 text-center">Download Fynd v1.0</h2>
-            <p className="text-gray-600 mb-6 text-center">You are about to download Fynd v1.0. Please choose your device type.</p>
-            <div className="flex flex-col gap-3">
-              <a href="https://androidv1.fyndplaces.com/app-release.apk" download className="w-full">
-                <Button variant="primary" size="md" className="w-full">Android</Button>
-              </a>
-              <a href="/downloads/fynd-ios-v1.ipa" download className="w-full">
-                <Button variant="primary" size="md" className="w-full">iOS</Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden glass border-t border-hairline px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-fynd hover:text-fynd-dark transition-colors"
+              className="text-sm font-medium text-ink-muted hover:text-ink transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}

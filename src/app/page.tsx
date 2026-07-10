@@ -1,33 +1,41 @@
 import { Hero } from "@/components/sections/Hero";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Features } from "@/components/sections/Features";
+import { FeatureGrid } from "@/components/sections/FeatureGrid";
+import { KineticProofDeck } from "@/components/sections/KineticProofDeck";
+import { ParadigmShift } from "@/components/sections/ParadigmShift";
 import { Problems } from "@/components/sections/Problems";
-import { ProductPreview } from "@/components/sections/ProductPreview";
-import { DownloadCTA } from "@/components/sections/DownloadCTA";
+import { TrustArchitecture } from "@/components/sections/TrustArchitecture";
+import { ConversionTerminal } from "@/components/sections/ConversionTerminal";
+import { JoinWaitlist } from "@/components/sections/JoinWaitlist";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
     <>
-      {/* 1. Hero — headline, phone mockup, dual CTAs */}
+      {/* 1. Hero — headline, interactive city/location discovery search + live results carousel */}
       <Hero />
 
-      {/* 2. How it works — 3-step explainer + demo video */}
-      <HowItWorks />
+      {/* 2. Feature grid — everything Fynd does, at a glance */}
+      <FeatureGrid />
 
-      {/* 3. Features — 4 capability cards */}
-      <Features />
+      {/* 3. Kinetic proof deck — editorial grid of real places */}
+      <KineticProofDeck />
 
-      {/* 4. Who it's for — personas / use cases */}
+      {/* 4. Paradigm shift — how the matching actually works */}
+      <ParadigmShift />
+
+      {/* 5. Who it's for — personas / use cases */}
       <Problems />
 
-      {/* 5. Product tour — screenshot carousel with captions */}
-      <ProductPreview />
+      {/* 6. Trust architecture — bento grid of trust signals */}
+      <TrustArchitecture />
 
-      {/* 6. Download CTA band — app store + web app */}
-      <DownloadCTA />
+      {/* 7. Conversion terminal — single CTA to open the web app */}
+      <ConversionTerminal />
 
-      {/* 7. Footer */}
+      {/* 8. Join the waitlist — native app email capture */}
+      <JoinWaitlist />
+
+      {/* 9. Footer */}
       <Footer />
     </>
   );

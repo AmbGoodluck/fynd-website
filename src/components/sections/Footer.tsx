@@ -32,7 +32,7 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-10 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-noir text-paper pt-16 pb-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Top grid */}
@@ -42,14 +42,14 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <Link href="/" className="inline-block mb-4" aria-label="Fynd home">
               <Image
-                src="/fynd-logo.svg.png"
+                src="/fynd-logo-white.png"
                 alt="Fynd"
                 width={120}
                 height={50}
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-paper-muted text-sm leading-relaxed max-w-xs">
               Discover places you&apos;ll actually love, wherever you are. Fynd
               is your personalized guide to real-world exploration.
             </p>
@@ -61,7 +61,7 @@ export const Footer = () => {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-gray-800 hover:bg-orange-600 flex items-center justify-center text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-9 h-9 rounded-full bg-white/[0.06] hover:bg-fynd flex items-center justify-center text-paper-muted hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-fynd"
                 >
                   <Icon />
                 </a>
@@ -72,20 +72,15 @@ export const Footer = () => {
           {/* Product links */}
           <div>
             <h4 className="font-semibold text-sm mb-4">Product</h4>
-            <ul className="space-y-2.5 text-gray-400 text-sm">
+            <ul className="space-y-2.5 text-paper-muted text-sm">
               <li>
-                <Link href="/features" className="hover:text-orange-400 transition-colors">
+                <Link href="/features" className="hover:text-fynd transition-colors">
                   Features
                 </Link>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-orange-400 transition-colors">
+                <a href="#how-it-works" className="hover:text-fynd transition-colors">
                   How it works
-                </a>
-              </li>
-              <li>
-                <a href="#download" className="hover:text-orange-400 transition-colors">
-                  Download
                 </a>
               </li>
               <li>
@@ -93,9 +88,9 @@ export const Footer = () => {
                   href="https://app.fyndplaces.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-orange-400 transition-colors"
+                  className="hover:text-fynd transition-colors"
                 >
-                  Web app
+                  Open web app
                 </a>
               </li>
             </ul>
@@ -104,19 +99,19 @@ export const Footer = () => {
           {/* Company links */}
           <div>
             <h4 className="font-semibold text-sm mb-4">Company</h4>
-            <ul className="space-y-2.5 text-gray-400 text-sm">
+            <ul className="space-y-2.5 text-paper-muted text-sm">
               <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
+                <a href="#" className="hover:text-fynd transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-orange-400 transition-colors">
+                <Link href="/blog" className="hover:text-fynd transition-colors">
                   Blog &amp; Guides
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
+                <a href="#" className="hover:text-fynd transition-colors">
                   Support
                 </a>
               </li>
@@ -126,19 +121,19 @@ export const Footer = () => {
           {/* Legal links */}
           <div>
             <h4 className="font-semibold text-sm mb-4">Legal</h4>
-            <ul className="space-y-2.5 text-gray-400 text-sm">
+            <ul className="space-y-2.5 text-paper-muted text-sm">
               <li>
-                <Link href="/privacy" className="hover:text-orange-400 transition-colors">
+                <Link href="/privacy" className="hover:text-fynd transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="hover:text-orange-400 transition-colors">
+                <Link href="/terms-of-service" className="hover:text-fynd transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
+                <a href="#" className="hover:text-fynd transition-colors">
                   Contact
                 </a>
               </li>
@@ -147,11 +142,11 @@ export const Footer = () => {
         </div>
 
         {/* Newsletter row */}
-        <div className="border-t border-gray-800 pt-10 mb-8">
+        <div className="border-t border-noir-hairline pt-10 mb-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p className="font-semibold text-sm mb-1">Stay in the loop</p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-paper-muted text-sm">
                 New guides, features, and hidden gems — straight to your inbox.
               </p>
             </div>
@@ -163,12 +158,12 @@ export const Footer = () => {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 md:w-60 px-4 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="flex-1 md:w-60 px-4 py-2.5 rounded-lg bg-white/[0.05] border border-noir-hairline text-paper text-sm placeholder-paper-muted/50 focus:outline-none focus:ring-2 focus:ring-fynd"
                 aria-label="Email address for newsletter"
               />
               <button
                 type="submit"
-                className="p-2.5 bg-orange-600 hover:bg-orange-500 rounded-lg transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="p-2.5 bg-fynd hover:bg-fynd-dark rounded-full transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-fynd"
                 aria-label="Subscribe"
               >
                 <Mail className="w-5 h-5" />
@@ -178,7 +173,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-gray-500 text-sm">
+        <div className="border-t border-noir-hairline pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-paper-muted text-sm">
           <p>&copy; 2026 Fynd. All rights reserved.</p>
           <p>Made for curious explorers everywhere.</p>
         </div>

@@ -2,44 +2,35 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Heart, MapPin, Bookmark, Volume2, VolumeX } from "lucide-react";
+import Image from "next/image";
+import { Volume2, VolumeX } from "lucide-react";
 
-const steps = [
+const chapters = [
   {
-    icon: Heart,
-    number: "01",
-    title: "Share what you're into",
+    tag: "01 — Discover",
+    title: "Tell it what you're craving",
     description:
-      "Pick your interests, mood, budget, and how far you want to go. Fynd takes note of everything.",
+      "A mood, a budget, a distance. That's all it takes for Fynd to start looking.",
+    image: "/photos/istanbul-kebab-night.jpg",
+    alt: "A neon-lit street food spot at night",
   },
   {
-    icon: MapPin,
-    number: "02",
-    title: "See smart suggestions near you",
+    tag: "02 — Personalize",
+    title: "See your city differently",
     description:
-      "Get a personalized map and list of experiences, neighborhoods, and hidden gems matched to you — in seconds.",
+      "Every suggestion is shaped by what you actually like — not what's trending.",
+    image: "/photos/egyptian-museum-hall.jpg",
+    alt: "A grand museum hall filled with ancient artifacts",
   },
   {
-    icon: Bookmark,
-    number: "03",
-    title: "Save, share, and go",
+    tag: "03 — Explore",
+    title: "Save it, share it, go",
     description:
-      "Save your favorites, build lists, share them with friends, and get directions — all in one place.",
+      "Build a list, send it to a friend, get directions. Then go find out for yourself.",
+    image: "/photos/paris-terrace-day.jpg",
+    alt: "A lively restaurant terrace full of people",
   },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.18, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65 } },
-};
 
 export const HowItWorks = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -55,65 +46,61 @@ export const HowItWorks = () => {
   return (
     <section
       id="how-it-works"
-      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white"
+      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-canvas overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
+        <div className="max-w-xl mb-20 sm:mb-28">
+          <p className="text-sm font-semibold text-fynd uppercase tracking-widest mb-3">
             Simple by design
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            How Fynd works
+          <h2 className="text-4xl md:text-5xl font-bold text-ink leading-tight">
+            Life gets more interesting when you know where to go.
           </h2>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Three steps from curiosity to your next favorite spot.
-          </p>
         </div>
 
-        {/* Steps grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 mb-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+        {/* Alternating editorial chapters */}
+        <div className="flex flex-col gap-24 sm:gap-32 mb-24 sm:mb-32">
+          {chapters.map((chapter, index) => {
+            const reversed = index % 2 === 1;
             return (
-              <motion.div key={index} variants={itemVariants} className="relative">
-                {/* Step number watermark */}
-                <div
-                  className="text-7xl font-black leading-none mb-4 select-none"
-                  style={{ color: "#f973161f" }}
-                  aria-hidden="true"
-                >
-                  {step.number}
-                </div>
-
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4 -mt-6">
-                  <Icon className="w-6 h-6 text-orange-600" aria-hidden="true" />
+              <motion.div
+                key={chapter.tag}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${
+                  reversed ? "md:[&>*:first-child]:order-2" : ""
+                }`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7 }}
+              >
+                {/* Image */}
+                <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden ring-1 ring-hairline">
+                  <Image
+                    src={chapter.image}
+                    alt={chapter.alt}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
                 </div>
 
                 {/* Text */}
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed">{step.description}</p>
-
-                {/* Connector line (desktop only) */}
-                {index < steps.length - 1 && (
-                  <div
-                    className="hidden md:block absolute top-10 -right-8 w-16 h-0.5 bg-orange-100"
-                    aria-hidden="true"
-                  />
-                )}
+                <div>
+                  <p className="text-sm font-semibold text-fynd uppercase tracking-widest mb-3">
+                    {chapter.tag}
+                  </p>
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-ink mb-3">
+                    {chapter.title}
+                  </h3>
+                  <p className="text-ink-muted text-lg leading-relaxed max-w-sm">
+                    {chapter.description}
+                  </p>
+                </div>
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Demo video */}
         <motion.div
@@ -123,7 +110,7 @@ export const HowItWorks = () => {
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black w-full max-w-3xl">
+          <div className="relative rounded-2xl overflow-hidden ring-1 ring-hairline bg-black w-full max-w-3xl">
             {/* TODO: replace with final product demo video */}
             <video
               ref={videoRef}

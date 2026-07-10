@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Navigation } from "@/components/sections/Navigation";
+import { Footer } from "@/components/sections/Footer";
 import { fetchAllArticles } from "@/lib/rss";
 import { SpotlightArticle } from "@/components/blog/SpotlightArticle";
 import { ArticleCard } from "@/components/blog/ArticleCard";
@@ -49,19 +49,17 @@ export default async function Page() {
   const sidebarArticles = rest.slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-canvas">
       <Navigation />
 
       {/* ── Page header ────────────────────────────────── */}
-      <div className="bg-white border-b border-gray-100 py-12 md:py-14 px-4 sm:px-6 lg:px-8">
+      <div className="bg-surface border-b border-hairline py-12 md:py-14 px-4 sm:px-6 lg:px-8 pt-28 md:pt-32">
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold text-fynd uppercase tracking-widest mb-3">
-            Fynd Blog
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+          <p className="mono-tag text-ink-muted mb-4">Fynd Blog</p>
+          <h1 className="text-4xl md:text-6xl text-ink mb-4">
             Travel Inspiration
           </h1>
-          <p className="text-lg text-gray-500 max-w-lg">
+          <p className="text-lg text-ink-muted max-w-lg">
             Weekly curated travel stories and exploration ideas from the
             world&apos;s best sources.
           </p>
@@ -78,7 +76,7 @@ export default async function Page() {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 bg-fynd rounded-full" />
-                <h2 className="text-xl font-bold text-gray-900">
+                <h2 className="text-xl text-ink">
                   Weekly Spotlight
                 </h2>
               </div>
@@ -89,7 +87,7 @@ export default async function Page() {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 bg-fynd rounded-full" />
-                <h2 className="text-xl font-bold text-gray-900">
+                <h2 className="text-xl text-ink">
                   Latest Travel Stories
                 </h2>
               </div>
@@ -100,7 +98,7 @@ export default async function Page() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-20 text-gray-400">
+                <div className="text-center py-20 text-ink-muted">
                   <p className="text-lg">No articles available right now.</p>
                   <p className="text-sm mt-2">
                     Check back soon — we update every 12 hours.
@@ -119,19 +117,7 @@ export default async function Page() {
         </div>
       </main>
 
-      {/* ── Footer ──────────────────────────────────────── */}
-      <footer className="bg-gray-900 text-center py-8 px-4 sm:px-6 lg:px-8 mt-16">
-        <p className="text-gray-400 text-sm">
-          &copy; 2026 Fynd. All rights reserved. &nbsp;&bull;&nbsp;
-          <Link href="/privacy" className="text-fynd hover:underline">
-            Privacy Policy
-          </Link>
-          &nbsp;&bull;&nbsp;
-          <Link href="/" className="text-fynd hover:underline">
-            Back to Home
-          </Link>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

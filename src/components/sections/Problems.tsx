@@ -1,56 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sunrise, Plane, Laptop, Users } from "lucide-react";
+import Image from "next/image";
 
 // This section was previously "The Problems We Solve".
 // Repurposed as "Who is Fynd for?" — use cases / personas.
 const personas = [
   {
-    icon: Sunrise,
     label: "Weekend explorers",
-    benefit:
-      "Never run out of ideas for your days off — from sunrise hikes to late-night eats.",
-    bg: "bg-orange-50",
-    iconBg: "bg-orange-100",
-    iconColor: "text-orange-500",
+    benefit: "Never run out of ideas for your days off.",
+    image: "/photos/friends-study-coffee.jpg",
+    alt: "Friends relaxing together over coffee outdoors",
   },
   {
-    icon: Plane,
     label: "Travelers & city-hoppers",
-    benefit:
-      "Land anywhere and instantly know where locals actually go, not just the tourist traps.",
-    bg: "bg-sky-50",
-    iconBg: "bg-sky-100",
-    iconColor: "text-sky-500",
+    benefit: "Land anywhere, know where locals actually go.",
+    image: "/photos/rooftop-friends.jpg",
+    alt: "Friends on a rooftop overlooking the city",
   },
   {
-    icon: Laptop,
     label: "Remote workers",
-    benefit:
-      "Find cozy cafes, co-working spots, and work-friendly places near you in minutes.",
-    bg: "bg-violet-50",
-    iconBg: "bg-violet-100",
-    iconColor: "text-violet-500",
+    benefit: "Cozy cafés and work-friendly spots, minutes away.",
+    image: "/photos/terrace-phone-candid.jpg",
+    alt: "Someone checking their phone at a café terrace",
   },
   {
-    icon: Users,
     label: "Couples & friend groups",
-    benefit:
-      "Build shared lists, find places everyone will enjoy, and plan your next outing together.",
-    bg: "bg-pink-50",
-    iconBg: "bg-pink-100",
-    iconColor: "text-pink-500",
+    benefit: "Build a shared list. Plan your next outing together.",
+    image: "/photos/park-picnic-couple.jpg",
+    alt: "A couple sharing a quiet moment on a park picnic",
   },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
-  },
-};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -61,52 +41,52 @@ export const Problems = () => {
   return (
     <section
       id="who-its-for"
-      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white"
+      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-canvas"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
-            Made for you
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="max-w-xl mb-14">
+          <p className="mono-tag text-ink-muted mb-4">Made for you</p>
+          <h2 className="text-4xl md:text-5xl text-ink">
             Who is Fynd for?
           </h2>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Whether you&apos;re a curious local or an adventurous traveler,
-            Fynd meets you where you are.
-          </p>
         </div>
 
         {/* Persona cards */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          {personas.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className={`${p.bg} rounded-2xl p-7 hover:shadow-md transition-shadow`}
-              >
-                <div
-                  className={`w-11 h-11 rounded-xl ${p.iconBg} flex items-center justify-center mb-4`}
-                >
-                  <Icon className={`w-5 h-5 ${p.iconColor}`} aria-hidden="true" />
-                </div>
-                <h3 className="text-base font-semibold text-gray-900 mb-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {personas.map((p, i) => (
+            <motion.div
+              key={p.label}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.08 }}
+              className="relative rounded-3xl overflow-hidden group h-96 sm:h-[26rem]"
+            >
+              <Image
+                src={p.image}
+                alt={p.alt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                unoptimized
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 55%, transparent 80%)",
+                }}
+              />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <h3 className="text-white text-base font-semibold mb-1">
                   {p.label}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{p.benefit}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                <p className="text-white/70 text-sm leading-snug">{p.benefit}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

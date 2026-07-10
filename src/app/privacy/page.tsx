@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Fynd",
@@ -32,10 +32,10 @@ const sections = [
     content: (
       <div className="space-y-4">
         <div>
-          <h3 className="font-semibold text-gray-900 mb-2">
+          <h3 className="font-semibold text-ink mb-2">
             2.1 Information You Provide
           </h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-600">
+          <ul className="list-disc pl-5 space-y-1 text-ink-muted">
             <li>
               <strong>Account Information</strong> — name, email address, and
               password when you register
@@ -51,10 +51,10 @@ const sections = [
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-gray-900 mb-2">
+          <h3 className="font-semibold text-ink mb-2">
             2.2 Information Collected Automatically
           </h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-600">
+          <ul className="list-disc pl-5 space-y-1 text-ink-muted">
             <li>
               <strong>Location Data</strong> — with your permission, we collect
               your precise GPS location to power trip navigation and suggest
@@ -71,10 +71,10 @@ const sections = [
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-gray-900 mb-2">
+          <h3 className="font-semibold text-ink mb-2">
             2.3 Information from Third Parties
           </h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-600">
+          <ul className="list-disc pl-5 space-y-1 text-ink-muted">
             <li>
               <strong>Google</strong> — when you sign in with Google, we receive
               your name, email, and profile picture
@@ -97,7 +97,7 @@ const sections = [
     id: "how-we-use",
     title: "3. How We Use Your Information",
     content: (
-      <ul className="list-disc pl-5 space-y-1 text-gray-600">
+      <ul className="list-disc pl-5 space-y-1 text-ink-muted">
         <li>Create and manage your account</li>
         <li>
           Generate personalised trip itineraries and place recommendations
@@ -115,11 +115,11 @@ const sections = [
     id: "how-we-share",
     title: "4. How We Share Your Information",
     content: (
-      <p>
-        We <strong>do not sell</strong> your personal information. We may share
-        your data only in the following circumstances:
-        <br />
-        <br />
+      <div>
+        <p className="mb-3">
+          We <strong>do not sell</strong> your personal information. We may
+          share your data only in the following circumstances:
+        </p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
             <strong>Service Providers</strong> — trusted third parties that help
@@ -140,14 +140,14 @@ const sections = [
             explicit consent
           </li>
         </ul>
-      </p>
+      </div>
     ),
   },
   {
     id: "data-storage",
     title: "5. Data Storage & Security",
     content: (
-      <ul className="list-disc pl-5 space-y-1 text-gray-600">
+      <ul className="list-disc pl-5 space-y-1 text-ink-muted">
         <li>
           Your data is stored securely on{" "}
           <strong>Google Firebase</strong> infrastructure with encryption at
@@ -203,7 +203,7 @@ const sections = [
         <p className="mb-3">
           Depending on your location, you may have the right to:
         </p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted">
           <li>
             <strong>Access</strong> — request a copy of the personal data we
             hold about you
@@ -317,7 +317,7 @@ const sections = [
           If you have any questions, concerns, or requests regarding this
           Privacy Policy, please contact us:
         </p>
-        <p className="font-semibold text-gray-900 pt-2">Fynd</p>
+        <p className="font-semibold text-ink pt-2">Fynd</p>
         <p>
           📧{" "}
           <a
@@ -343,32 +343,15 @@ const sections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-5">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-fynd">
-            Fynd
-          </Link>
-          <Link
-            href="/"
-            className="text-sm text-gray-500 hover:text-fynd transition"
-          >
-            &larr; Back to Home
-          </Link>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-canvas">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-50 to-orange-50 py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-surface pt-28 md:pt-32 pb-14 md:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium text-fynd uppercase tracking-widest mb-3">
-            Legal
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <p className="mono-tag text-ink-muted mb-4">Legal</p>
+          <h1 className="text-4xl md:text-5xl text-ink mb-4">
             Privacy Policy
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-ink-muted text-sm">
             <strong>Effective Date:</strong> March 4, 2026 &nbsp;&bull;&nbsp;
             <strong>Last Updated:</strong> March 4, 2026
           </p>
@@ -378,8 +361,8 @@ export default function PrivacyPolicyPage() {
       {/* Body */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Table of Contents */}
-        <nav className="mb-14 p-6 bg-gray-50 rounded-2xl border border-gray-100">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+        <nav className="mb-14 p-6 bg-surface rounded-2xl border border-hairline">
+          <h2 className="text-sm font-semibold text-ink-muted uppercase tracking-wider mb-4">
             Table of Contents
           </h2>
           <ol className="space-y-1">
@@ -387,7 +370,7 @@ export default function PrivacyPolicyPage() {
               <li key={s.id}>
                 <a
                   href={`#${s.id}`}
-                  className="text-sm text-gray-600 hover:text-fynd transition"
+                  className="text-sm text-ink-muted hover:text-fynd transition"
                 >
                   {s.title}
                 </a>
@@ -400,32 +383,20 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-12">
           {sections.map((s) => (
             <section key={s.id} id={s.id} className="scroll-mt-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              <h2 className="text-xl text-ink mb-4 pb-2 border-b border-hairline">
                 {s.title}
               </h2>
-              <div className="text-gray-600 leading-relaxed">{s.content}</div>
+              <div className="text-ink-muted leading-relaxed">{s.content}</div>
             </section>
           ))}
         </div>
 
-        <p className="mt-16 pt-8 border-t border-gray-100 text-sm text-gray-400 text-center">
+        <p className="mt-16 pt-8 border-t border-hairline text-sm text-ink-muted/70 text-center">
           This Privacy Policy was last updated on March 4, 2026.
         </p>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-center py-8 px-4 sm:px-6">
-        <p className="text-gray-400 text-sm">
-          &copy; 2026 Fynd. All rights reserved. &nbsp;&bull;&nbsp;
-          <Link href="/privacy" className="text-fynd hover:underline">
-            Privacy Policy
-          </Link>
-          &nbsp;&bull;&nbsp;
-          <Link href="/terms-of-service" className="text-fynd hover:underline">
-            Terms of Service
-          </Link>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

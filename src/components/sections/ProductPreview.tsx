@@ -14,7 +14,7 @@ const screenshots = [
   {
     src: "/screenshots/fynd-screen3.png",
     alt: "Fynd onboarding — Instant Places Discovery",
-    caption: "Instant Places Discovery — personalized AI suggestions",
+    caption: "Instant Places Discovery — picks that actually fit you",
   },
   {
     src: "/screenshots/fynd-screen4.png",
@@ -96,22 +96,28 @@ export const ProductPreview = () => {
   return (
     <section
       id="product-tour"
-      className="relative py-24 px-4 sm:px-6 lg:px-8"
-      style={{
-        background:
-          "linear-gradient(180deg, #fffaf5 0%, #ffedd5 50%, #fffaf5 100%)",
-      }}
+      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-canvas"
     >
-      <div className="max-w-5xl mx-auto">
+      {/* Ambient blurred backdrop */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src="/photos/restaurant-terrace-dusk.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-20 blur-sm scale-110"
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-canvas/80 via-canvas/90 to-canvas" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-orange-600 uppercase tracking-widest mb-3">
-            See it in action
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <p className="mono-tag text-ink-muted mb-4">See it in action</p>
+          <h2 className="text-4xl md:text-5xl text-ink mb-4">
             A visual tour of Fynd
           </h2>
-          <p className="text-lg text-gray-500 max-w-lg mx-auto">
+          <p className="text-lg text-ink-muted max-w-lg mx-auto">
             Real screens. Real trips. Real you.
           </p>
         </div>
@@ -122,14 +128,14 @@ export const ProductPreview = () => {
             {/* Prev button */}
             <button
               onClick={prev}
-              className="z-10 p-2.5 rounded-full bg-white shadow-md border border-gray-100 hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="z-10 p-2.5 rounded-full glass hover:bg-surface-raised transition focus:outline-none focus:ring-2 focus:ring-fynd"
               aria-label="Previous screenshot"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-600" />
+              <ChevronLeft className="w-5 h-5 text-ink" />
             </button>
 
             {/* Screenshot display — no phone frame */}
-            <div className="relative w-[264px] sm:w-[308px] h-[539px] sm:h-[627px] overflow-hidden rounded-2xl shadow-xl">
+            <div className="relative w-[264px] sm:w-[308px] h-[539px] sm:h-[627px] overflow-hidden rounded-2xl shadow-xl ring-1 ring-hairline">
               <AnimatePresence custom={direction} mode="popLayout">
                 <motion.div
                   key={current}
@@ -155,10 +161,10 @@ export const ProductPreview = () => {
             {/* Next button */}
             <button
               onClick={next}
-              className="z-10 p-2.5 rounded-full bg-white shadow-md border border-gray-100 hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="z-10 p-2.5 rounded-full glass hover:bg-surface-raised transition focus:outline-none focus:ring-2 focus:ring-fynd"
               aria-label="Next screenshot"
             >
-              <ChevronRight className="w-5 h-5 text-gray-600" />
+              <ChevronRight className="w-5 h-5 text-ink" />
             </button>
           </div>
 
@@ -168,7 +174,7 @@ export const ProductPreview = () => {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-sm text-gray-500 text-center max-w-xs"
+            className="text-sm text-ink-muted text-center max-w-xs"
           >
             {screenshots[current].caption}
           </motion.p>
@@ -180,7 +186,7 @@ export const ProductPreview = () => {
                 key={i}
                 onClick={() => goTo(i, i > current ? 1 : -1)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === current ? "bg-orange-500 w-6" : "bg-gray-200 w-2"
+                  i === current ? "bg-fynd w-6" : "bg-ink/15 w-2"
                 }`}
                 aria-label={`Go to screenshot ${i + 1}`}
               />

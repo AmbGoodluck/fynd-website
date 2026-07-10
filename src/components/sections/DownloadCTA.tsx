@@ -1,26 +1,31 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Smartphone, Globe } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import Image from "next/image";
+import { Globe } from "lucide-react";
 
 export const DownloadCTA = () => {
-  const [downloadOpen, setDownloadOpen] = useState(false);
-
   return (
     <section
       id="download"
       className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #9a3412 0%, #c2410c 50%, #ea580c 100%)",
-      }}
     >
-      {/* Decorative circles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
-        <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-white/5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/3" />
+      {/* Cinematic photo backdrop with brand-orange wash */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src="/photos/rooftop-friends.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          unoptimized
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(154,52,18,0.92) 0%, rgba(194,65,12,0.88) 50%, rgba(234,88,12,0.85) 100%)",
+          }}
+        />
       </div>
 
       <motion.div
@@ -42,86 +47,31 @@ export const DownloadCTA = () => {
 
         {/* Sub copy */}
         <p className="text-orange-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-          Download the app or jump straight into the web version — no account
-          required to start discovering.
+          Jump straight into the web version — no account, no install,
+          just open and start discovering.
         </p>
 
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {/* "Get the app" opens the download picker */}
-          <button
-            onClick={() => setDownloadOpen(true)}
-            className="inline-flex items-center gap-2.5 bg-white text-gray-900 font-semibold px-7 py-4 rounded-xl hover:bg-orange-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
-            aria-label="Download the Fynd app"
-          >
-            <Smartphone className="w-5 h-5 text-orange-600" aria-hidden="true" />
-            Get the app
-          </button>
-
+        {/* CTA */}
+        <div className="flex items-center justify-center">
           {/* Opens web app directly */}
           {/* TODO: replace href with final web-app URL */}
           <a
             href="https://app.fyndplaces.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-transparent text-white font-semibold px-7 py-4 rounded-xl border-2 border-white/40 hover:border-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+            className="inline-flex items-center gap-2.5 bg-white text-gray-900 font-semibold px-7 py-4 rounded-full hover:bg-orange-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
             aria-label="Open Fynd web app"
           >
-            <Globe className="w-5 h-5" aria-hidden="true" />
+            <Globe className="w-5 h-5 text-orange-600" aria-hidden="true" />
             Open web app
           </a>
         </div>
 
         {/* Fine print */}
         <p className="mt-6 text-orange-200/60 text-sm">
-          Available on Android &amp; iOS. Web app works on any browser.
+          Works on any browser, on any device.
         </p>
       </motion.div>
-
-      {/* Download picker modal */}
-      {downloadOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4"
-          onClick={() => setDownloadOpen(false)}
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl leading-none"
-              onClick={() => setDownloadOpen(false)}
-              aria-label="Close"
-            >
-              &times;
-            </button>
-            <h2 className="text-xl font-bold mb-1 text-center text-gray-900">
-              Download Fynd
-            </h2>
-            <p className="text-gray-500 text-sm mb-6 text-center">
-              Choose your platform to get started.
-            </p>
-            <div className="flex flex-col gap-3">
-              {/* TODO: replace with App Store link when available */}
-              <a
-                href="https://androidv1.fyndplaces.com/app-release.apk"
-                download
-                className="w-full"
-              >
-                <Button variant="primary" size="md" className="w-full">
-                  Android (APK)
-                </Button>
-              </a>
-              {/* TODO: replace with Google Play / App Store links */}
-              <a href="/downloads/fynd-ios-v1.ipa" download className="w-full">
-                <Button variant="secondary" size="md" className="w-full">
-                  iOS (coming soon)
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

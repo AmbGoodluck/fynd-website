@@ -1,201 +1,109 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCallback, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Button } from "@/components/ui/Button";
-
-// Hero rotating screenshots — best 4 screens that show the full journey at a glance
-const screens = [
-  { src: "/screenshots/fynd-screen3.png", alt: "Fynd — Instant Places Discovery onboarding screen" },
-  { src: "/screenshots/fynd-screen4.png", alt: "Fynd — Set your location, time, and distance preferences" },
-  { src: "/screenshots/fynd-screen8.png", alt: "Fynd — Suggested places list for New York" },
-  { src: "/screenshots/fynd-screen1.png", alt: "Fynd — Trip map with pinned stops in Manhattan" },
-];
+import { DiscoverySearch } from "@/components/hero/DiscoverySearch";
+import { DiscoveryCarousel, type DiscoveryState } from "@/components/hero/DiscoveryCarousel";
+import { fetchDiscoverByCity, fetchDiscoverByLocation, DiscoverError } from "@/lib/discoverApi";
 
 export const Hero = () => {
-  const [current, setCurrent] = useState(0);
+  const [state, setState] = useState<DiscoveryState>({ status: "fallback" });
+  const lastAction = useRef<(() => void) | null>(null);
 
-  // Auto-advance phone mockup screenshots
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % screens.length);
-    }, 3000);
-    return () => clearInterval(timer);
+  const runSearch = useCallback(async (fetcher: () => ReturnType<typeof fetchDiscoverByCity>) => {
+    setState({ status: "loading" });
+    try {
+      const data = await fetcher();
+      if (data.places.length === 0) {
+        setState({ status: "empty", resolved: data.resolved });
+      } else {
+        setState({ status: "success", resolved: data.resolved, places: data.places });
+      }
+    } catch (err) {
+      const message = err instanceof DiscoverError ? err.message : "Something went wrong. Please try again.";
+      setState({ status: "error", message });
+    }
+  }, []);
+
+  const handleSearchCity = useCallback(
+    (city: string) => {
+      lastAction.current = () => runSearch(() => fetchDiscoverByCity(city));
+      lastAction.current();
+    },
+    [runSearch],
+  );
+
+  const handleUseLocation = useCallback(() => {
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      setState({ status: "fallback", reason: "location-unavailable" });
+      return;
+    }
+    setState({ status: "loading" });
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        lastAction.current = () => runSearch(() => fetchDiscoverByLocation(pos.coords.latitude, pos.coords.longitude));
+        lastAction.current();
+      },
+      () => {
+        // User said no to the location prompt — fall back to static examples
+        // instead of a dead-end error, so there's always something to see.
+        setState({ status: "fallback", reason: "location-denied" });
+      },
+      { timeout: 8000, enableHighAccuracy: false },
+    );
+  }, [runSearch]);
+
+  const handleRetry = useCallback(() => {
+    lastAction.current?.();
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-16 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, #fff7ed 0%, #ffedd5 48%, #fed7aa 100%)",
-      }}
+      className="relative pt-40 pb-24 px-4 sm:px-6 lg:px-8 bg-canvas text-center overflow-hidden"
     >
-      {/* Background decorative blobs */}
-      <div
-        className="absolute inset-0 pointer-events-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <div
-          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-30"
-          style={{
-            background:
-              "radial-gradient(circle, #fdba74 0%, transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full opacity-20"
-          style={{
-            background:
-              "radial-gradient(circle, #fb923c 0%, transparent 70%)",
-          }}
-        />
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mono-tag text-ink-muted mb-6"
+        >
+          Your city, reconsidered
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="hero-title text-ink mb-4"
+        >
+          Discover places you&apos;ll <em>actually</em> love.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-ink-muted text-lg mb-10 max-w-lg mx-auto"
+        >
+          Search a city or share your location — see what Fynd would find for you right now.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <DiscoverySearch
+            onSearchCity={handleSearchCity}
+            onUseLocation={handleUseLocation}
+            loading={state.status === "loading"}
+          />
+        </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* ── Left column: text & CTAs ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Overline badge */}
-            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-sm font-semibold px-3 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-              Personalized place discovery
-            </div>
-
-            {/* Headline */}
-            <h1 className="hero-title text-gray-900 mb-6">
-              Discover places you&apos;ll actually love, wherever you are.
-            </h1>
-
-            {/* Subheading */}
-            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
-              Fynd learns your interests, preferences, and location to uncover
-              experiences, neighborhoods, and hidden gems tailored to you in
-              seconds.
-            </p>
-
-            {/* Primary CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              {/* Scrolls to download section */}
-              <a href="#download" className="flex-shrink-0">
-                <Button size="lg" variant="primary" aria-label="Get the Fynd app">
-                  Get the app
-                </Button>
-              </a>
-
-              {/* Opens the web app directly */}
-              {/* TODO: replace href with final web-app URL */}
-              <a
-                href="https://app.fyndplaces.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button size="lg" variant="outline" aria-label="Open Fynd in your browser">
-                  Open in your browser
-                </Button>
-              </a>
-            </div>
-
-            {/* Trust micro-copy */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
-              <span>Free to use</span>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span>No account required</span>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span>Web &amp; mobile</span>
-            </div>
-          </motion.div>
-
-          {/* ── Right column: phone mockup ── */}
-          <motion.div
-            className="flex justify-center lg:justify-end"
-            initial={{ opacity: 0, y: 48 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-          >
-            <div className="relative">
-              {/* Floating phone */}
-              <motion.div
-                animate={{ y: [-8, 8, -8] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                {/* Screenshot display — no phone frame */}
-                <div
-                  className="relative w-[286px] sm:w-[330px] overflow-hidden rounded-2xl shadow-2xl"
-                  style={{ aspectRatio: "9/19.5" }}
-                >
-                  {/* Rotating screenshots */}
-                  <div className="absolute inset-0 bg-gray-100">
-                    {screens.map((s, i) => (
-                      <div
-                        key={i}
-                        className="absolute inset-0 transition-opacity duration-700"
-                        style={{ opacity: i === current ? 1 : 0 }}
-                      >
-                        <Image
-                          src={s.src}
-                          alt={s.alt}
-                          fill
-                          className="object-contain"
-                          unoptimized
-                          priority={i === 0}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating info bubble — top right */}
-              <motion.div
-                className="absolute -right-6 top-20 bg-white rounded-2xl shadow-lg px-4 py-3 text-xs max-w-[148px]"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.9, duration: 0.6 }}
-              >
-                <p className="text-orange-600 font-bold text-sm">Local picks</p>
-                <p className="text-gray-500 mt-0.5 leading-snug">
-                  Curated spots near you
-                </p>
-              </motion.div>
-
-              {/* Floating info bubble — bottom left */}
-              <motion.div
-                className="absolute -left-6 bottom-28 bg-white rounded-2xl shadow-lg px-4 py-3 text-xs max-w-[148px]"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.1, duration: 0.6 }}
-              >
-                <p className="text-orange-600 font-bold text-sm">Personalized</p>
-                <p className="text-gray-500 mt-0.5 leading-snug">
-                  Matches your vibe instantly
-                </p>
-              </motion.div>
-
-              {/* Dot indicators */}
-              <div className="flex justify-center gap-2 mt-5">
-                {screens.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    aria-label={`Show screen ${i + 1}`}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === current ? "bg-orange-500 w-6" : "bg-gray-300 w-2"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      <DiscoveryCarousel state={state} onRetry={handleRetry} />
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Fynd",
@@ -32,7 +33,7 @@ const sections = [
         <p className="mb-3">
           By accessing or using the Service, you confirm that:
         </p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted">
           <li>You are at least 13 years of age.</li>
           <li>You agree to comply with these Terms.</li>
           <li>You will use the Service only for lawful purposes.</li>
@@ -50,7 +51,7 @@ const sections = [
           access and use the Service for personal, non-commercial purposes.
         </p>
         <p className="mb-3">You agree not to:</p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted">
           <li>
             Copy, modify, or distribute any part of the Service without
             permission.
@@ -75,7 +76,7 @@ const sections = [
           artificial intelligence to generate travel suggestions.
         </p>
         <p className="mb-3">Because of this:</p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-3">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>Information may occasionally be inaccurate or outdated.</li>
           <li>
             Businesses, locations, or services may change without notice.
@@ -101,7 +102,7 @@ const sections = [
           The Service may include links to third-party websites, maps, or
           services such as:
         </p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-3">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>Google Maps</li>
           <li>Travel websites</li>
           <li>Tourism blogs</li>
@@ -124,7 +125,7 @@ const sections = [
           Fynd provides travel suggestions for informational purposes only.
         </p>
         <p className="mb-3">Fynd does not:</p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-3">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>operate or manage any locations</li>
           <li>provide travel booking services</li>
           <li>
@@ -143,7 +144,7 @@ const sections = [
     content: (
       <div>
         <p className="mb-3">All content on Fynd, including:</p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-3">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>logos</li>
           <li>branding</li>
           <li>design</li>
@@ -184,7 +185,7 @@ const sections = [
           not be liable for any indirect, incidental, or consequential damages
           arising from:
         </p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-3">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>use of the Service</li>
           <li>travel decisions made based on recommendations</li>
           <li>inaccurate information or location data</li>
@@ -203,7 +204,7 @@ const sections = [
           The Service is provided &quot;as is&quot; and &quot;as available.&quot;
         </p>
         <p className="mb-3">Fynd makes no warranties regarding:</p>
-        <ul className="list-disc pl-5 space-y-1 text-gray-600">
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted">
           <li>accuracy of recommendations</li>
           <li>availability of locations</li>
           <li>reliability of AI-generated suggestions</li>
@@ -245,35 +246,18 @@ const sections = [
 
 export default function TermsOfServicePage() {
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* Header */}
-      <header className="border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-fynd">
-            Fynd
-          </Link>
-          <Link
-            href="/"
-            className="text-sm text-gray-500 hover:text-fynd transition"
-          >
-            &larr; Back to Home
-          </Link>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-canvas font-sans">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-50 to-orange-50 py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-surface pt-28 md:pt-32 pb-14 md:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium text-fynd uppercase tracking-widest mb-3">
-            Legal
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <p className="mono-tag text-ink-muted mb-4">Legal</p>
+          <h1 className="text-4xl md:text-5xl text-ink mb-4">
             Terms of Service
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-ink-muted text-sm">
             <strong>Last Updated:</strong> March 4, 2026
           </p>
-          <p className="mt-4 text-gray-600 max-w-2xl">
+          <p className="mt-4 text-ink-muted max-w-2xl">
             Welcome to Fynd. These Terms of Service (&quot;Terms&quot;) govern
             your access to and use of the Fynd website, mobile application, and
             related services (collectively, the &quot;Service&quot;). By using
@@ -288,8 +272,8 @@ export default function TermsOfServicePage() {
       {/* Body */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Table of Contents */}
-        <nav className="mb-14 p-6 bg-gray-50 rounded-2xl border border-gray-100">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+        <nav className="mb-14 p-6 bg-surface rounded-2xl border border-hairline">
+          <h2 className="text-sm font-semibold text-ink-muted uppercase tracking-wider mb-4">
             Table of Contents
           </h2>
           <ol className="space-y-1">
@@ -297,7 +281,7 @@ export default function TermsOfServicePage() {
               <li key={s.id}>
                 <a
                   href={`#${s.id}`}
-                  className="text-sm text-gray-600 hover:text-fynd transition"
+                  className="text-sm text-ink-muted hover:text-fynd transition"
                 >
                   {s.title}
                 </a>
@@ -310,32 +294,20 @@ export default function TermsOfServicePage() {
         <div className="space-y-12">
           {sections.map((s) => (
             <section key={s.id} id={s.id} className="scroll-mt-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              <h2 className="text-xl text-ink mb-4 pb-2 border-b border-hairline">
                 {s.title}
               </h2>
-              <div className="text-gray-600 leading-relaxed">{s.content}</div>
+              <div className="text-ink-muted leading-relaxed">{s.content}</div>
             </section>
           ))}
         </div>
 
-        <p className="mt-16 pt-8 border-t border-gray-100 text-sm text-gray-400 text-center">
+        <p className="mt-16 pt-8 border-t border-hairline text-sm text-ink-muted/70 text-center">
           These Terms of Service were last updated on March 4, 2026.
         </p>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-center py-8 px-4 sm:px-6">
-        <p className="text-gray-400 text-sm">
-          &copy; 2026 Fynd. All rights reserved. &nbsp;&bull;&nbsp;
-          <Link href="/privacy" className="text-fynd hover:underline">
-            Privacy Policy
-          </Link>
-          &nbsp;&bull;&nbsp;
-          <Link href="/terms-of-service" className="text-fynd hover:underline">
-            Terms of Service
-          </Link>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
