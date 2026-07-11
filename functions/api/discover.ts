@@ -147,8 +147,11 @@ async function geocodeCity(
 async function browseHere(lat: number, lng: number, apiKey: string): Promise<RawHereItem[]> {
   try {
     // 100 Eating/Drinking, 200 Going Out, 300 Sights & Museums, 350 Natural/Geographical,
-    // 550 Sports/Recreation (parks), 600 Shopping — 400 Transport intentionally excluded.
-    const url = `https://browse.search.hereapi.com/v1/browse?at=${lat},${lng}&categories=100,200,300,350,550,600&limit=100&apiKey=${apiKey}`;
+    // 550 Sports/Recreation (parks). 400 Transport and 600 Shopping intentionally
+    // excluded — Shopping's long tail of local service businesses (salons, home
+    // improvement, tutoring studios) doesn't match any of the 6 target buckets and
+    // was surfacing as low-quality "Hidden Gem" picks.
+    const url = `https://browse.search.hereapi.com/v1/browse?at=${lat},${lng}&categories=100,200,300,350,550&limit=100&apiKey=${apiKey}`;
     const res = await fetchWithTimeout(url, 8000);
     if (!res.ok) {
       console.error("[discover] HERE browse failed", res.status, (await res.text().catch(() => "")).slice(0, 300));

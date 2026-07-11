@@ -120,10 +120,21 @@ export function getBucketLabel(bucket: CategoryBucket): string {
   return BUCKET_LABELS[bucket];
 }
 
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Word-boundary match — plain .includes() false-positives on substrings
+ * (e.g. "art" matching inside "Makeup Artist", misclassifying a makeup
+ * studio as Arts & Culture). */
+function containsWord(haystack: string, keyword: string): boolean {
+  return new RegExp(`\\b${escapeRegExp(keyword)}\\b`, "i").test(haystack);
+}
+
 export function bucketFromCategoryNames(categoryNames: string[], placeName: string): CategoryBucket {
   const haystack = [...categoryNames, placeName].join(" ").toLowerCase();
   for (const bucket of Object.keys(BUCKET_KEYWORDS) as (keyof typeof BUCKET_KEYWORDS)[]) {
-    if (BUCKET_KEYWORDS[bucket].some((kw) => haystack.includes(kw))) return bucket;
+    if (BUCKET_KEYWORDS[bucket].some((kw) => containsWord(haystack, kw))) return bucket;
   }
   return "other";
 }
