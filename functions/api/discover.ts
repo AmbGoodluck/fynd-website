@@ -73,14 +73,17 @@ interface HereGeocodeResponse {
 interface HereBrowseResponse {
   items?: RawHereItem[];
 }
-interface GoogleTextSearchResponse {
-  results?: {
-    place_id?: string;
+// Places API (New) — the legacy Text Search / Place Photo endpoints return
+// REQUEST_DENIED on Google Cloud projects that only have the New API enabled.
+interface GoogleSearchTextResponse {
+  places?: {
+    id?: string;
+    formattedAddress?: string;
     rating?: number;
-    opening_hours?: { open_now?: boolean };
-    formatted_address?: string;
-    photos?: { photo_reference?: string }[];
+    currentOpeningHours?: { openNow?: boolean };
+    photos?: { name?: string }[];
   }[];
+  error?: { status?: string; message?: string };
 }
 interface OpenAIChatResponse {
   choices?: { message?: { content?: string } }[];
@@ -159,34 +162,51 @@ async function browseHere(lat: number, lng: number, apiKey: string): Promise<Raw
   }
 }
 
-// ── Google Places — real photo enrichment ─────────────────────────────────────
+// ── Google Places (New) — real photo enrichment ────────────────────────────────
+// Uses places:searchText (New Places API), not the legacy textsearch/json
+// endpoint — Google Cloud projects created without the legacy API enabled
+// get REQUEST_DENIED from the old endpoint even with the New API active.
 async function enrichWithGoogle(candidate: CandidatePlace, apiKey: string): Promise<EnrichedPlace | null> {
   try {
-    const query = encodeURIComponent(`${candidate.name} ${candidate.address}`);
-    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&location=${candidate.lat},${candidate.lng}&radius=500&key=${apiKey}`;
-    const res = await fetchWithTimeout(url, 8000);
+    const res = await fetchWithTimeout("https://places.googleapis.com/v1/places:searchText", 8000, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": apiKey,
+        "X-Goog-FieldMask":
+          "places.id,places.formattedAddress,places.rating,places.currentOpeningHours.openNow,places.photos",
+      },
+      body: JSON.stringify({
+        textQuery: `${candidate.name} ${candidate.address}`,
+        locationBias: {
+          circle: { center: { latitude: candidate.lat, longitude: candidate.lng }, radius: 500 },
+        },
+        maxResultCount: 1,
+      }),
+    });
     if (!res.ok) {
-      console.error("[discover] Google text search failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
+      console.error("[discover] Google searchText failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
       return null;
     }
-    const data: GoogleTextSearchResponse & { status?: string; error_message?: string } = await res.json();
-    if (data.status && data.status !== "OK" && data.status !== "ZERO_RESULTS") {
-      console.error("[discover] Google text search status", data.status, data.error_message);
+    const data: GoogleSearchTextResponse = await res.json();
+    if (data.error) {
+      console.error("[discover] Google searchText error", data.error.status, data.error.message);
     }
-    const result = data.results?.[0];
+    const result = data.places?.[0];
     if (!result) return null;
-    const photoRef = result.photos?.[0]?.photo_reference;
-    const photoUrl = photoRef
-      ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=${photoRef}&key=${apiKey}`
+    const photoName = result.photos?.[0]?.name;
+    const photoUrl = photoName
+      ? `https://places.googleapis.com/v1/${photoName}/media?maxWidthPx=800&key=${apiKey}`
       : null;
     return {
-      googlePlaceId: result.place_id || null,
+      googlePlaceId: result.id || null,
       rating: typeof result.rating === "number" ? result.rating : null,
-      openNow: result.opening_hours?.open_now ?? null,
+      openNow: result.currentOpeningHours?.openNow ?? null,
       photoUrl,
-      address: result.formatted_address || candidate.address,
+      address: result.formattedAddress || candidate.address,
     };
-  } catch {
+  } catch (err) {
+    console.error("[discover] Google searchText fetch error", err instanceof Error ? err.message : err);
     return null;
   }
 }
