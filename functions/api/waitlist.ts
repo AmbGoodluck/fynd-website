@@ -54,24 +54,35 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       return json({ error: "That doesn't look like a valid email." }, 400);
     }
 
-    const res = await fetch(`${env.SUPABASE_URL}/rest/v1/waitlist`, {
-      method: "POST",
-      headers: {
-        apikey: env.SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${env.SUPABASE_ANON_KEY}`,
-        "Content-Type": "application/json",
-        // Re-submitting the same email is treated as success, not an error.
-        Prefer: "resolution=ignore-duplicates,return=minimal",
-      },
-      body: JSON.stringify([{ email, source }]),
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    let res: Response;
+    try {
+      res = await fetch(`${env.SUPABASE_URL}/rest/v1/waitlist`, {
+        method: "POST",
+        headers: {
+          apikey: env.SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${env.SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json",
+          // Re-submitting the same email is treated as success, not an error.
+          Prefer: "resolution=ignore-duplicates,return=minimal",
+        },
+        body: JSON.stringify([{ email, source }]),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
 
     if (!res.ok && res.status !== 409) {
+      const detail = await res.text().catch(() => "");
+      console.error("[waitlist] Supabase insert failed", res.status, detail.slice(0, 500));
       return json({ error: "Something went wrong — try again." }, 502);
     }
 
     return json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("[waitlist] unhandled error", err instanceof Error ? err.message : err);
     return json({ error: "Something went wrong — try again." }, 500);
   }
 };

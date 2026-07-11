@@ -127,12 +127,16 @@ async function geocodeCity(
   try {
     const url = `https://geocode.search.hereapi.com/v1/geocode?q=${encodeURIComponent(city)}&apiKey=${apiKey}`;
     const res = await fetchWithTimeout(url, 8000);
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.error("[discover] HERE geocode failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
+      return null;
+    }
     const data: HereGeocodeResponse = await res.json();
     const item = data.items?.[0];
     if (!item?.position) return null;
     return { lat: item.position.lat, lng: item.position.lng, label: item.address?.label || city };
-  } catch {
+  } catch (err) {
+    console.error("[discover] HERE geocode error", err instanceof Error ? err.message : err);
     return null;
   }
 }
@@ -143,10 +147,14 @@ async function browseHere(lat: number, lng: number, apiKey: string): Promise<Raw
     // 550 Sports/Recreation (parks), 600 Shopping — 400 Transport intentionally excluded.
     const url = `https://browse.search.hereapi.com/v1/browse?at=${lat},${lng}&categories=100,200,300,350,550,600&limit=100&apiKey=${apiKey}`;
     const res = await fetchWithTimeout(url, 8000);
-    if (!res.ok) return [];
+    if (!res.ok) {
+      console.error("[discover] HERE browse failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
+      return [];
+    }
     const data: HereBrowseResponse = await res.json();
     return data.items || [];
-  } catch {
+  } catch (err) {
+    console.error("[discover] HERE browse error", err instanceof Error ? err.message : err);
     return [];
   }
 }
@@ -157,8 +165,14 @@ async function enrichWithGoogle(candidate: CandidatePlace, apiKey: string): Prom
     const query = encodeURIComponent(`${candidate.name} ${candidate.address}`);
     const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&location=${candidate.lat},${candidate.lng}&radius=500&key=${apiKey}`;
     const res = await fetchWithTimeout(url, 8000);
-    if (!res.ok) return null;
-    const data: GoogleTextSearchResponse = await res.json();
+    if (!res.ok) {
+      console.error("[discover] Google text search failed", res.status, (await res.text().catch(() => "")).slice(0, 300));
+      return null;
+    }
+    const data: GoogleTextSearchResponse & { status?: string; error_message?: string } = await res.json();
+    if (data.status && data.status !== "OK" && data.status !== "ZERO_RESULTS") {
+      console.error("[discover] Google text search status", data.status, data.error_message);
+    }
     const result = data.results?.[0];
     if (!result) return null;
     const photoRef = result.photos?.[0]?.photo_reference;
