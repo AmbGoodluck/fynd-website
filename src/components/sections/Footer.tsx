@@ -147,7 +147,7 @@ export const Footer = () => {
             <div>
               <p className="font-semibold text-sm mb-1">Stay in the loop</p>
               <p className="text-paper-muted text-sm">
-                New guides, features, and hidden gems — straight to your inbox.
+                New guides, features, and hidden gems - straight to your inbox.
               </p>
             </div>
             {/* TODO: wire up to email subscription service (e.g. Mailchimp, Resend) */}

@@ -37,15 +37,15 @@ const sections = [
           </h3>
           <ul className="list-disc pl-5 space-y-1 text-ink-muted">
             <li>
-              <strong>Account Information</strong> — name, email address, and
+              <strong>Account Information:</strong> name, email address, and
               password when you register
             </li>
             <li>
-              <strong>Profile Information</strong> — travel preferences,
+              <strong>Profile Information:</strong> travel preferences,
               interests, and vibe settings
             </li>
             <li>
-              <strong>Feedback &amp; Reviews</strong> — ratings and written
+              <strong>Feedback &amp; Reviews:</strong> ratings and written
               feedback you submit through the app
             </li>
           </ul>
@@ -56,16 +56,16 @@ const sections = [
           </h3>
           <ul className="list-disc pl-5 space-y-1 text-ink-muted">
             <li>
-              <strong>Location Data</strong> — with your permission, we collect
+              <strong>Location Data:</strong> with your permission, we collect
               your precise GPS location to power trip navigation and suggest
               nearby places
             </li>
             <li>
-              <strong>Usage Data</strong> — how you interact with the app,
+              <strong>Usage Data:</strong> how you interact with the app,
               screens visited, features used, and time spent
             </li>
             <li>
-              <strong>Device Information</strong> — device type, operating
+              <strong>Device Information:</strong> device type, operating
               system, and unique device identifiers
             </li>
           </ul>
@@ -76,15 +76,15 @@ const sections = [
           </h3>
           <ul className="list-disc pl-5 space-y-1 text-ink-muted">
             <li>
-              <strong>Google</strong> — when you sign in with Google, we receive
+              <strong>Google:</strong> when you sign in with Google, we receive
               your name, email, and profile picture
             </li>
             <li>
-              <strong>Google Places API</strong> — we use Google&apos;s services
+              <strong>Google Places API:</strong> we use Google&apos;s services
               to surface venue details, ratings, and photos
             </li>
             <li>
-              <strong>Stripe</strong> — payment information for subscription
+              <strong>Stripe:</strong> payment information for subscription
               services is handled directly by Stripe; we never store your full
               card details
             </li>
@@ -122,21 +122,21 @@ const sections = [
         </p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong>Service Providers</strong> — trusted third parties that help
+            <strong>Service Providers</strong> - trusted third parties that help
             us operate the app (Firebase, Google, Stripe, OpenAI) under strict
             data processing agreements
           </li>
           <li>
-            <strong>Legal Requirements</strong> — if required by law, court
+            <strong>Legal Requirements</strong> - if required by law, court
             order, or government authority
           </li>
           <li>
-            <strong>Business Transfers</strong> — in the event of a merger,
+            <strong>Business Transfers</strong> - in the event of a merger,
             acquisition, or sale of assets, your data may be transferred with
             appropriate notice
           </li>
           <li>
-            <strong>With Your Consent</strong> — for any other purpose with your
+            <strong>With Your Consent</strong> - for any other purpose with your
             explicit consent
           </li>
         </ul>
@@ -205,26 +205,26 @@ const sections = [
         </p>
         <ul className="list-disc pl-5 space-y-1 text-ink-muted">
           <li>
-            <strong>Access</strong> — request a copy of the personal data we
+            <strong>Access</strong> - request a copy of the personal data we
             hold about you
           </li>
           <li>
-            <strong>Correction</strong> — request correction of inaccurate or
+            <strong>Correction</strong> - request correction of inaccurate or
             incomplete data
           </li>
           <li>
-            <strong>Deletion</strong> — request deletion of your personal data
+            <strong>Deletion</strong> - request deletion of your personal data
           </li>
           <li>
-            <strong>Portability</strong> — receive your data in a structured,
+            <strong>Portability</strong> - receive your data in a structured,
             machine-readable format
           </li>
           <li>
-            <strong>Objection</strong> — object to certain processing of your
+            <strong>Objection</strong> - object to certain processing of your
             data
           </li>
           <li>
-            <strong>Withdraw Consent</strong> — where processing is based on
+            <strong>Withdraw Consent</strong> - where processing is based on
             consent, you may withdraw it at any time
           </li>
         </ul>

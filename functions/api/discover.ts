@@ -1,7 +1,7 @@
 /**
  * GET /api/discover?city=<name>  |  ?lat=<lat>&lng=<lng>
  *
- * Cloudflare Pages Function — powers the homepage's interactive discovery
+ * Cloudflare Pages Function - powers the homepage's interactive discovery
  * hero. Lives entirely in this repo, separate from fynd-pwa's backend (see
  * plan doc), and shares only the Supabase project/schema as a public,
  * non-user cache of place previews.
@@ -9,7 +9,7 @@
  * Flow: resolve city/coords → check Supabase cache (7-day TTL) → on miss,
  * HERE Browse for a broad category pool → bucket into a balanced ~10-place
  * mix (functions/_shared/places.ts) → enrich each candidate with a real
- * Google Places photo (skip + try next candidate if none found — this is
+ * Google Places photo (skip + try next candidate if none found - this is
  * the "no stock photos" rule) → generate a one-sentence AI description →
  * upsert into Supabase → return.
  *
@@ -66,14 +66,14 @@ interface Winner {
   description: string | null;
 }
 
-// ── External API response shapes (minimal — only fields we read) ──────────────
+// ── External API response shapes (minimal - only fields we read) ──────────────
 interface HereGeocodeResponse {
   items?: { position?: { lat: number; lng: number }; address?: { label?: string } }[];
 }
 interface HereBrowseResponse {
   items?: RawHereItem[];
 }
-// Places API (New) — the legacy Text Search / Place Photo endpoints return
+// Places API (New) - the legacy Text Search / Place Photo endpoints return
 // REQUEST_DENIED on Google Cloud projects that only have the New API enabled.
 interface GoogleSearchTextResponse {
   places?: {
@@ -148,7 +148,7 @@ async function browseHere(lat: number, lng: number, apiKey: string): Promise<Raw
   try {
     // 100 Eating/Drinking, 200 Going Out, 300 Sights & Museums, 350 Natural/Geographical,
     // 550 Sports/Recreation (parks). 400 Transport and 600 Shopping intentionally
-    // excluded — Shopping's long tail of local service businesses (salons, home
+    // excluded - Shopping's long tail of local service businesses (salons, home
     // improvement, tutoring studios) doesn't match any of the 6 target buckets and
     // was surfacing as low-quality "Hidden Gem" picks.
     const url = `https://browse.search.hereapi.com/v1/browse?at=${lat},${lng}&categories=100,200,300,350,550&limit=100&apiKey=${apiKey}`;
@@ -165,9 +165,9 @@ async function browseHere(lat: number, lng: number, apiKey: string): Promise<Raw
   }
 }
 
-// ── Google Places (New) — real photo enrichment ────────────────────────────────
+// ── Google Places (New) - real photo enrichment ────────────────────────────────
 // Uses places:searchText (New Places API), not the legacy textsearch/json
-// endpoint — Google Cloud projects created without the legacy API enabled
+// endpoint - Google Cloud projects created without the legacy API enabled
 // get REQUEST_DENIED from the old endpoint even with the New API active.
 async function enrichWithGoogle(candidate: CandidatePlace, apiKey: string): Promise<EnrichedPlace | null> {
   try {
@@ -216,10 +216,10 @@ async function enrichWithGoogle(candidate: CandidatePlace, apiKey: string): Prom
 
 /**
  * Walk a ranked candidate pool, enriching one at a time, keeping only
- * candidates with a real Google photo (no stock/placeholder images — this IS
+ * candidates with a real Google photo (no stock/placeholder images - this IS
  * the "skip if stock photo" rule from the spec: a candidate with no real
  * photo found is treated exactly like a stock photo and rejected).
- * Not concurrency-optimized — acceptable for a not-yet-deployed v1.
+ * Not concurrency-optimized - acceptable for a not-yet-deployed v1.
  */
 async function fillFromPool(
   pool: CandidatePlace[],
@@ -234,7 +234,7 @@ async function fillFromPool(
     if (winners.some((w) => w.candidate.hereId === candidate.hereId)) continue;
 
     const enriched = await enrichWithGoogle(candidate, env.GOOGLE_PLACES_API_KEY);
-    if (!enriched || isStockPhoto(enriched.photoUrl)) continue; // no real photo — try next candidate
+    if (!enriched || isStockPhoto(enriched.photoUrl)) continue; // no real photo - try next candidate
 
     winners.push({
       candidate: bucketOverride ? { ...candidate, bucket: bucketOverride } : candidate,
@@ -245,7 +245,7 @@ async function fillFromPool(
   }
 }
 
-// ── OpenAI — one-sentence editorial description ───────────────────────────────
+// ── OpenAI - one-sentence editorial description ───────────────────────────────
 async function generateOneLiner(
   name: string,
   address: string,
@@ -267,7 +267,7 @@ async function generateOneLiner(
             role: "system",
             content:
               "You are a local guide writing a single-sentence teaser for a place-discovery app. " +
-              "Write exactly ONE sentence — natural, specific, editorial, never generic or promotional " +
+              "Write exactly ONE sentence - natural, specific, editorial, never generic or promotional " +
               '(avoid words like "amazing", "must-visit", "perfect place"). Return ONLY the sentence, no quotes.',
           },
           {
@@ -286,14 +286,14 @@ async function generateOneLiner(
   }
 }
 
-// ── Supabase REST — public, non-user place-preview cache ──────────────────────
+// ── Supabase REST - public, non-user place-preview cache ──────────────────────
 function supabaseConfigured(env: Env): boolean {
   return Boolean(env.SUPABASE_URL && env.SUPABASE_ANON_KEY);
 }
 
 function rowToPreview(row: DiscoverPlaceRow): PlacePreview {
   return {
-    // Always "here_<id>" — matches the PWA's fetchPlaceById() cold-open deep-link
+    // Always "here_<id>" - matches the PWA's fetchPlaceById() cold-open deep-link
     // resolver (freePlacesService.ts:505-506), which only recognizes that prefix.
     place_id: row.place_id,
     name: row.name,
@@ -332,7 +332,7 @@ async function writeCache(env: Env, cacheKey: string, winners: Winner[]): Promis
   if (!supabaseConfigured(env) || winners.length === 0) return;
   try {
     const rows = winners.map((w) => ({
-      // Canonical Fynd place ID — must be "here_<id>" so "Open in Fynd" cold-opens
+      // Canonical Fynd place ID - must be "here_<id>" so "Open in Fynd" cold-opens
       // correctly in the PWA (fetchPlaceById only resolves that prefix). Google's
       // place_id is kept separately, only for re-fetching a photo on cache refresh.
       place_id: `here_${w.candidate.hereId}`,
@@ -361,7 +361,7 @@ async function writeCache(env: Env, cacheKey: string, winners: Winner[]): Promis
       body: JSON.stringify(rows),
     });
   } catch {
-    // best-effort — a failed cache write shouldn't break the response already sent
+    // best-effort - a failed cache write shouldn't break the response already sent
   }
 }
 
@@ -373,7 +373,7 @@ function attachDistance(places: PlacePreview[], lat: number, lng: number, hasVis
 
 function toPreview(w: Winner): PlacePreview {
   return {
-    // Same "here_<id>" rule as writeCache() — must match what fetchPlaceById expects.
+    // Same "here_<id>" rule as writeCache() - must match what fetchPlaceById expects.
     place_id: `here_${w.candidate.hereId}`,
     name: w.candidate.name,
     category_bucket: w.candidate.bucket,
@@ -393,7 +393,7 @@ function toPreview(w: Winner): PlacePreview {
 export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   try {
     if (!checkRateLimit(`discover:${clientIp(request)}`, RATE_LIMIT, RATE_WINDOW)) {
-      return json({ error: "Too many requests — try again in a bit." }, 429);
+      return json({ error: "Too many requests - try again in a bit." }, 429);
     }
 
     const url = new URL(request.url);
@@ -417,7 +417,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
       resolvedLabel = "your location";
     } else if (cityParam) {
       const geo = await geocodeCity(cityParam, env.HERE_API_KEY);
-      if (!geo) return json({ error: `Could not find "${cityParam}" — try a different spelling.` }, 404);
+      if (!geo) return json({ error: `Could not find "${cityParam}" - try a different spelling.` }, 404);
       originLat = geo.lat;
       originLng = geo.lng;
       resolvedLabel = geo.label;
@@ -432,7 +432,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
       return json({ resolved: resolvedLabel, places: attachDistance(cached, originLat, originLng, hasVisitorLocation) });
     }
 
-    // 2. Cache miss — full discovery pipeline
+    // 2. Cache miss - full discovery pipeline
     const hereItems = await browseHere(originLat, originLng, env.HERE_API_KEY);
     const candidates = hereItems
       .map((item) => normalizeHereItem(item, resolvedLabel))
@@ -455,7 +455,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
       await fillFromPool(remaining, TOTAL_TARGET - winners.length, undefined, winners, env);
     }
 
-    // 3. AI descriptions — concurrent, small batch (~10)
+    // 3. AI descriptions - concurrent, small batch (~10)
     await Promise.all(
       winners.map(async (w) => {
         w.description = await generateOneLiner(

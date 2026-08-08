@@ -7,7 +7,7 @@ import { Volume2, VolumeX } from "lucide-react";
 
 const chapters = [
   {
-    tag: "01 — Discover",
+    tag: "01 - Discover",
     title: "Tell it what you're craving",
     description:
       "A mood, a budget, a distance. That's all it takes for Fynd to start looking.",
@@ -15,15 +15,15 @@ const chapters = [
     alt: "A neon-lit street food spot at night",
   },
   {
-    tag: "02 — Personalize",
+    tag: "02 - Personalize",
     title: "See your city differently",
     description:
-      "Every suggestion is shaped by what you actually like — not what's trending.",
+      "Every suggestion is shaped by what you actually like - not what's trending.",
     image: "/photos/egyptian-museum-hall.jpg",
     alt: "A grand museum hall filled with ancient artifacts",
   },
   {
-    tag: "03 — Explore",
+    tag: "03 - Explore",
     title: "Save it, share it, go",
     description:
       "Build a list, send it to a friend, get directions. Then go find out for yourself.",

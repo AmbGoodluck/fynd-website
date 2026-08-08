@@ -26,13 +26,13 @@ const features: Feature[] = [
   },
   {
     title: "Your trip, live on the map",
-    description: "Every stop pinned, routes drawn, one tap to navigate. Never wonder “where next?”",
+    description: "Every stop pinned, routes drawn, one tap to navigate. Never wonder where next?",
     icon: Map,
   },
   {
     title: "Service Hub",
     description:
-      "Pharmacies, clinics, ATMs, and essentials near you — because real trips need backup, not just bucket lists.",
+      "Pharmacies, clinics, ATMs, and essentials near you - because real trips need backup, not just bucket lists.",
     icon: LifeBuoy,
   },
   {

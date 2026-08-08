@@ -98,7 +98,7 @@ export const DiscoveryCarousel = ({ state, onRetry }: { state: DiscoveryState; o
           <>
             <p className="mono-tag text-ink-muted mb-4 px-4 sm:px-0">
               {state.reason
-                ? "No location shared — here's a taste of what Fynd finds"
+                ? "No location shared - here's a taste of what Fynd finds"
                 : "A taste of what Fynd finds"}
             </p>
             <AutoScrollRow>

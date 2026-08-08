@@ -13,14 +13,14 @@ const features = [
   },
   {
     title: "Home, or a world away",
-    description: "New city or your own — Fynd already knows the block.",
+    description: "New city or your own - Fynd already knows the block.",
     image: "/photos/friends-bar-laughing.jpg",
     alt: "Friends sharing drinks at a bar",
     span: "",
   },
   {
     title: "Tuned to the smallest detail",
-    description: "Mood, budget, distance — dial it in.",
+    description: "Mood, budget, distance - dial it in.",
     image: "/photos/vatican-gallery-maps.jpg",
     alt: "An ornately detailed gallery ceiling",
     span: "",

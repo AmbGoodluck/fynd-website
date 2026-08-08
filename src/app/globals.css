@@ -6,7 +6,7 @@
   --color-fynd-dark: #c93e2b;
   --color-fynd-light: #f08d80;
 
-  /* Light editorial canvas — orange stays the only accent */
+  /* Light editorial canvas - orange stays the only accent */
   --color-canvas: #fbf9f6;
   --color-surface: #f4f0e9;
   --color-surface-raised: #ffffff;
@@ -73,7 +73,7 @@ em {
   letter-spacing: 0.06em;
 }
 
-/* Frosted glass surfaces — light (default sections) and dark (noir sections) */
+/* Frosted glass surfaces - light (default sections) and dark (noir sections) */
 .glass {
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(18, 18, 18, 0.08);

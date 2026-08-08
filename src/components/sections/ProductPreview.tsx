@@ -8,58 +8,58 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const screenshots = [
   {
     src: "/screenshots/fynd-screen2.png",
-    alt: "Fynd splash screen — Trips That Matter",
-    caption: "Welcome to Fynd — Trips That Matter",
+    alt: "Fynd: Trips That Matter",
+    caption: "Welcome to Fynd: Trips That Matter",
   },
   {
     src: "/screenshots/fynd-screen3.png",
-    alt: "Fynd onboarding — Instant Places Discovery",
-    caption: "Instant Places Discovery — picks that actually fit you",
+    alt: "Fynd: Instant Places Discovery",
+    caption: "Instant Places Discovery: picks that actually fit you",
   },
   {
     src: "/screenshots/fynd-screen4.png",
-    alt: "Fynd — Set your location, time, and exploration distance",
-    caption: "Step 1 — set your location, duration, and distance",
+    alt: "Fynd: Set your location, time, and exploration distance",
+    caption: "Step 1: set your location, duration, and distance",
   },
   {
     src: "/screenshots/fynd-screen5.png",
-    alt: "Fynd — Choose your interests",
-    caption: "Step 2 — pick the activities that interest you",
+    alt: "Fynd: Choose your interests",
+    caption: "Step 2: pick the activities that interest you",
   },
   {
     src: "/screenshots/fynd-screen6.png",
-    alt: "Fynd — Selected interests and Find My Places",
+    alt: "Fynd: Selected interests and Find My Places",
     caption: "Select your vibe, then tap Find My Places",
   },
   {
     src: "/screenshots/fynd-screen7.png",
-    alt: "Fynd — Building your journey loading screen",
-    caption: "Building your journey — results in seconds",
+    alt: "Fynd: Building your journey loading screen",
+    caption: "Building your journey: results in seconds",
   },
   {
     src: "/screenshots/fynd-screen8.png",
-    alt: "Fynd — Suggested places list",
-    caption: "Suggested places — add your favorites to the itinerary",
+    alt: "Fynd: Suggested places list",
+    caption: "Suggested places: add your favorites to the itinerary",
   },
   {
     src: "/screenshots/fynd-screen9.png",
-    alt: "Fynd — Itinerary view with stops and durations",
-    caption: "Your itinerary — stops, travel times, and ratings",
+    alt: "Fynd: Itinerary view with stops and durations",
+    caption: "Your itinerary: stops, travel times, and ratings",
   },
   {
     src: "/screenshots/fynd-screen10.png",
-    alt: "Fynd — Open in Maps dialog",
+    alt: "Fynd: Open in Maps dialog",
     caption: "Navigate with the in-app map or Google Maps",
   },
   {
     src: "/screenshots/fynd-screen11.png",
-    alt: "Fynd — Trip map with stop details",
-    caption: "Trip map — view all stops pinned on the map",
+    alt: "Fynd: Trip map with stop details",
+    caption: "Trip map: view all stops pinned on the map",
   },
   {
     src: "/screenshots/fynd-screen1.png",
-    alt: "Fynd — Full map view with route in Manhattan",
-    caption: "Full map — explore your route across the city",
+    alt: "Fynd: Full map view with route in Manhattan",
+    caption: "Full map: explore your route across the city",
   },
 ];
 
@@ -134,7 +134,7 @@ export const ProductPreview = () => {
               <ChevronLeft className="w-5 h-5 text-ink" />
             </button>
 
-            {/* Screenshot display — no phone frame */}
+            {/* Screenshot display - no phone frame */}
             <div className="relative w-[264px] sm:w-[308px] h-[539px] sm:h-[627px] overflow-hidden rounded-2xl shadow-xl ring-1 ring-hairline">
               <AnimatePresence custom={direction} mode="popLayout">
                 <motion.div

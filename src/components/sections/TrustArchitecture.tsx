@@ -27,7 +27,7 @@ const boxes = [
     icon: ShieldOff,
     title: "Curated, not sponsored",
     description:
-      "Places earn their spot by being worth the trip — not by paying for placement.",
+      "Places earn their spot by being worth the trip - not by paying for placement.",
     span: "md:col-span-2",
   },
 ];

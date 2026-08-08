@@ -37,8 +37,8 @@ export const ParadigmShift = () => {
               Smart matching, not <em>gimmicks</em>.
             </h2>
             <p className="text-paper-muted text-lg leading-relaxed max-w-md">
-              Fynd reads what you actually want — a mood, a budget, a
-              distance — instead of forcing you through star ratings and
+              Fynd reads what you actually want - a mood, a budget, a
+              distance - instead of forcing you through star ratings and
               endless filters. Say it in your own words, and it finds real
               places that fit.
             </p>

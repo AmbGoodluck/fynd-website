@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 // This section was previously "The Problems We Solve".
-// Repurposed as "Who is Fynd for?" — use cases / personas.
+// Repurposed as "Who is Fynd for?" - use cases / personas.
 const personas = [
   {
     label: "Weekend explorers",

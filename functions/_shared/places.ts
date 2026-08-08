@@ -1,17 +1,17 @@
 /**
  * Shared, dependency-free place logic for the discovery-preview endpoint.
  *
- * Ported (not imported — separate repo/deploy) from fynd-pwa's
+ * Ported (not imported - separate repo/deploy) from fynd-pwa's
  * src/services/freePlacesService.ts, simplified for a marketing-page preview:
  *   - isChain / CHAIN_KEYWORDS: verbatim port (freePlacesService.ts:656-673)
- *   - isStockPhoto: verbatim port (freePlacesService.ts:225) — the app's own
+ *   - isStockPhoto: verbatim port (freePlacesService.ts:225) - the app's own
  *     category-fallback images are hardcoded Unsplash URLs, used only when no
  *     real Google Places photo was found for that place.
  *   - Category bucketing: NEW, simplified for the 6-bucket hero mix. The real
  *     app uses a 26-interest taste-profile system (TYPE_TO_INTERESTS) driven
  *     by a signed-in user's preferences; anonymous hero visitors have no
  *     profile, so this uses keyword matching against HERE category names
- *     instead — good enough for a curated preview, not a recommendation engine.
+ *     instead - good enough for a curated preview, not a recommendation engine.
  */
 
 export type CategoryBucket =
@@ -62,7 +62,7 @@ export interface PlacePreview {
   distance_km: number | null;
 }
 
-// ── Chain detection — verbatim port of freePlacesService.ts CHAIN_KEYWORDS ───
+// ── Chain detection - verbatim port of freePlacesService.ts CHAIN_KEYWORDS ───
 const CHAIN_KEYWORDS = [
   "mcdonald", "burger king", "wendy", "taco bell", "subway", "domino",
   "pizza hut", "papa john", "little caesars", "sonic", "arby", "hardee",
@@ -82,13 +82,13 @@ export function isChain(name: string): boolean {
   return CHAIN_KEYWORDS.some((c) => lower.includes(c));
 }
 
-// ── Stock-photo detection — verbatim port of freePlacesService.ts:225 ────────
+// ── Stock-photo detection - verbatim port of freePlacesService.ts:225 ────────
 export function isStockPhoto(url: string | null | undefined): boolean {
   if (!url) return true;
   return url.includes("unsplash.com");
 }
 
-// ── Category bucketing — keyword match against HERE category names ──────────
+// ── Category bucketing - keyword match against HERE category names ──────────
 const BUCKET_KEYWORDS: Record<Exclude<CategoryBucket, "hidden_gem" | "other">, string[]> = {
   food: [
     "restaurant", "eating", "dining", "pizza", "burger", "sushi", "steak",
@@ -124,7 +124,7 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/** Word-boundary match — plain .includes() false-positives on substrings
+/** Word-boundary match - plain .includes() false-positives on substrings
  * (e.g. "art" matching inside "Makeup Artist", misclassifying a makeup
  * studio as Arts & Culture). */
 function containsWord(haystack: string, keyword: string): boolean {
@@ -161,7 +161,7 @@ export function normalizeHereItem(item: RawHereItem, fallbackCity: string): Cand
   };
 }
 
-// ── Bucket selection — 3 food / 2 hidden gems / 2 culture / 1 outdoors / 1 wellness / 1 nightlife ──
+// ── Bucket selection - 3 food / 2 hidden gems / 2 culture / 1 outdoors / 1 wellness / 1 nightlife ──
 export const BUCKET_QUOTAS: { bucket: Exclude<CategoryBucket, "hidden_gem" | "other">; count: number }[] = [
   { bucket: "food", count: 3 },
   { bucket: "culture", count: 2 },
@@ -174,7 +174,7 @@ export const TOTAL_TARGET = 10;
 
 /**
  * Rank within a bucket: prefer non-chain, then closer distance.
- * (No `rating` available at this stage — HERE Browse doesn't return it;
+ * (No `rating` available at this stage - HERE Browse doesn't return it;
  * rating-based re-ranking happens after Google enrichment, see discover.ts.)
  */
 export function rankCandidates(items: CandidatePlace[]): CandidatePlace[] {
@@ -186,7 +186,7 @@ export function rankCandidates(items: CandidatePlace[]): CandidatePlace[] {
   });
 }
 
-/** Dedupe by hereId + normalized name — shared by selectBalancedMix and discover.ts's enrichment walk. */
+/** Dedupe by hereId + normalized name - shared by selectBalancedMix and discover.ts's enrichment walk. */
 export function dedupeCandidates(pool: CandidatePlace[]): CandidatePlace[] {
   const seenIds = new Set<string>();
   const seenNames = new Set<string>();

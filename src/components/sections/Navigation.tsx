@@ -22,10 +22,10 @@ export const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/fynd-logo.svg.png"
+              src="/favicon.svg"
               alt="Fynd"
-              width={202}
-              height={84}
+              width={40}
+              height={40}
               className="h-8 sm:h-9 w-auto"
               priority
             />

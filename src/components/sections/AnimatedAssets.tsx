@@ -23,7 +23,7 @@ const HERO_ICONS = [
 export const AnimatedAssets = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Clean white background — matches the rest of the page */}
+      {/* Clean white background - matches the rest of the page */}
       <div className="absolute inset-0 bg-white" />
 
       {/* Subtle orange dot-grid for texture without distraction */}
@@ -36,7 +36,7 @@ export const AnimatedAssets = () => {
         }}
       />
 
-      {/* Hero-specific floating icons — more prominent than global ambient */}
+      {/* Hero-specific floating icons - more prominent than global ambient */}
       {HERO_ICONS.map(({ Icon, delay, size, x, y }, i) => (
         <motion.div
           key={i}

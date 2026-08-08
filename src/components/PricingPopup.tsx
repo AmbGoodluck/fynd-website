@@ -54,7 +54,7 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
               </span>
             </h2>
             <p className="text-white/80 text-center text-sm leading-relaxed">
-              Download and use Fynd as much as you want — no subscription,
+              Download and use Fynd as much as you want. No subscription,
               no hidden fees, no catching.
             </p>
 
@@ -69,7 +69,7 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
             <ul className="space-y-3">
               {[
                 { icon: <Star size={14} className="text-fynd" />, text: "Unlimited AI travel suggestions" },
-                { icon: <Download size={14} className="text-fynd" />, text: "Download & use instantly — no sign-up" },
+                { icon: <Download size={14} className="text-fynd" />, text: "Download & use instantly. No sign-up" },
                 { icon: <Zap size={14} className="text-fynd" />, text: "Full access to all V1 features" },
               ].map((item) => (
                 <li key={item.text} className="flex items-center gap-3 text-sm text-gray-700">
@@ -90,7 +90,7 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
               className="flex items-center justify-center gap-2 w-full bg-fynd hover:bg-fynd-dark active:scale-[.98] text-white font-semibold text-sm py-3.5 rounded-2xl transition-all shadow-lg shadow-orange-300/40"
             >
               <Download size={15} />
-              Get Fynd — It&apos;s Free
+              Get Fynd: It&apos;s Free
             </Link>
 
             <div className="flex gap-2">

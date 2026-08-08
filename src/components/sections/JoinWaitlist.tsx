@@ -52,7 +52,7 @@ export const JoinWaitlist = () => {
         {status === "success" ? (
           <div className="glass inline-flex items-center gap-2.5 rounded-full px-6 py-3.5 text-ink font-semibold">
             <Check className="w-5 h-5 text-fynd" />
-            You&apos;re on the list — we&apos;ll be in touch.
+            You&apos;re on the list - we&apos;ll be in touch.
           </div>
         ) : (
           <form onSubmit={submit} className="max-w-md mx-auto">
@@ -77,7 +77,7 @@ export const JoinWaitlist = () => {
               </button>
             </div>
             {status === "error" && <p className="mt-3 text-sm text-fynd-dark">{error}</p>}
-            <p className="mt-4 text-xs text-ink-muted/70">No spam — just one email when we launch.</p>
+            <p className="mt-4 text-xs text-ink-muted/70">No spam - just one email when we launch.</p>
           </form>
         )}
       </motion.div>

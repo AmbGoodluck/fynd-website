@@ -23,7 +23,7 @@ export const ConversionTerminal = () => {
         </h2>
 
         <p className="text-paper-muted text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-          Jump straight into the web version — no account, no install,
+          Jump straight into the web version - no account, no install,
           just open and start discovering.
         </p>
 

@@ -11,28 +11,28 @@ import { Footer } from "@/components/sections/Footer";
 export default function Home() {
   return (
     <>
-      {/* 1. Hero — headline, interactive city/location discovery search + live results carousel */}
+      {/* 1. Hero - headline, interactive city/location discovery search + live results carousel */}
       <Hero />
 
-      {/* 2. Feature grid — everything Fynd does, at a glance */}
+      {/* 2. Feature grid - everything Fynd does, at a glance */}
       <FeatureGrid />
 
-      {/* 3. Kinetic proof deck — editorial grid of real places */}
+      {/* 3. Kinetic proof deck - editorial grid of real places */}
       <KineticProofDeck />
 
-      {/* 4. Paradigm shift — how the matching actually works */}
+      {/* 4. Paradigm shift - how the matching actually works */}
       <ParadigmShift />
 
-      {/* 5. Who it's for — personas / use cases */}
+      {/* 5. Who it's for - personas / use cases */}
       <Problems />
 
-      {/* 6. Trust architecture — bento grid of trust signals */}
+      {/* 6. Trust architecture - bento grid of trust signals */}
       <TrustArchitecture />
 
-      {/* 7. Conversion terminal — single CTA to open the web app */}
+      {/* 7. Conversion terminal - single CTA to open the web app */}
       <ConversionTerminal />
 
-      {/* 8. Join the waitlist — native app email capture */}
+      {/* 8. Join the waitlist - native app email capture */}
       <JoinWaitlist />
 
       {/* 9. Footer */}

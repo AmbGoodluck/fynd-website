@@ -8,7 +8,7 @@ import { useEffect } from "react";
  * input, resuming automatically a moment after the visitor lets go.
  *
  * Tracks position in a local float accumulator rather than reading it back
- * from `el.scrollLeft` each frame — the DOM property rounds to an integer,
+ * from `el.scrollLeft` each frame - the DOM property rounds to an integer,
  * which silently drops sub-pixel-per-frame increments (at ~120Hz and
  * ~26px/s, each frame only advances ~0.2px) and the loop never moves.
  */
@@ -54,7 +54,7 @@ export function useAutoScroll(ref: React.RefObject<HTMLDivElement | null>, enabl
     const scheduleResume = (delayMs: number) => {
       if (resumeTimer) clearTimeout(resumeTimer);
       resumeTimer = setTimeout(() => {
-        // A manual drag/wheel may have moved the real scrollLeft — resync
+        // A manual drag/wheel may have moved the real scrollLeft - resync
         // the accumulator so auto-scroll continues from where the visitor left it.
         position = el.scrollLeft;
         paused = false;

@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 // 24 icons scattered deliberately across the viewport
-// x/y are percentages — fixed position keeps them ambient while scrolling
+// x/y are percentages - fixed position keeps them ambient while scrolling
 const ICONS = [
   { Icon: Plane,     x:  4,  y:  6,  size: 18, delay: 0.0,  dur: 14 },
   { Icon: MapPin,    x: 91,  y: 10,  size: 14, delay: 1.2,  dur: 16 },
@@ -52,7 +52,7 @@ export const GlobalFloatingIcons = () => {
       style={{ zIndex: 1 }}
       aria-hidden="true"
     >
-      {/* V1 is live — floats around the screen like the other icons */}
+      {/* V1 is live - floats around the screen like the other icons */}
       <motion.div
         className="absolute"
         style={{ left: "38%", top: "6%" }}

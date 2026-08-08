@@ -47,7 +47,7 @@ export const DownloadCTA = () => {
 
         {/* Sub copy */}
         <p className="text-orange-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-          Jump straight into the web version — no account, no install,
+          Jump straight into the web version - no account, no install,
           just open and start discovering.
         </p>
 

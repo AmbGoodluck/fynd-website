@@ -2,10 +2,10 @@
  * POST /api/waitlist
  * Body: { email: string, source?: string }
  *
- * Cloudflare Pages Function — stores a waitlist signup in Supabase
+ * Cloudflare Pages Function - stores a waitlist signup in Supabase
  * (`waitlist` table, see supabase/waitlist.sql). Unlike discover_places,
  * this table holds PII (an email address), so it is INSERT-only for the
- * anon role — no public read policy, so no visitor can list other signups
+ * anon role - no public read policy, so no visitor can list other signups
  * via the Supabase REST API.
  *
  * Required Cloudflare Pages env vars (same project as /api/discover):
@@ -33,11 +33,11 @@ function json(body: unknown, status = 200): Response {
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   try {
     if (!checkRateLimit(`waitlist:${clientIp(request)}`, RATE_LIMIT, RATE_WINDOW)) {
-      return json({ error: "Too many attempts — try again later." }, 429);
+      return json({ error: "Too many attempts - try again later." }, 429);
     }
 
     if (!env.SUPABASE_URL || !env.SUPABASE_ANON_KEY) {
-      return json({ error: "Waitlist isn't configured yet — try again soon." }, 503);
+      return json({ error: "Waitlist isn't configured yet - try again soon." }, 503);
     }
 
     let body: { email?: unknown; source?: unknown };
@@ -77,13 +77,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     if (!res.ok && res.status !== 409) {
       const detail = await res.text().catch(() => "");
       console.error("[waitlist] Supabase insert failed", res.status, detail.slice(0, 500));
-      return json({ error: "Something went wrong — try again." }, 502);
+      return json({ error: "Something went wrong - try again." }, 502);
     }
 
     return json({ ok: true });
   } catch (err) {
     console.error("[waitlist] unhandled error", err instanceof Error ? err.message : err);
-    return json({ error: "Something went wrong — try again." }, 500);
+    return json({ error: "Something went wrong - try again." }, 500);
   }
 };
 

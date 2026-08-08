@@ -4,7 +4,7 @@ import type { PlacePreview } from "@/types/discover";
  * Static, illustrative examples shown before a visitor searches (so the hero
  * never shows empty space) and when location permission is denied (so a
  * "no" to the location prompt doesn't dead-end into an error). Not live
- * search results — no place_id, rating, or open/closed status is faked.
+ * search results - no place_id, rating, or open/closed status is faked.
  * Photos are real (project's own vetted lifestyle photography), never stock.
  */
 export const FALLBACK_PLACES: PlacePreview[] = [

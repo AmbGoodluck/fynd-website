@@ -10,11 +10,11 @@ import { BlogSidebar } from "@/components/blog/BlogSidebar";
 export const metadata: Metadata = {
   title: "Travel Inspiration | Fynd Blog",
   description:
-    "Weekly curated travel stories and exploration ideas — handpicked from the world's best travel sources.",
+    "Weekly curated travel stories and exploration ideas - handpicked from the world's best travel sources.",
   openGraph: {
     title: "Travel Inspiration | Fynd Blog",
     description:
-      "Weekly curated travel stories and exploration ideas — handpicked from the world's best travel sources.",
+      "Weekly curated travel stories and exploration ideas - handpicked from the world's best travel sources.",
     type: "website",
     images: [
       {
@@ -69,10 +69,10 @@ export default async function Page() {
       {/* ── Main content ───────────────────────────────── */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left — main column */}
+          {/* Left - main column */}
           <div className="flex-1 min-w-0 space-y-14">
 
-            {/* Section 1 — Weekly Spotlight */}
+            {/* Section 1 - Weekly Spotlight */}
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 bg-fynd rounded-full" />
@@ -83,7 +83,7 @@ export default async function Page() {
               <SpotlightArticle article={spotlight} />
             </section>
 
-            {/* Section 2 — Latest Travel Stories */}
+            {/* Section 2 - Latest Travel Stories */}
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 bg-fynd rounded-full" />
@@ -101,14 +101,14 @@ export default async function Page() {
                 <div className="text-center py-20 text-ink-muted">
                   <p className="text-lg">No articles available right now.</p>
                   <p className="text-sm mt-2">
-                    Check back soon — we update every 12 hours.
+                    Check back soon - we update every 12 hours.
                   </p>
                 </div>
               )}
             </section>
           </div>
 
-          {/* Right — sidebar */}
+          {/* Right - sidebar */}
           <div className="lg:w-72 xl:w-80 flex-shrink-0">
             <div className="sticky top-24">
               <BlogSidebar articles={sidebarArticles} />

@@ -1,7 +1,7 @@
 /**
  * Simple in-memory IP-based rate limiter for Cloudflare Pages Functions.
  * Mirrors the pattern already used in fynd-pwa's functions/api/*
- * (per-isolate in-memory Map — resets on cold start, good enough for
+ * (per-isolate in-memory Map - resets on cold start, good enough for
  * abuse-dampening on a low-traffic marketing endpoint).
  */
 

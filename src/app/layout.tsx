@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/sections/Navigation";
+import { SiteWaitlistModal } from "@/components/SiteWaitlistModal";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -24,7 +25,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.fyndplaces.com"),
-  title: "Fynd — Discover places you'll actually love",
+  title: "Fynd - Discover places you'll actually love",
   description:
     "Fynd learns your interests, preferences, and location to uncover experiences, neighborhoods, and hidden gems tailored to you in seconds. Free on web and mobile.",
   applicationName: "Fynd",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.fyndplaces.com",
     siteName: "Fynd",
-    title: "Fynd — Discover places you'll actually love",
+    title: "Fynd - Discover places you'll actually love",
     description:
       "Personalized place discovery for locals and travelers. Find hidden gems near you in seconds.",
     images: [
@@ -55,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -79,6 +80,7 @@ export default function RootLayout({
       <body className={`${jakarta.variable} ${fraunces.variable} ${spaceGrotesk.variable} antialiased`}>
         <Navigation />
         {children}
+        <SiteWaitlistModal />
       </body>
     </html>
   );

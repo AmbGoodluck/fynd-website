@@ -8,7 +8,7 @@ import { Star, MessageSquarePlus, TrendingUp } from "lucide-react";
 // is building up". Replace the front card content once real data arrives.
 const CardStack = ({ children }: { children: React.ReactNode }) => (
   <div className="relative">
-    {/* Back card 2 — furthest */}
+    {/* Back card 2 - furthest */}
     <div
       className="absolute inset-0 bg-slate-100 border border-slate-200 rounded-2xl"
       style={{ transform: "rotate(-4deg) translateY(6px)", zIndex: 0 }}
@@ -20,7 +20,7 @@ const CardStack = ({ children }: { children: React.ReactNode }) => (
       style={{ transform: "rotate(-2deg) translateY(3px)", zIndex: 1 }}
       aria-hidden="true"
     />
-    {/* Front card — visible content */}
+    {/* Front card - visible content */}
     <div className="relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm" style={{ zIndex: 2 }}>
       {children}
     </div>
@@ -39,7 +39,7 @@ const MetricStack = ({ label, icon: Icon }: { label: string; icon: React.Element
       <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-3">
         <Icon className="w-5 h-5 text-orange-600" aria-hidden="true" />
       </div>
-      <p className="text-2xl font-black text-gray-300 mb-1 tracking-tight">——</p>
+      <p className="text-2xl font-black text-gray-300 mb-1 tracking-tight">--</p>
       <p className="text-sm text-gray-400 font-medium">{label}</p>
     </div>
   </div>
@@ -62,7 +62,7 @@ export const SocialProof = () => {
             Growing every day
           </h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Fynd is brand new — be among the first to explore and help shape
+            Fynd is brand new - be among the first to explore and help shape
             what comes next.
           </p>
         </div>
@@ -89,7 +89,7 @@ export const SocialProof = () => {
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          {/* Slot 1 — invite first review */}
+          {/* Slot 1 - invite first review */}
           <CardStack>
             <div className="flex gap-0.5 mb-4" aria-hidden="true">
               {[...Array(5)].map((_, i) => (
@@ -171,7 +171,7 @@ export const SocialProof = () => {
           >
             share your thoughts
           </a>{" "}
-          — we read every message.
+          - we read every message.
         </motion.p>
       </div>
     </section>

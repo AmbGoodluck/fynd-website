@@ -30,7 +30,7 @@ const GuideStack = ({ tag, tagClass, borderClass, delay }: GuideStackProps) => (
     viewport={{ once: true, amount: 0.1 }}
     transition={{ duration: 0.55, delay }}
   >
-    {/* Ghost card 2 — back */}
+    {/* Ghost card 2 - back */}
     <div
       className={`absolute inset-0 bg-white border ${borderClass} rounded-2xl opacity-40`}
       style={{ transform: "rotate(-3deg) translateY(6px)", zIndex: 0 }}
@@ -93,7 +93,7 @@ export const IdeasSection = () => {
           </h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
             We&apos;re writing guides for every kind of explorer. They&apos;ll
-            live here — stay tuned.
+            live here and stay tuned.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export const IdeasSection = () => {
             >
               Tell us about it
             </a>{" "}
-            — we&apos;d love to feature it.
+            We&apos;d love to feature it.
           </p>
         </motion.div>
       </div>

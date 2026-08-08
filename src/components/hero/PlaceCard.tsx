@@ -3,13 +3,16 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 import type { PlacePreview } from "@/types/discover";
 
 const FYND_APP_BASE = "https://app.fyndplaces.com";
+const PLACE_DETAIL_PATH = "/place/";
 
 export const PlaceCard = ({ place }: { place: PlacePreview }) => {
-  // Static fallback examples have no real place_id — send those to the app
+  // Static fallback examples have no real place_id - send those to the app
   // generally, with a different CTA copy since it can't deep-link to this
   // specific (illustrative, non-existent-in-the-database) place.
   const isFallback = !place.place_id;
-  const openHref = isFallback ? FYND_APP_BASE : `${FYND_APP_BASE}/place/${encodeURIComponent(place.place_id)}`;
+  const openHref = isFallback
+    ? `${FYND_APP_BASE}?from=hero-home`
+    : `${FYND_APP_BASE}${PLACE_DETAIL_PATH}${encodeURIComponent(place.place_id)}?from=hero-place&returnTo=${encodeURIComponent(`${FYND_APP_BASE}/`)}`;
   const ctaLabel = isFallback ? "Discover more in Fynd" : "Open in Fynd";
 
   return (

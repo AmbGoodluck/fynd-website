@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Smartphone, Apple, SmartphoneIcon } from "lucide-react";
-import { saveTesterSignup, DeviceType } from "@/lib/firestoreService";
+import { X, ArrowRight, Check } from "lucide-react";
 
 interface Props {
   isOpen: boolean;
@@ -12,26 +11,30 @@ interface Props {
 
 export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
   const [email, setEmail] = useState("");
-  const [device, setDevice] = useState<DeviceType | "">("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !device) return;
+    if (!email) return;
 
     setStatus("loading");
     setErrorMsg("");
 
     try {
-      await saveTesterSignup(email, device as DeviceType);
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), source: "homepage-modal" }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "Something went wrong. Please try again.");
       setStatus("success");
       setEmail("");
-      setDevice("");
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setErrorMsg("Something went wrong. Please try again.");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     }
   };
 
@@ -82,13 +85,11 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                 /* ── Success state ── */
                 <div className="text-center py-6">
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-[#f97316]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <Check className="w-8 h-8 text-[#f97316]" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">You&apos;re on the list!</h3>
                   <p className="text-gray-500 mb-6">
-                    We&apos;ll reach out as soon as the app is ready for testers. Get hyped.
+                    We&apos;ll email you when Fynd is ready to download.
                   </p>
                   <button
                     onClick={handleClose}
@@ -103,13 +104,13 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                   {/* Header */}
                   <div className="mb-6">
                     <p className="text-sm font-semibold text-[#f97316] uppercase tracking-widest mb-2">
-                      Early Access
+                      Early access
                     </p>
                     <h3 className="text-2xl font-bold text-gray-900 leading-tight">
-                      Be first to try Fynd
+                      Be first to download Fynd
                     </h3>
                     <p className="text-gray-500 text-sm mt-2">
-                      Android &amp; iOS launching soon. Drop your email and we&apos;ll notify you the moment it&apos;s ready.
+                      Join the waitlist and we&apos;ll let you know as soon as the app is ready.
                     </p>
                   </div>
 
@@ -129,36 +130,6 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                       />
                     </div>
 
-                    {/* Device */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Which device are you using?
-                      </label>
-                      <div className="grid grid-cols-3 gap-2">
-                        {(
-                          [
-                            { value: "ios", label: "iOS", icon: <Apple className="w-4 h-4" /> },
-                            { value: "android", label: "Android", icon: <Smartphone className="w-4 h-4" /> },
-                            { value: "both", label: "Both", icon: <SmartphoneIcon className="w-4 h-4" /> },
-                          ] as { value: DeviceType; label: string; icon: React.ReactNode }[]
-                        ).map(({ value, label, icon }) => (
-                          <button
-                            key={value}
-                            type="button"
-                            onClick={() => setDevice(value)}
-                            className={`flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border-2 text-sm font-medium transition ${
-                              device === value
-                                ? "border-[#f97316] bg-orange-50 text-[#c2410c]"
-                                : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
-                            }`}
-                          >
-                            {icon}
-                            {label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
                     {/* Error */}
                     {status === "error" && (
                       <p className="text-red-500 text-sm">{errorMsg}</p>
@@ -167,10 +138,11 @@ export const TesterSignupModal = ({ isOpen, onClose }: Props) => {
                     {/* Submit */}
                     <button
                       type="submit"
-                      disabled={!email || !device || status === "loading"}
-                      className="w-full py-3.5 bg-[#f97316] hover:bg-[#ea580c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition text-sm"
+                      disabled={!email || status === "loading"}
+                      className="w-full py-3.5 bg-[#f97316] hover:bg-[#ea580c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition text-sm inline-flex items-center justify-center gap-2"
                     >
-                      {status === "loading" ? "Signing up..." : "Sign me up as a tester"}
+                      {status === "loading" ? "Joining..." : "Join the waitlist"}
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </form>
                 </>

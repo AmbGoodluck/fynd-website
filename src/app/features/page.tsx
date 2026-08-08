@@ -12,7 +12,7 @@ export default function FeaturesPage() {
       <section className="py-16 px-4 sm:px-8 md:px-16 text-center bg-surface">
         <h1 className="text-4xl md:text-5xl mb-4">Discover What Fynd Can Do</h1>
         <p className="text-lg md:text-xl text-ink-muted max-w-2xl mx-auto">
-          Fynd is your smart travel companion—find new places, get real-time navigation, and enjoy a seamless, secure experience across all your devices.
+          Fynd is your smart travel companion - find new places, get real-time navigation, and enjoy a seamless, secure experience across all your devices.
         </p>
       </section>
 
@@ -22,8 +22,8 @@ export default function FeaturesPage() {
           <div className="flex-shrink-0"><MapPin className="w-10 h-10 text-fynd" /></div>
           <div>
             <h2 className="text-2xl mb-1">Smart Location Discovery</h2>
-            <p className="text-ink-muted mb-1">Instantly find interesting places, hidden gems, and trending spots near you — picked for your taste.</p>
-            <p className="text-sm text-ink-muted/70">Benefit: Never miss out on what’s around you—explore smarter, not harder.</p>
+            <p className="text-ink-muted mb-1">Instantly find interesting places, hidden gems, and trending spots near you - picked for your taste.</p>
+            <p className="text-sm text-ink-muted/70">Benefit: Never miss out on what&apos;s around you - explore smarter, not harder.</p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-surface-raised rounded-3xl p-8 ring-1 ring-hairline">
@@ -55,7 +55,7 @@ export default function FeaturesPage() {
           <div>
             <h2 className="text-2xl mb-1">Secure and Reliable Experience</h2>
             <p className="text-ink-muted mb-1">Your data is protected with industry-leading security and privacy standards. Fynd is built for reliability and peace of mind.</p>
-            <p className="text-sm text-ink-muted/70">Benefit: Explore with confidence—your privacy and safety come first.</p>
+            <p className="text-sm text-ink-muted/70">Benefit: Explore with confidence - your privacy and safety come first.</p>
           </div>
         </div>
       </section>
