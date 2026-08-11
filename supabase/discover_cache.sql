@@ -1,6 +1,6 @@
 -- discover_places: public, non-user cache of curated place previews shown on
 -- the fynd-website homepage's interactive discovery hero. Same trust level as
--- the public HERE/Google Places responses it's built from — not user data.
+-- the public HERE/Google Places responses it's built from - not user data.
 --
 -- NOT applied automatically. Run this against the same Supabase project
 -- fynd-pwa uses (Supabase dashboard → SQL editor, or `supabase db push` from
@@ -8,12 +8,12 @@
 -- cache reads/writes will do anything beyond "always re-fetch."
 
 create table if not exists discover_places (
-  -- "here_<HERE id>" — MUST match this format. It's the app's canonical place ID
+  -- "here_<HERE id>" - MUST match this format. It's the app's canonical place ID
   -- scheme, and fetchPlaceById() (fynd-pwa/src/services/freePlacesService.ts:505-506)
   -- only resolves cold-open deep links (Fynd not already running) whose ID starts
-  -- with "here_" — a raw Google place_id here would 404 the "Open in Fynd" link.
+  -- with "here_" - a raw Google place_id here would 404 the "Open in Fynd" link.
   place_id          text primary key,
-  google_place_id   text,                     -- reference only, for re-fetching a photo on cache refresh — never used for deep links
+  google_place_id   text,                     -- reference only, for re-fetching a photo on cache refresh - never used for deep links
   cache_key         text not null,            -- "city:<lowercased name>" or "geo:<lat>,<lng>" (~1.1km buckets)
   name              text not null,
   category_bucket   text not null,            -- 'food' | 'hidden_gem' | 'culture' | 'outdoors' | 'wellness' | 'nightlife' | 'other'
