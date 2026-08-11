@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 const navLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Features", href: "/features" },
+  { label: "Support", href: "/support" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
@@ -22,7 +23,7 @@ export const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/favicon.svg"
+              src="/icon.png"
               alt="Fynd"
               width={40}
               height={40}

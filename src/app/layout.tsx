@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   description:
     "Fynd learns your interests, preferences, and location to uncover experiences, neighborhoods, and hidden gems tailored to you in seconds. Free on web and mobile.",
   applicationName: "Fynd",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Fynd",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -56,7 +61,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
