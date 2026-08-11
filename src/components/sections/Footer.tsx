@@ -111,9 +111,9 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-fynd transition-colors">
+                <Link href="/support" className="hover:text-fynd transition-colors">
                   Support
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -133,9 +133,9 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-fynd transition-colors">
+                <Link href="/support" className="hover:text-fynd transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
