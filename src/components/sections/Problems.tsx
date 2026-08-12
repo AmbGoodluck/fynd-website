@@ -7,25 +7,25 @@ import Image from "next/image";
 // Repurposed as "Who is Fynd for?" - use cases / personas.
 const personas = [
   {
-    label: "Weekend explorers",
+    label: "First-years finding their campus",
     benefit: "Never run out of ideas for your days off.",
     image: "/photos/friends-study-coffee.jpg",
     alt: "Friends relaxing together over coffee outdoors",
   },
   {
-    label: "Travelers & city-hoppers",
-    benefit: "Land anywhere, know where locals actually go.",
+    label: "Verified students, every school",
+    benefit: "See what students at your campus actually recommend.",
     image: "/photos/rooftop-friends.jpg",
     alt: "Friends on a rooftop overlooking the city",
   },
   {
-    label: "Remote workers",
-    benefit: "Cozy cafés and work-friendly spots, minutes away.",
+    label: "Between classes",
+    benefit: "Cozy cafés and study-friendly spots, minutes away.",
     image: "/photos/terrace-phone-candid.jpg",
     alt: "Someone checking their phone at a café terrace",
   },
   {
-    label: "Couples & friend groups",
+    label: "Roommates & friend groups",
     benefit: "Build a shared list. Plan your next outing together.",
     image: "/photos/park-picnic-couple.jpg",
     alt: "A couple sharing a quiet moment on a park picnic",

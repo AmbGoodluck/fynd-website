@@ -141,7 +141,7 @@ export const Hero = () => {
           transition={{ duration: 0.6 }}
           className="mono-tag text-ink-muted mb-6"
         >
-          Your city, reconsidered
+          Campus discovery, for verified students
         </motion.p>
 
         <motion.h1

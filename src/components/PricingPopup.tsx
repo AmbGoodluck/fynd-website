@@ -68,7 +68,7 @@ export function PricingPopup({ open, onClose }: PricingPopupProps) {
           <div className="px-8 pt-5 pb-2">
             <ul className="space-y-3">
               {[
-                { icon: <Star size={14} className="text-fynd" />, text: "Unlimited AI travel suggestions" },
+                { icon: <Star size={14} className="text-fynd" />, text: "Unlimited AI place suggestions" },
                 { icon: <Download size={14} className="text-fynd" />, text: "Download & use instantly. No sign-up" },
                 { icon: <Zap size={14} className="text-fynd" />, text: "Full access to all V1 features" },
               ].map((item) => (

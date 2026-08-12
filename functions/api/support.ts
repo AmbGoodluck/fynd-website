@@ -22,7 +22,7 @@ interface Env {
 const RATE_LIMIT = 5;
 const RATE_WINDOW = 60 * 60 * 1000;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const CATEGORIES = new Set(["bug", "feature", "account", "billing", "other"]);
+const CATEGORIES = new Set(["bug", "feature", "account", "report", "other"]);
 
 function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {

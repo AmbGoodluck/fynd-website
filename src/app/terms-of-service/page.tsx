@@ -14,9 +14,10 @@ const sections = [
     title: "1. About Fynd",
     content: (
       <p>
-        Fynd is a travel discovery platform designed to help users explore
-        places, build itineraries, and discover experiences using AI-powered
-        suggestions.
+        Fynd is a campus discovery and social app for verified students. It
+        helps you explore places around your school, build itineraries, share
+        recommendations, post events, and see what other students at your
+        campus are talking about.
         <br />
         <br />
         Fynd provides informational recommendations only and does not guarantee
@@ -34,10 +35,15 @@ const sections = [
           By accessing or using the Service, you confirm that:
         </p>
         <ul className="list-disc pl-5 space-y-1 text-ink-muted">
-          <li>You are at least 13 years of age.</li>
+          <li>You are at least 17 years of age.</li>
           <li>You agree to comply with these Terms.</li>
           <li>You will use the Service only for lawful purposes.</li>
         </ul>
+        <p className="mt-3">
+          Campus features - posting, browsing student content, and seeing who
+          else is on your campus - require verifying your student enrolment.
+          See section 4.
+        </p>
       </div>
     ),
   },
@@ -67,13 +73,77 @@ const sections = [
     ),
   },
   {
+    id: "student-verification",
+    title: "4. Student Verification",
+    content: (
+      <div>
+        <p className="mb-3">
+          Campus features require verifying that you are a currently enrolled
+          student. Verification is handled by VerifyPass, a third-party
+          service - see our{" "}
+          <Link href="/privacy" className="text-fynd hover:underline">
+            Privacy Policy
+          </Link>{" "}
+          for what that involves.
+        </p>
+        <p>
+          Verification confirms enrolment only. It is not a background check,
+          an identity check, or a safety guarantee about any other user. Use
+          good judgment, and read section 5 before meeting anyone in person.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "community-content",
+    title: "5. Community Content & Conduct",
+    content: (
+      <div>
+        <p className="mb-3">
+          Posts, replies, events, photos, secrets, and other content you
+          share on Fynd are visible to other verified students on your
+          campus (or as otherwise indicated in the app). You are responsible
+          for what you post.
+        </p>
+        <p className="mb-3">You agree not to post content that:</p>
+        <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
+          <li>Harasses, threatens, or targets another person</li>
+          <li>Is illegal, or infringes someone else&apos;s rights</li>
+          <li>
+            Impersonates another person or misrepresents your affiliation
+            with a school
+          </li>
+          <li>Shares another person&apos;s private information without consent</li>
+        </ul>
+        <p className="mb-3">
+          Automated and human moderation review content before and after it
+          appears. It is imperfect in both directions - you can report
+          content you believe violates these Terms, and we may remove
+          content, suspend features, or terminate accounts that do.
+        </p>
+        <p>
+          If you delete your account, content you posted to a shared campus
+          community is kept with your name removed rather than deleted
+          outright, so conversations other students took part in are not
+          erased. You can delete anything you created yourself at any time,
+          with or without deleting your account. See our{" "}
+          <Link href="/privacy" className="text-fynd hover:underline">
+            Privacy Policy
+          </Link>{" "}
+          for details.
+        </p>
+      </div>
+    ),
+  },
+  {
     id: "content",
-    title: "4. Content and Information",
+    title: "6. Recommendations and Information",
     content: (
       <div>
         <p className="mb-3">
           Fynd aggregates information from various public sources and uses
-          artificial intelligence to generate travel suggestions.
+          artificial intelligence to generate place descriptions and
+          suggestions.
         </p>
         <p className="mb-3">Because of this:</p>
         <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
@@ -95,7 +165,7 @@ const sections = [
   },
   {
     id: "third-party",
-    title: "5. Third-Party Services",
+    title: "7. Third-Party Services",
     content: (
       <div>
         <p className="mb-3">
@@ -104,9 +174,8 @@ const sections = [
         </p>
         <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>Google Maps</li>
-          <li>Travel websites</li>
-          <li>Tourism blogs</li>
-          <li>Local businesses</li>
+          <li>VerifyPass (student verification)</li>
+          <li>Local businesses and campus resources</li>
         </ul>
         <p className="mb-2">
           Fynd is not responsible for the content, policies, or services of
@@ -118,29 +187,32 @@ const sections = [
   },
   {
     id: "no-guarantee",
-    title: "6. No Travel Guarantee",
+    title: "8. No Guarantee",
     content: (
       <div>
         <p className="mb-3">
-          Fynd provides travel suggestions for informational purposes only.
+          Fynd provides place and event suggestions for informational
+          purposes only.
         </p>
         <p className="mb-3">Fynd does not:</p>
         <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>operate or manage any locations</li>
-          <li>provide travel booking services</li>
+          <li>provide booking services</li>
           <li>
-            guarantee safety, accessibility, or availability of locations
+            guarantee safety, accessibility, or availability of locations or
+            events
           </li>
         </ul>
         <p>
-          Users assume all responsibility when visiting suggested locations.
+          Users assume all responsibility when visiting suggested locations
+          or attending events found through Fynd.
         </p>
       </div>
     ),
   },
   {
     id: "intellectual-property",
-    title: "7. Intellectual Property",
+    title: "9. Intellectual Property",
     content: (
       <div>
         <p className="mb-3">All content on Fynd, including:</p>
@@ -153,17 +225,20 @@ const sections = [
         </ul>
         <p className="mb-2">
           are the intellectual property of Fynd and are protected by copyright
-          and applicable laws.
+          and applicable laws. This does not apply to content you create and
+          post yourself, which remains yours - by posting it, you grant Fynd
+          a license to display it within the app as described in section 5.
         </p>
         <p>
-          You may not reproduce or distribute any content without permission.
+          You may not reproduce or distribute Fynd&apos;s own content without
+          permission.
         </p>
       </div>
     ),
   },
   {
     id: "availability",
-    title: "8. Service Availability",
+    title: "10. Service Availability",
     content: (
       <p>
         We strive to keep the Service available and functional, but we do not
@@ -177,7 +252,7 @@ const sections = [
   },
   {
     id: "liability",
-    title: "9. Limitation of Liability",
+    title: "11. Limitation of Liability",
     content: (
       <div>
         <p className="mb-3">
@@ -187,9 +262,10 @@ const sections = [
         </p>
         <ul className="list-disc pl-5 space-y-1 text-ink-muted mb-3">
           <li>use of the Service</li>
-          <li>travel decisions made based on recommendations</li>
+          <li>decisions made based on recommendations or community content</li>
           <li>inaccurate information or location data</li>
           <li>third-party services linked from the platform</li>
+          <li>interactions with other users, on or off the app</li>
         </ul>
         <p>Your use of the Service is at your own risk.</p>
       </div>
@@ -197,7 +273,7 @@ const sections = [
   },
   {
     id: "warranties",
-    title: "10. Disclaimer of Warranties",
+    title: "12. Disclaimer of Warranties",
     content: (
       <div>
         <p className="mb-3">
@@ -208,13 +284,14 @@ const sections = [
           <li>accuracy of recommendations</li>
           <li>availability of locations</li>
           <li>reliability of AI-generated suggestions</li>
+          <li>the conduct of other users</li>
         </ul>
       </div>
     ),
   },
   {
     id: "changes",
-    title: "11. Changes to the Terms",
+    title: "13. Changes to the Terms",
     content: (
       <p>
         We may update these Terms from time to time.
@@ -231,7 +308,7 @@ const sections = [
   },
   {
     id: "privacy",
-    title: "12. Privacy",
+    title: "14. Privacy",
     content: (
       <p>
         Your use of the Service is also governed by our{" "}
@@ -255,7 +332,7 @@ export default function TermsOfServicePage() {
             Terms of Service
           </h1>
           <p className="text-ink-muted text-sm">
-            <strong>Last Updated:</strong> March 4, 2026
+            <strong>Last Updated:</strong> August 2026
           </p>
           <p className="mt-4 text-ink-muted max-w-2xl">
             Welcome to Fynd. These Terms of Service (&quot;Terms&quot;) govern
@@ -303,7 +380,7 @@ export default function TermsOfServicePage() {
         </div>
 
         <p className="mt-16 pt-8 border-t border-hairline text-sm text-ink-muted/70 text-center">
-          These Terms of Service were last updated on March 4, 2026.
+          These Terms of Service were last updated in August 2026.
         </p>
       </main>
 

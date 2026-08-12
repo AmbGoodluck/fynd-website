@@ -7,7 +7,7 @@ const CATEGORIES = [
   { value: "bug", label: "Bug report" },
   { value: "feature", label: "Feature request" },
   { value: "account", label: "Account help" },
-  { value: "billing", label: "Billing" },
+  { value: "report", label: "Report content or a user" },
   { value: "other", label: "General feedback" },
 ];
 

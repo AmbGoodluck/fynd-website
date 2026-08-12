@@ -13,10 +13,10 @@ const faqs: FaqItem[] = [
     question: "What is Fynd?",
     answer: (
       <p>
-        Fynd is a travel discovery app that learns your interests,
-        preferences, and location to recommend places, neighborhoods, and
-        hidden gems tailored to you - restaurants, cafés, viewpoints,
-        nightlife, and more, in seconds.
+        Fynd is a campus discovery and social app for verified students. It
+        helps you find places around your school, share recommendations,
+        post events, and see what other students at your campus are talking
+        about.
       </p>
     ),
   },
@@ -24,10 +24,23 @@ const faqs: FaqItem[] = [
     question: "Is Fynd free to use?",
     answer: (
       <p>
-        Yes. Fynd&apos;s core discovery experience is free on web and
-        mobile. Some optional premium features may be introduced in the
-        future - you&apos;ll always be told clearly before anything is
-        charged.
+        Yes. Fynd is currently an independent student software project - it
+        isn&apos;t operated by a registered company, and it charges nothing.
+      </p>
+    ),
+  },
+  {
+    question: "Do I need to verify as a student to use Fynd?",
+    answer: (
+      <p>
+        Verifying as a student is required for campus features - posting,
+        browsing student content, and seeing who else is on your campus.
+        Verification is handled by a third-party service and confirms your
+        enrolment only; it isn&apos;t a background or identity check. See our{" "}
+        <a href="/privacy" className="text-fynd hover:underline">
+          Privacy Policy
+        </a>{" "}
+        for details.
       </p>
     ),
   },
@@ -68,9 +81,12 @@ const faqs: FaqItem[] = [
     answer: (
       <p>
         Open the Fynd app and go to{" "}
-        <strong>Account Settings &rarr; Delete Account</strong>. This
-        permanently removes your profile, preferences, and saved places.
-        If you can&apos;t access the app, email{" "}
+        <strong>Profile &rarr; Account &amp; Settings &rarr; Delete Account</strong>.
+        This permanently removes your profile, saved places, trips and
+        preferences. Posts, events, and replies you shared with a campus
+        community are kept with your name removed, so conversations other
+        students took part in don&apos;t vanish - delete those yourself first
+        if you want them gone too. If you can&apos;t access the app, email{" "}
         <a
           href="mailto:support@fyndplaces.com"
           className="text-fynd hover:underline"
@@ -78,7 +94,7 @@ const faqs: FaqItem[] = [
           support@fyndplaces.com
         </a>{" "}
         from your account&apos;s email address and we&apos;ll delete it for
-        you within 30 days. See our{" "}
+        you. See our{" "}
         <a href="/privacy" className="text-fynd hover:underline">
           Privacy Policy
         </a>{" "}
@@ -98,11 +114,12 @@ const faqs: FaqItem[] = [
     ),
   },
   {
-    question: "Does Fynd work outside my home city?",
+    question: "Is there an age requirement?",
     answer: (
       <p>
-        Yes - Fynd is built for both locals and travelers. Search any city
-        or drop a pin, and Fynd will surface recommendations for that area.
+        Yes - Fynd is intended for users aged 17 and over. It&apos;s built
+        around user-generated content and helping students meet in person,
+        which isn&apos;t appropriate for younger users.
       </p>
     ),
   },
@@ -110,9 +127,8 @@ const faqs: FaqItem[] = [
     question: "How quickly will I hear back from support?",
     answer: (
       <p>
-        We typically reply within 1-2 business days. For account or billing
-        issues, please include the email address associated with your
-        account.
+        We typically reply within 1-2 business days. For account issues,
+        please include the email address associated with your account.
       </p>
     ),
   },

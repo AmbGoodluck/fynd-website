@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.fyndplaces.com"),
   title: "Fynd - Discover places you'll actually love",
   description:
-    "Fynd learns your interests, preferences, and location to uncover experiences, neighborhoods, and hidden gems tailored to you in seconds. Free on web and mobile.",
+    "Fynd is a campus discovery and social app for verified students. Find places around your school, share recommendations, post events, and see what your campus is talking about.",
   applicationName: "Fynd",
   appleWebApp: {
     capable: true,
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     siteName: "Fynd",
     title: "Fynd - Discover places you'll actually love",
     description:
-      "Personalized place discovery for locals and travelers. Find hidden gems near you in seconds.",
+      "Campus discovery and social, for verified students. Find places, share recommendations, and see what your campus is talking about.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Fynd Travel Discovery",
+        alt: "Fynd Campus Discovery",
       },
     ],
   },
@@ -69,9 +69,9 @@ export default function RootLayout({
               "@type": "SoftwareApplication",
               name: "Fynd",
               description:
-                "AI-powered travel discovery platform for personalized trip suggestions",
-              url: "https://fynd.ai",
-              applicationCategory: "TravelApplication",
+                "Campus discovery and social app for verified students - find places, share recommendations, and see what your campus is talking about",
+              url: "https://www.fyndplaces.com",
+              applicationCategory: "SocialNetworkingApplication",
               offers: {
                 "@type": "Offer",
                 price: "0",

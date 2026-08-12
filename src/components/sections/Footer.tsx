@@ -50,8 +50,9 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-paper-muted text-sm leading-relaxed max-w-xs">
-              Discover places you&apos;ll actually love, wherever you are. Fynd
-              is your personalized guide to real-world exploration.
+              Campus discovery and social, for verified students. Fynd helps
+              you find places around your school and see what your campus is
+              talking about.
             </p>
 
             {/* Social icons */}
@@ -175,7 +176,7 @@ export const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-noir-hairline pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-paper-muted text-sm">
           <p>&copy; 2026 Fynd. All rights reserved.</p>
-          <p>Made for curious explorers everywhere.</p>
+          <p>Made for curious students everywhere.</p>
         </div>
       </div>
     </footer>

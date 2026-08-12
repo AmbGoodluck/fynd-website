@@ -16,7 +16,7 @@ create table if not exists support_requests (
   id         uuid primary key default gen_random_uuid(),
   name       text,
   email      text not null,
-  category   text not null,   -- 'bug' | 'feature' | 'account' | 'billing' | 'other'
+  category   text not null,   -- 'bug' | 'feature' | 'account' | 'report' | 'other'
   message    text not null,
   source     text,            -- e.g. "support-page" - where the request came from
   created_at timestamptz not null default now()
